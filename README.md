@@ -77,10 +77,11 @@
 - ブックマーク機能
 - ブックマークした投稿の一覧表示機能
 - ユーザーレベルアップ機能
-- ユーザーフォロー機能
 - 代用品でのレシピを提案するAIサポート機能
 - LINE連携で設定した時間に野菜摂取記録を入力するリマインドが送信される機能
 - Googleアカウントでのログイン機能
+- LINEログイン機能
+- 投稿の下書き保存機能
 
 ## ■ 機能の実装方針予定
 
@@ -90,3 +91,6 @@
 - AIによるレシピサポート：[OpenAI API](https://platform.openai.com/docs/overview)
 - マルチ検索、オートコンプリート機能：[gem ransack](https://github.com/activerecord-hackery/ransack)、[Stimulus Autocomplete](https://github.com/afcapel/stimulus-autocomplete)
 - LINE通知：[LINE Messaging API](https://developers.line.biz/ja/services/messaging-api/)
+
+## ■ 画面遷移図
+[画面遷移図](https://www.figma.com/design/tkARaYBPzz53ZErPYsatSc/%E3%81%8A%E3%82%84%E3%81%95%E3%81%84UP-%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?t=hjvVQNqYob0c7sQu-1)
