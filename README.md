@@ -94,3 +94,6 @@
 
 ## ■ 画面遷移図
 [画面遷移図](https://www.figma.com/design/tkARaYBPzz53ZErPYsatSc/%E3%81%8A%E3%82%84%E3%81%95%E3%81%84UP-%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?t=hjvVQNqYob0c7sQu-1)
+
+## ■ ER図
+[ER図](https://dbdiagram.io/d/oyasai_up_diagram-670dc88297a66db9a3f91f61)
