@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+h2 {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  font-weight: bold;
+}
 .container {
   width: 80%;
   max-width: 650px;
