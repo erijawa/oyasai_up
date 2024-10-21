@@ -1,29 +1,33 @@
-<h2>Sign up</h2>
+<div class="container">
+  <h2 class="mt-6 text-center text-2xl font-semibold">ユーザー新規登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <%= f.label :name, class:"label w-full mx-auto" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "ユーザー名", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :email, class:"label w-full mx-auto" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label :password, class:"label w-full mx-auto" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.label :password_confirmation, class:"label w-full mx-auto" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="actions">
+      <%= f.submit '登録', class: 'btn btn-info w-full mt-6 mb-6 mx-auto' %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
