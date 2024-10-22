@@ -1,28 +1,10 @@
 <div class="container">
   <h2>おやさいReport</h2>
-  <% if @posts.empty? %>
-    <p class="text-center">投稿がありません</p>
-  <% else %>
-    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 break-words">
-      <% @posts.each do |post| %>
-        <%= link_to "#", class: "card bg-base-100 shadow-xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300" do %>
-          <figure class="w-full h-1/2">
-            <%= image_tag "tomato.png" %>
-          </figure>
-          <div class="card-body">
-            <h3 class="card-title">
-              <%= post.title %>
-              <div class="badge badge-secondary">NEW</div>
-            </h3>
-            <p><%= post.description %></p>
-            <p><%= post.user.name %></p>
-            <div class="card-actions justify-end">
-              <div class="badge badge-outline">Fashion</div>
-              <div class="badge badge-outline">Products</div>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+  <% if @posts.present? %>
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 break-words">
+      <%= render @posts %>
     </div>
+  <% else %>
+    <p class="text-center">投稿がありません</p>
   <% end %>
 </div>
