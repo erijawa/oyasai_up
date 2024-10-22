@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "posts/index"
   devise_for :users,
     path: '',
     path_names: {
