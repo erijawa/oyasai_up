@@ -34,6 +34,6 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-ghost" %>
+    <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-ghost", data: { turbo_method: :delete } %>
   </div>
 </header>
