@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "static_pages#home"
   devise_for :users,
     path: '',
     path_names: {
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
     controllers: {
       registrations: "users/registrations",
   }
-  root "static_pages#home"
+  resources :posts, only: %i[index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
