@@ -11,8 +11,7 @@ h2 {
   font-weight: bold;
 }
 .container {
-  width: 80%;
-  max-width: 650px;
+  width: 90%;
+  max-width: 800px;
   margin: 120px auto;
-
 }
