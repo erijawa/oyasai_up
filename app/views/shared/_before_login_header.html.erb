@@ -25,7 +25,7 @@
         <li><%= link_to "プライバシーポリシー", "#"%></li>
       </ul>
     </div>
-    <a class="btn btn-ghost text-xl">おやさいUP</a>
+    <%= link_to "おやさいUP", root_path, class: "btn btn-ghost text-xl" %>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
@@ -34,6 +34,6 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <%= link_to "ログイン", "#", class: "btn btn-ghost" %>
+    <%= link_to "ログイン", new_user_session_path, class: "btn btn-ghost" %>
   </div>
 </header>
