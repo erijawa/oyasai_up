@@ -3,12 +3,21 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  # def create
-  #   @post = current_user.Post.build(post_params)
-  #   if post.save
-      
-  #   else
+  def new
+    @post_form = PostForm.new
+  end
 
-  #   end
-  # end
+  def create
+    @post = PostForm.new(post_params)
+    if @post.save
+      redirect_to :posts, notice: 'おやさいReportを投稿しました。'
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:title, :description, :post_image)
+  end
 end
