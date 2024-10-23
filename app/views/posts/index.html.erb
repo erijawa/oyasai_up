@@ -1,6 +1,10 @@
 <div class="container">
   <h2>おやさいReport</h2>
-  <% if @posts.empty? %>
+  <% if @posts.present? %>
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 xl:grid-cols-3 xl:gap-6 break-words">
+      <%= render @posts %>
+    </div>
+  <% else %>
     <p class="text-center">投稿がありません</p>
   <% end %>
 </div>

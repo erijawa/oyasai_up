@@ -12,7 +12,8 @@ h2 {
 }
 .container {
   width: 80%;
-  max-width: 650px;
   margin: 120px auto;
-
+}
+.form-container {
+  max-width: 800px;
 }

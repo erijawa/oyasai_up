@@ -1,0 +1,17 @@
+<%= link_to "#", class: "card bg-base-100 shadow-xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300" do %>
+  <figure>
+    <%= image_tag "sample.jpeg" %>
+  </figure>
+  <div class="card-body">
+    <h3 class="card-title">
+      <%= post.title %>
+      <div class="badge badge-secondary">NEW</div>
+    </h3>
+    <p><%= post.description %></p>
+    <p><%= post.user.name %></p>
+    <div class="card-actions justify-end">
+      <div class="badge badge-outline">Fashion</div>
+      <div class="badge badge-outline">Products</div>
+    </div>
+  </div>
+<% end %>
