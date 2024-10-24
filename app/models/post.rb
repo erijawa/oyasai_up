@@ -5,4 +5,7 @@ class Post < ApplicationRecord
   mount_uploader :post_image, PostImageUploader
 
   belongs_to :user
+  has_many :recipe_ingredients, dependent: :destroy
+  has_many :recipe_steps, dependent: :destroy
+  has_one :recipe_serving, dependent: :destroy
 end
