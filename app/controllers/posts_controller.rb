@@ -10,16 +10,19 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = PostForm.new(post_params)
-    if @post.save
+    @post_form = PostForm.new(post_params)
+    if @post_form.valid?
+      @post_form.save
       redirect_to :posts, notice: 'おやさいReportを投稿しました。'
     else
+      flash.now[:alert] = "投稿できませんでした。"
       render :new, status: :unprocessable_entity
     end
   end
 
   private
+
   def post_params
-    params.require(:post).permit(:title, :description, :post_image)
+    params.require(:post_form).permit(:title, :description, :post_image).merge(user_id: current_user.id)
   end
 end
