@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_24_052353) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_24_052617) do
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title", null: false
@@ -30,6 +30,15 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_24_052353) do
     t.index ["post_id"], name: "index_recipe_ingredients_on_post_id"
   end
 
+  create_table "recipe_steps", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.integer "order", null: false
+    t.text "instruction", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_recipe_steps_on_post_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -45,4 +54,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_24_052353) do
 
   add_foreign_key "posts", "users"
   add_foreign_key "recipe_ingredients", "posts"
+  add_foreign_key "recipe_steps", "posts"
 end
