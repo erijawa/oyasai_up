@@ -1,0 +1,27 @@
+<div class="container form-container">
+  <h2>おやさいReport新規投稿</h2>
+
+  <%= form_with model: @post_form, url: posts_path do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+
+    <div class="field">
+      <%= f.label :title, class:"label w-full mx-auto" %>
+      <%= f.text_field :title, autofocus: true, autocomplete: "タイトル", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description, class:"label w-full mx-auto" %>
+      <%= f.text_area :description, autofocus: true, autocomplete: "詳細", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :post_image, class:"label w-full mx-auto" %>
+      <%= f.file_field :post_image, autocomplete: "ファイル", class: 'file-input file-input-bordered file-input-info form-control mb-6 w-full mx-auto text-neutral' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit '登録', class: 'btn btn-info w-full mt-6 mb-6 mx-auto' %>
+    </div>
+  <% end %>
+
+</div>
