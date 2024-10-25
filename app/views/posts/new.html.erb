@@ -10,13 +10,13 @@
     </div>
 
     <div class="field">
-      <%= f.label :description, class:"label w-full mx-auto" %>
-      <%= f.text_area :description, autofocus: true, autocomplete: "詳細", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
-    </div>
-
-    <div class="field">
       <%= f.label :post_image, class:"label w-full mx-auto" %>
       <%= f.file_field :post_image, autocomplete: "ファイル", class: 'file-input file-input-bordered file-input-info form-control mb-6 w-full mx-auto text-neutral' %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :description, class:"label w-full mx-auto" %>
+      <%= f.text_area :description, autofocus: true, autocomplete: "詳細", class: 'textarea textarea-bordered textarea-info form-control mb-6 w-full mx-auto' %>
     </div>
 
     <div class="actions">
