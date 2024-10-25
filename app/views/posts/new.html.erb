@@ -13,11 +13,67 @@
       <%= f.label :post_image, class:"label w-full mx-auto" %>
       <%= f.file_field :post_image, autocomplete: "ファイル", class: 'file-input file-input-bordered file-input-info form-control mb-6 w-full mx-auto text-neutral' %>
     </div>
-    
+
     <div class="field">
       <%= f.label :description, class:"label w-full mx-auto" %>
       <%= f.text_area :description, autofocus: true, autocomplete: "詳細", class: 'textarea textarea-bordered textarea-info form-control mb-6 w-full mx-auto' %>
     </div>
+
+    <div class="field">
+      <%= f.label :mode, class:"label w-full mx-auto" %>
+      <%= f.select :mode, Post.modes.keys.to_a, {}, class: 'select select-bordered select-info w-full max-w-xs form-control mb-6' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :serving, class:"label w-full mx-auto" %>
+        <%= f.fields_for :serving do |serving_field| %>
+          <%= serving_field.text_field :serving, class:'input input-bordered input-info form-control mb-6 inline' %><p class="inline">人分</p>
+        <% end %>
+    </div>
+
+    <div class="field mb-6">
+      <%= f.label :ingredients, class:"label w-full mx-auto" %>
+      <div class="flex">
+        <%= f.fields_for :ingredients do |ingredient_fields| %>
+          <%= ingredient_fields.text_field :name, placeholder: "材料名", class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+          <%= ingredient_fields.text_field :quantity, placeholder: "分量", class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+        <% end %>
+      </div>
+      <div class="flex">
+        <%= f.fields_for :ingredients do |ingredient_fields| %>
+          <%= ingredient_fields.text_field :name, class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+          <%= ingredient_fields.text_field :quantity, class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+        <% end %>
+      </div>
+      <div class="flex">
+        <%= f.fields_for :ingredients do |ingredient_fields| %>
+          <%= ingredient_fields.text_field :name, class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+          <%= ingredient_fields.text_field :quantity, class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="field">
+    <%= f.label :steps, class:"label w-full mx-auto" %>
+    <div class="flex">
+      <%= f.fields_for :steps do |step_fields| %>
+        <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10">1</div>
+        <%= step_fields.text_field :instruction, class:'input input-bordered input-info form-control mb-2 w-full mx-auto inline' %>
+      <% end %>
+    </div>
+    <div class="flex">
+      <%= f.fields_for :steps do |step_fields| %>
+        <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10">2</div>
+        <%= step_fields.text_field :instruction, class:'input input-bordered input-info form-control mb-2 w-full mx-auto inline' %>
+      <% end %>
+    </div>
+    <div class="flex">
+      <%= f.fields_for :steps do |step_fields| %>
+        <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10">3</div>
+        <%= step_fields.text_field :instruction, class:'input input-bordered input-info form-control mb-2 w-full mx-auto inline' %>
+      <% end %>
+    </div>
+  </div>
 
     <div class="actions">
       <%= f.submit '登録', class: 'btn btn-info w-full mt-6 mb-6 mx-auto' %>

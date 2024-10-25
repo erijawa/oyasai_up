@@ -21,7 +21,7 @@ class PostForm
   def save
     post = Post.create(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
 
-    if post.has_recipe?
+    if post.with_recipe?
       post.recipe_serving.build(serving: serving[:serving])
       post_params[:ingredients].to_h.values.map do |ingredient|
         post.recipe_ingredients.build(name: ingredient[:name], quantity: ingredient[:quantity])

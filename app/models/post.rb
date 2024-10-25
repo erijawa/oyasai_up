@@ -9,5 +9,5 @@ class Post < ApplicationRecord
   has_many :recipe_steps, dependent: :destroy
   has_one :recipe_serving, dependent: :destroy
 
-  enum mode: { no_recipe: 0, has_recipe: 10 }, validate: true
+  enum mode: { :without_recipe=>0, :with_recipe=>10 }
 end
