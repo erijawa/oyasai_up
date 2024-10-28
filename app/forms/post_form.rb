@@ -23,11 +23,11 @@ class PostForm
     post = Post.create(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
     if post.with_recipe?
       post.create_recipe_serving(serving: serving)
-      ingredients_name.each_with_index do |ingredient,index|
-        post.recipe_ingredients.create(name: ingredient, quantity: ingredients_quantity[index])
+      3.times do |index|
+        post.recipe_ingredients.create(name: ingredients_name[index], quantity: ingredients_quantity[index])
       end
-      steps_instruction.each_with_index do |instruction,index|
-        post.recipe_steps.create(order: index+1, instruction: instruction)
+      3.times do |index|
+        post.recipe_steps.create(order: index+1, instruction: steps_instruction[index])
       end
     end
 

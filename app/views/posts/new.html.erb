@@ -36,8 +36,8 @@
       <% 3.times do |index| %>
         <div class="flex">
 
-            <%= f.text_field :ingredients_name, placeholder: "材料名", class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
-            <%= f.text_field :ingredients_quantity, placeholder: "分量", class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+            <%= f.text_field :ingredients_name, name: "ingredients_name[]", placeholder: "材料名", class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+            <%= f.text_field :ingredients_quantity, name: "ingredients_quantity[]",placeholder: "分量", class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
 
         </div>
       <% end %>
@@ -49,7 +49,7 @@
         <div class="flex">
 
             <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10">1</div>
-            <%= f.text_field :steps_instruction, class:'input input-bordered input-info form-control mb-2 w-full mx-auto inline' %>
+            <%= f.text_field :steps_instruction,name: "steps_instruction[]", class:'input input-bordered input-info form-control mb-2 w-full mx-auto inline' %>
 
         </div>
       <% end %>
