@@ -28,24 +28,12 @@ class PostForm
 
   mount_uploader :post_image, PostImageUploader
 
-  # def initialize(attributes = nil, post: Post.new)
-  #   @post = post
-  #   attributes ||= default_attributes
-  #   super(attributes)
-  # end
+  def initialize(attributes = nil, post: Post.new)
+    @post = post
+    attributes ||= default_attributes
+    super(attributes)
+  end
 
-  # def default_attributes
-  #   {
-  #     title: title,
-  #     description: description,
-  #     post_image: post_image,
-  #     mode: mode,
-  #     serving: serving,
-  #     ingredients_name: post.diary_entries.map(&:content),
-  #     ingredients_quantity: diary.diary_entries.map(&:id),
-  #     steps_instruction:
-  #   }
-  # end
 
   def save
     return false if invalid?
@@ -68,6 +56,22 @@ class PostForm
   end
 
   private
+
+  attr_reader :post
+
+  def default_attributes
+    {
+      # user_id: post.user_id,
+      # title: post.title,
+      # description: description,
+      # post_image: post_image,
+      # mode: mode,
+      # serving: serving,
+      ingredients_name: post.recipe_ingredients.map(&:name),
+      ingredients_quantity: post.recipe_ingredients.map(&:quantity),
+      steps_instruction: post.recipe_steps.map(&:instruction)
+    }
+  end
 
   # def with_recipe?
   #   return false unless self.mode == "10"
