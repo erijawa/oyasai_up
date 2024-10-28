@@ -17,11 +17,17 @@ class PostForm
   validates :title, presence: true, length: { maximum: 255 }
   validates :description, length: { maximum: 65_535 }
 
-  # validate :recipe_presence
+  # with_options if: :with_recipe? do |recipe|
+  #   recipe.validates :serving, presence: true
+  #   recipe.validates :ingredients_name, presence: true, length: { maximum: 20 }
+  #   recipe.validates :ingredients_quantity, presence: true, length: { maximum: 20 }
+  #   recipe.validates :steps_instruction, presence: true, length: { maximum: 100 }
+  # end
+
+  # validate :no_blank
 
   mount_uploader :post_image, PostImageUploader
 
-  # 編集、更新機能実装時に使用予定
   # def initialize(attributes = nil, post: Post.new)
   #   @post = post
   #   attributes ||= default_attributes
@@ -30,14 +36,25 @@ class PostForm
 
   # def default_attributes
   #   {
-  #     entries_contents: diary.diary_entries.map(&:content),
-  #     entries_ids: diary.diary_entries.map(&:id)
+  #     title: title,
+  #     description: description,
+  #     post_image: post_image,
+  #     mode: mode,
+  #     serving: serving,
+  #     ingredients_name: post.diary_entries.map(&:content),
+  #     ingredients_quantity: diary.diary_entries.map(&:id),
+  #     steps_instruction:
   #   }
   # end
 
   def save
+    return false if invalid?
     post = Post.create(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
     if post.with_recipe?
+      if ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)
+        errors.add(:base, 'フォームに空欄があります')
+        return false
+      end
       post.create_recipe_serving(serving: serving)
       3.times do |index|
         post.recipe_ingredients.create(name: ingredients_name[index], quantity: ingredients_quantity[index])
@@ -52,7 +69,11 @@ class PostForm
 
   private
 
-  # def recipe_presence
-  #   return false if images.blank?
+  # def with_recipe?
+  #   return false unless self.mode == "10"
+  # end
+
+  # def no_blank
+  #   errors.add(:base, 'フォームに空欄があります') if ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)
   # end
 end
