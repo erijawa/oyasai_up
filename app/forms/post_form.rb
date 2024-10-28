@@ -37,22 +37,29 @@ class PostForm
 
   def save
     return false if invalid?
-    post = Post.create(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
-    if post.with_recipe?
-      if ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)
-        errors.add(:base, 'フォームに空欄があります')
-        return false
+    ActiveRecord::Base.transaction do
+      post = Post.create(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
+      if post.with_recipe?
+        if ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)
+          errors.add(:base, 'フォームに空欄があります')
+          return false
+        end
+        post.create_recipe_serving(serving: serving)
+        3.times do |index|
+          post.recipe_ingredients.create(name: ingredients_name[index], quantity: ingredients_quantity[index])
+        end
+        3.times do |index|
+          post.recipe_steps.create(order: index+1, instruction: steps_instruction[index])
+        end
       end
-      post.create_recipe_serving(serving: serving)
-      3.times do |index|
-        post.recipe_ingredients.create(name: ingredients_name[index], quantity: ingredients_quantity[index])
-      end
-      3.times do |index|
-        post.recipe_steps.create(order: index+1, instruction: steps_instruction[index])
-      end
+      post
     end
+    rescue ActiveRecord::RecordInvalid => e
+      e.record.errors.full_messages.each do |message|
+        errors.add(:base, message)
+      end
+    false
 
-    post
   end
 
   private
