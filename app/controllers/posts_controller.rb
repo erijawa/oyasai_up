@@ -28,11 +28,24 @@ class PostsController < ApplicationController
       :description,
       :post_image,
       :mode,
-      serving: [:serving],
-      ingredients: [:name, :quantity],
-      steps: [:order, :instruction]
+      # serving: [:serving],
+      # ingredients: [:name, :quantity],
+      # steps: [:order, :instruction]
+      :serving,
+      ingredients_name: [],
+      ingredients_quantity: [],
+      steps_instruction: []
     ).merge(
       user_id: current_user.id
     )
   end
+
+  # def recipe_params
+  #   params.require(:post_form).permit(
+  #     :serving,
+  #     :ingredients_name,
+  #     :ingredients_quantity,
+  #     :steps_instruction
+  #   )
+  # end
 end

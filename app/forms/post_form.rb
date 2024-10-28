@@ -9,8 +9,9 @@ class PostForm
   attribute :post_image, :string
   attribute :mode, :integer
   attribute :serving
-  attribute :ingredients
-  attribute :steps
+  attribute :ingredients_name
+  attribute :ingredients_quantity
+  attribute :steps_instruction
 
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 255 }
@@ -20,14 +21,13 @@ class PostForm
 
   def save
     post = Post.create(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
-
     if post.with_recipe?
-      post.recipe_serving.build(serving: serving[:serving])
-      post_params[:ingredients].to_h.values.map do |ingredient|
-        post.recipe_ingredients.build(name: ingredient[:name], quantity: ingredient[:quantity])
+      post.create_recipe_serving(serving: serving)
+      ingredients_name.each_with_index do |ingredient,index|
+        post.recipe_ingredients.create(name: ingredient, quantity: ingredients_quantity[index])
       end
-      post_params[:steps].to_h.values.map do |step|
-        post.recipe_steps.build(order: step[:order], instruction: step[:instruction])
+      steps_instruction.each_with_index do |instruction,index|
+        post.recipe_steps.create(order: index+1, instruction: instruction)
       end
     end
 

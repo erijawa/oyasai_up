@@ -21,59 +21,39 @@
 
     <div class="field">
       <%= f.label :mode, class:"label w-full mx-auto" %>
-      <%= f.select :mode, Post.modes.keys.to_a, {}, class: 'select select-bordered select-info w-full max-w-xs form-control mb-6' %>
+      <%= f.select :mode, [["レシピなし", 0], ["レシピ付き", 10]], {}, {class: 'select select-bordered select-info w-full max-w-xs mb-6'} %>
     </div>
 
     <div class="field">
       <%= f.label :serving, class:"label w-full mx-auto" %>
-        <%= f.fields_for :serving do |serving_field| %>
-          <%= serving_field.text_field :serving, class:'input input-bordered input-info form-control mb-6 inline' %><p class="inline">人分</p>
-        <% end %>
+
+          <%= f.text_field :serving, class:'input input-bordered input-info form-control mb-6 inline' %><p class="inline">人分</p>
+
     </div>
 
     <div class="field mb-6">
       <%= f.label :ingredients, class:"label w-full mx-auto" %>
-      <div class="flex">
-        <%= f.fields_for :ingredients do |ingredient_fields| %>
-          <%= ingredient_fields.text_field :name, placeholder: "材料名", class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
-          <%= ingredient_fields.text_field :quantity, placeholder: "分量", class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
-        <% end %>
-      </div>
-      <div class="flex">
-        <%= f.fields_for :ingredients do |ingredient_fields| %>
-          <%= ingredient_fields.text_field :name, class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
-          <%= ingredient_fields.text_field :quantity, class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
-        <% end %>
-      </div>
-      <div class="flex">
-        <%= f.fields_for :ingredients do |ingredient_fields| %>
-          <%= ingredient_fields.text_field :name, class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
-          <%= ingredient_fields.text_field :quantity, class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
-        <% end %>
-      </div>
+      <% 3.times do |index| %>
+        <div class="flex">
+
+            <%= f.text_field :ingredients_name, placeholder: "材料名", class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+            <%= f.text_field :ingredients_quantity, placeholder: "分量", class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+
+        </div>
+      <% end %>
     </div>
 
     <div class="field">
-    <%= f.label :steps, class:"label w-full mx-auto" %>
-    <div class="flex">
-      <%= f.fields_for :steps do |step_fields| %>
-        <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10">1</div>
-        <%= step_fields.text_field :instruction, class:'input input-bordered input-info form-control mb-2 w-full mx-auto inline' %>
+      <%= f.label :steps, class:"label w-full mx-auto" %>
+      <% 3.times do %>
+        <div class="flex">
+
+            <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10">1</div>
+            <%= f.text_field :steps_instruction, class:'input input-bordered input-info form-control mb-2 w-full mx-auto inline' %>
+
+        </div>
       <% end %>
     </div>
-    <div class="flex">
-      <%= f.fields_for :steps do |step_fields| %>
-        <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10">2</div>
-        <%= step_fields.text_field :instruction, class:'input input-bordered input-info form-control mb-2 w-full mx-auto inline' %>
-      <% end %>
-    </div>
-    <div class="flex">
-      <%= f.fields_for :steps do |step_fields| %>
-        <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10">3</div>
-        <%= step_fields.text_field :instruction, class:'input input-bordered input-info form-control mb-2 w-full mx-auto inline' %>
-      <% end %>
-    </div>
-  </div>
 
     <div class="actions">
       <%= f.submit '登録', class: 'btn btn-info w-full mt-6 mb-6 mx-auto' %>
