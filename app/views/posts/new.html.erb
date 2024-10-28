@@ -10,13 +10,43 @@
     </div>
 
     <div class="field">
-      <%= f.label :description, class:"label w-full mx-auto" %>
-      <%= f.text_area :description, autofocus: true, autocomplete: "詳細", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
+      <%= f.label :post_image, class:"label w-full mx-auto" %>
+      <%= f.file_field :post_image, autocomplete: "ファイル", class: 'file-input file-input-bordered file-input-info form-control mb-6 w-full mx-auto text-neutral' %>
     </div>
 
     <div class="field">
-      <%= f.label :post_image, class:"label w-full mx-auto" %>
-      <%= f.file_field :post_image, autocomplete: "ファイル", class: 'file-input file-input-bordered file-input-info form-control mb-6 w-full mx-auto text-neutral' %>
+      <%= f.label :description, class:"label w-full mx-auto" %>
+      <%= f.text_area :description, autofocus: true, autocomplete: "詳細", class: 'textarea textarea-bordered textarea-info form-control mb-6 w-full mx-auto' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :mode, class:"label w-full mx-auto" %>
+      <%= f.select :mode, [["レシピなし", 0], ["レシピ付き", 10]], {}, {class: 'select select-bordered select-info w-full max-w-xs mb-6'} %>
+    </div>
+
+    <div class="field">
+      <%= f.label :serving, class:"label w-full mx-auto" %>
+          <%= f.text_field :serving, class:'input input-bordered input-info form-control mb-6 inline' %><p class="inline">人分</p>
+    </div>
+
+    <div class="field mb-6">
+      <%= f.label :ingredients, class:"label w-full mx-auto" %>
+      <% 3.times do |index| %>
+        <div class="flex">
+            <%= f.text_field :ingredients_name, name: "post_form[ingredients_name][]", value: @post_form.ingredients_name[index], placeholder: "材料名", class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+            <%= f.text_field :ingredients_quantity, name: "post_form[ingredients_quantity][]",value: @post_form.ingredients_quantity[index], placeholder: "分量", class:'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= f.label :steps, class:"label w-full mx-auto" %>
+      <% 3.times do |index| %>
+        <div class="flex">
+            <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10">1</div>
+            <%= f.text_field :steps_instruction,name: "post_form[steps_instruction][]", value: @post_form.steps_instruction[index], class:'input input-bordered input-info form-control mb-2 w-full mx-auto inline' %>
+        </div>
+      <% end %>
     </div>
 
     <div class="actions">

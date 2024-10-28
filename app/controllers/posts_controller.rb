@@ -11,8 +11,7 @@ class PostsController < ApplicationController
 
   def create
     @post_form = PostForm.new(post_params)
-    if @post_form.valid?
-      @post_form.save
+    if @post_form.save
       redirect_to :posts, notice: 'おやさいReportを投稿しました。'
     else
       flash.now[:alert] = "投稿できませんでした。"
@@ -23,6 +22,17 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post_form).permit(:title, :description, :post_image).merge(user_id: current_user.id)
+    params.require(:post_form).permit(
+      :title,
+      :description,
+      :post_image,
+      :mode,
+      :serving,
+      {ingredients_name: []},
+      {ingredients_quantity: []},
+      {steps_instruction: []}
+    ).merge(
+      user_id: current_user.id
+    )
   end
 end

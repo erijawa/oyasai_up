@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_23_014027) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_24_062238) do
   create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title", null: false
@@ -18,7 +18,34 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_23_014027) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "post_image"
+    t.integer "mode", default: 0, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "recipe_ingredients", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.string "name", null: false
+    t.string "quantity", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_recipe_ingredients_on_post_id"
+  end
+
+  create_table "recipe_servings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.integer "serving", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_recipe_servings_on_post_id"
+  end
+
+  create_table "recipe_steps", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.integer "order", null: false
+    t.text "instruction", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_recipe_steps_on_post_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -35,4 +62,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_23_014027) do
   end
 
   add_foreign_key "posts", "users"
+  add_foreign_key "recipe_ingredients", "posts"
+  add_foreign_key "recipe_servings", "posts"
+  add_foreign_key "recipe_steps", "posts"
 end
