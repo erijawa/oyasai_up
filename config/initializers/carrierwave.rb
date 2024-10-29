@@ -11,7 +11,6 @@ CarrierWave.configure do |config|
       provider: 'AWS',
       aws_access_key_id: Rails.application.credentials.S3_ACCESS_KEY_ID,
       aws_secret_access_key: Rails.application.credentials.S3_SECRET_ACCESS_KEY,
-      region: Rails.application.credentials.S3_REGION,
     }
   else
     config.storage :file
