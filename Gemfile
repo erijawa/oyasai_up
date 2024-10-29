@@ -69,3 +69,6 @@ gem "devise"
 # Image Uploader
 gem 'carrierwave', '~> 3.0'
 gem 'mini_magick'
+
+# amazons3
+gem 'fog-aws'

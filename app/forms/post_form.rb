@@ -38,12 +38,15 @@ class PostForm
   def save
     return false if invalid?
     ActiveRecord::Base.transaction do
-      post = Post.create(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
+      post = Post.new(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
       if post.with_recipe?
         if ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)
           errors.add(:base, 'フォームに空欄があります')
           return false
         end
+      end
+      post.save
+      if post.with_recipe?
         post.create_recipe_serving(serving: serving)
         3.times do |index|
           post.recipe_ingredients.create(name: ingredients_name[index], quantity: ingredients_quantity[index])
