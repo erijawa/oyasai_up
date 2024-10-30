@@ -8,6 +8,8 @@ class Post < ApplicationRecord
   has_many :recipe_ingredients, dependent: :destroy
   has_many :recipe_steps, dependent: :destroy
   has_one :recipe_serving, dependent: :destroy
+  has_many :post_tags, dependent: :destroy
+  has_many :tags, through: :post_tags
 
   enum :mode, { without_recipe: 0, with_recipe: 10 }, validate: true
 end
