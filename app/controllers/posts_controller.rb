@@ -11,7 +11,8 @@ class PostsController < ApplicationController
 
   def create
     @post_form = PostForm.new(post_params)
-    if @post_form.save
+    tag_list = params[:post_form][:tag_names].split(',')
+    if @post_form.save(tag_list)
       redirect_to :posts, notice: 'おやさいReportを投稿しました。'
     else
       flash.now[:alert] = "投稿できませんでした。"
