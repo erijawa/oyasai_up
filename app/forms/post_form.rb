@@ -12,6 +12,7 @@ class PostForm
   attribute :ingredients_name
   attribute :ingredients_quantity
   attribute :steps_instruction
+  attribute :tag_names
 
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 255 }

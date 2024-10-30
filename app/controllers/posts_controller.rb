@@ -26,6 +26,7 @@ class PostsController < ApplicationController
       :title,
       :description,
       :post_image,
+      :tag_names,
       :mode,
       :serving,
       {ingredients_name: []},
