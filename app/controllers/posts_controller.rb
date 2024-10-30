@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def new
     @post_form = PostForm.new
+    @ingredients_form_count = 3
   end
 
   def create
@@ -19,6 +20,10 @@ class PostsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  # def edit
+  #   @ingredients_form_count = [3, @post_form.ingredients_name.size].max
+  # end
 
   private
 
