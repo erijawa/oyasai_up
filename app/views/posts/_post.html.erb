@@ -5,13 +5,16 @@
   <div class="card-body">
     <h3 class="card-title">
       <%= post.title %>
-      <div class="badge badge-secondary">NEW</div>
+      <% if post.with_recipe? %>
+        <div class="badge badge-secondary">レシピ付き</div>
+      <% end %>
     </h3>
     <p><%= post.description %></p>
     <p><%= post.user.name %></p>
     <div class="card-actions justify-end">
-      <div class="badge badge-outline">Fashion</div>
-      <div class="badge badge-outline">Products</div>
+      <% post.tags.each do |tag| %>
+        <div class="badge badge-outline"><%= tag.name %></div>
+      <% end %>
     </div>
   </div>
 <% end %>

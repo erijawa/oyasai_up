@@ -12,6 +12,7 @@ class PostForm
   attribute :ingredients_name
   attribute :ingredients_quantity
   attribute :steps_instruction
+  attribute :tag_names
 
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 255 }
@@ -35,7 +36,7 @@ class PostForm
   end
 
 
-  def save
+  def save(tag_list)
     return false if invalid?
     ActiveRecord::Base.transaction do
       post = Post.new(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
@@ -46,6 +47,7 @@ class PostForm
         end
       end
       post.save
+      post.save_tag(tag_list)
       if post.with_recipe?
         post.create_recipe_serving(serving: serving)
         3.times do |index|
