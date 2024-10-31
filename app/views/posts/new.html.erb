@@ -41,24 +41,27 @@
           <div class="flex">
               <%= f.text_field :ingredients_name, name: "post_form[ingredients_name][]", value: @post_form.ingredients_name[index], placeholder: "材料名", class:'input input-bordered input-info form-control mb-2 mr-1 w-full mx-auto basis-4/6' %>
               <%= f.text_field :ingredients_quantity, name: "post_form[ingredients_quantity][]",value: @post_form.ingredients_quantity[index], placeholder: "分量", class:'input input-bordered input-info form-control mb-2 w-full mx-auto basis-2/6' %>
-              <button type="button" class="btn btn-ghost delete_ingredient_button">X</button>
+              <button type="button" class="btn btn-ghost delete_button">X</button>
           </div>
         <% end %>
       </div>
       <div class="text-center"><button id="add_ingredient_button"  type="button" class="btn btn-info mt-2 mb-6 mx-auto">+ 材料を追加</button></div>
 
-      <div class="field">
+      <div id="step_fields" class="field">
         <%= f.label :steps, class:"label w-full mx-auto" %>
         <% @steps_form_count.times do |index| %>
-          <div class="flex">
-              <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10">1</div>
-              <%= f.text_field :steps_instruction,name: "post_form[steps_instruction][]", value: @post_form.steps_instruction[index], class:'input input-bordered input-info form-control mb-2 w-full mx-auto inline' %>
+          <div class="flex items-center mb-2">
+              <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10"><%= index+1 %></div>
+              <%= f.text_field :steps_instruction,name: "post_form[steps_instruction][]", value: @post_form.steps_instruction[index], class:'input input-bordered input-info form-control ml-1 w-full mx-auto inline' %>
+              <button type="button" class="btn btn-ghost delete_button">X</button>
           </div>
         <% end %>
       </div>
+      <div class="text-center"><button id="add_step_button"  type="button" class="btn btn-info mt-2 mb-6 mx-auto">+ 手順を追加</button></div>
+
     </div>
 
-    <div class="actions">
+    <div class="actions mt-16">
       <%= f.submit '登録', class: 'btn btn-info w-full mt-6 mb-6 mx-auto' %>
     </div>
   <% end %>
