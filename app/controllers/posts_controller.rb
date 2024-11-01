@@ -20,8 +20,9 @@ class PostsController < ApplicationController
     @ingredients_form_count = [3, @post_form.ingredients_name.size].max
     @steps_form_count = [3, @post_form.steps_instruction.size].max
     tag_list = params[:post_form][:tag_names].split(',')
-    if @post_form.save(tag_list)
-      redirect_to :posts, notice: 'おやさいReportを投稿しました。'
+    post = @post_form.save(tag_list) # 保存成功時に該当の投稿詳細にリダイレクトするため、保存されたpostを取得
+    if post
+      redirect_to post_path(post), notice: 'おやさいReportを投稿しました。'
     else
       flash.now[:alert] = "投稿できませんでした。"
       render :new, status: :unprocessable_entity
