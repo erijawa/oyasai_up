@@ -50,10 +50,10 @@ class PostForm
       post.save_tag(tag_list)
       if post.with_recipe?
         post.create_recipe_serving(serving: serving)
-        3.times do |index|
+        (ingredients_name.size).times do |index|
           post.recipe_ingredients.create(name: ingredients_name[index], quantity: ingredients_quantity[index])
         end
-        3.times do |index|
+        (steps_instruction.size).times do |index|
           post.recipe_steps.create(order: index+1, instruction: steps_instruction[index])
         end
       end

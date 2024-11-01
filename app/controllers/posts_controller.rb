@@ -7,10 +7,14 @@ class PostsController < ApplicationController
 
   def new
     @post_form = PostForm.new
+    @ingredients_form_count = [3, @post_form.ingredients_name.size].max
+    @steps_form_count = [3, @post_form.steps_instruction.size].max
   end
 
   def create
     @post_form = PostForm.new(post_params)
+    @ingredients_form_count = [3, @post_form.ingredients_name.size].max
+    @steps_form_count = [3, @post_form.steps_instruction.size].max
     tag_list = params[:post_form][:tag_names].split(',')
     if @post_form.save(tag_list)
       redirect_to :posts, notice: 'おやさいReportを投稿しました。'
@@ -19,6 +23,10 @@ class PostsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  # def edit
+  #   @ingredients_form_count = [3, @post_form.ingredients_name.size].max
+  # end
 
   private
 
