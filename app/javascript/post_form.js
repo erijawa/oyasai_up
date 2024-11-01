@@ -65,6 +65,7 @@ const stepFields = document.getElementById('step_fields');
 const addStepButton = document.getElementById('add_step_button');
 addStepButton.addEventListener('click', function() {
   let num = stepFields.childElementCount;
+  num++;
   stepFields.innerHTML += `
     <div class="flex items-center mb-2">
         <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10">${num}</div>
@@ -83,7 +84,10 @@ stepFields.addEventListener('click', (event) => {
     element = element.parentNode;
     element.remove();
   }
-  
+  let stepForms = stepFields.children;
+  for (i = 0; i < stepForms.length; i++) {
+    stepForms[i].firstElementChild.innerText = (i + 1);
+  }
 
   set_delete_btn_disabled(stepFields);
   set_add_step_btn_disabled();

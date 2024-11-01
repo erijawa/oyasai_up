@@ -35,8 +35,8 @@
             <%= f.text_field :serving, class:'input input-bordered input-info form-control mb-6 inline' %><p class="inline">人分</p>
       </div>
 
+      <%= f.label :ingredients, class:"label w-full mx-auto" %>
       <div id="ingredient_fields" class="field">
-        <%= f.label :ingredients, class:"label w-full mx-auto" %>
         <% @ingredients_form_count.times do |index| %>
           <div class="flex">
               <%= f.text_field :ingredients_name, name: "post_form[ingredients_name][]", value: @post_form.ingredients_name[index], placeholder: "材料名", class:'input input-bordered input-info form-control mb-2 mr-1 w-full mx-auto basis-4/6' %>
@@ -47,8 +47,8 @@
       </div>
       <div class="text-center"><button id="add_ingredient_button"  type="button" class="btn btn-info mt-2 mb-6 mx-auto">+ 材料を追加</button></div>
 
+      <%= f.label :steps, class:"label w-full mx-auto" %>
       <div id="step_fields" class="field">
-        <%= f.label :steps, class:"label w-full mx-auto" %>
         <% @steps_form_count.times do |index| %>
           <div class="flex items-center mb-2">
               <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10"><%= index+1 %></div>
