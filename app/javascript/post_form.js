@@ -97,16 +97,38 @@ const addStepButton = document.getElementById('add_step_button');
 addStepButton.addEventListener('click', function() {
   let num = stepFields.childElementCount;
   num++;
-  stepFields.innerHTML += `
-    <div class="flex items-center mb-2">
-        <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10">${num}</div>
-        <input name="post_form[steps_instruction][]" class="input input-bordered input-info form-control ml-1 w-full mx-auto inline" type="text">
-        <button type="button" class="btn btn-ghost delete_button">X</button>
-    </div>
-  `;
+
+  let order = createOrder(num);
+  let instructionInput = createInstructionInput();
+  let delButton = createDelButton();
+
+  let formArea = document.createElement('div');
+  formArea.setAttribute('class', 'flex items-center mb-2');
+  formArea.appendChild(order);
+  formArea.appendChild(instructionInput);
+  formArea.appendChild(delButton);
+
+  stepFields.appendChild(formArea);
+
   set_delete_btn_disabled(stepFields);
   set_add_step_btn_disabled();
 });
+// 手順番号の作成
+function createOrder(num) {
+  let order = document.createElement('div');
+  order.setAttribute('class', 'inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10');
+  order.innerText = num;
+  return order;
+}
+// 手順フォームの作成
+function createInstructionInput() {
+  let instructionInput = document.createElement('input');
+  instructionInput.setAttribute('type', 'text');
+  instructionInput.setAttribute('name', 'post_form[steps_instruction][]');
+  instructionInput.setAttribute('placeholder', 'もやしを1分ほどレンジにかける');
+  instructionInput.setAttribute('class', 'input input-bordered input-info form-control ml-1 w-full mx-auto inline');
+  return instructionInput;
+}
 
 // 手順フォームの削除
 stepFields.addEventListener('click', (event) => {
