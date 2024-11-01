@@ -11,6 +11,10 @@ class PostsController < ApplicationController
     @steps_form_count = [3, @post_form.steps_instruction.size].max
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def create
     @post_form = PostForm.new(post_params)
     @ingredients_form_count = [3, @post_form.ingredients_name.size].max

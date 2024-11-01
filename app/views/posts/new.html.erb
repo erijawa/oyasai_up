@@ -40,7 +40,7 @@
         <% @ingredients_form_count.times do |index| %>
           <div class="flex">
               <%= f.text_field :ingredients_name, name: "post_form[ingredients_name][]", value: @post_form.ingredients_name[index], placeholder: "材料名", class:'input input-bordered input-info form-control mb-2 mr-1 w-full mx-auto basis-4/6' %>
-              <%= f.text_field :ingredients_quantity, name: "post_form[ingredients_quantity][]",value: @post_form.ingredients_quantity[index], placeholder: "分量", class:'input input-bordered input-info form-control mb-2 w-full mx-auto basis-2/6' %>
+              <%= f.text_field :ingredients_quantity, name: "post_form[ingredients_quantity][]",value: @post_form.ingredients_quantity[index], placeholder: "分量", class:'input input-bordered input-info form-control mb-2 mr-1 w-full mx-auto basis-2/6' %>
               <button type="button" class="btn btn-ghost delete_button">X</button>
           </div>
         <% end %>
@@ -52,7 +52,7 @@
         <% @steps_form_count.times do |index| %>
           <div class="flex items-center mb-2">
               <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10"><%= index+1 %></div>
-              <%= f.text_field :steps_instruction,name: "post_form[steps_instruction][]", placeholder:"もやしを1分ほどレンジにかける",value: @post_form.steps_instruction[index], class:'input input-bordered input-info form-control ml-1 w-full mx-auto inline' %>
+              <%= f.text_field :steps_instruction,name: "post_form[steps_instruction][]", placeholder:"もやしを1分ほどレンジにかける",value: @post_form.steps_instruction[index], class:'input input-bordered input-info form-control ml-1 mr-1 w-full mx-auto inline' %>
               <button type="button" class="btn btn-ghost delete_button">X</button>
           </div>
         <% end %>
