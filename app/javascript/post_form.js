@@ -12,16 +12,47 @@ const ingredientFields = document.getElementById('ingredient_fields');
 // 材料フォームの追加
 const addIngredientButton = document.getElementById('add_ingredient_button');
 addIngredientButton.addEventListener('click', function() {
-  ingredientFields.innerHTML += `
-    <div class="flex">
-        <input name="post_form[ingredients_name][]" placeholder="材料名" class="input input-bordered input-info form-control mb-2 mr-1 w-full mx-auto basis-4/6" type="text" id="post_form_ingredients_name">
-        <input name="post_form[ingredients_quantity][]" placeholder="分量" class="input input-bordered input-info form-control mb-2 w-full mx-auto basis-2/6" type="text" id="post_form_ingredients_quantity">
-        <button type="button" class="btn btn-ghost delete_button">X</button>
-    </div>
-  `;
+  let ingredientNameInput = createIngredientNameInput();
+  let ingredientQuantityInput = createIngredientQuantityInput();
+  let delButton = createDelButton();
+
+  let formArea = document.createElement('div');
+  formArea.setAttribute('class', 'flex');
+  formArea.appendChild(ingredientNameInput);
+  formArea.appendChild(ingredientQuantityInput);
+  formArea.appendChild(delButton);
+
+  ingredientFields.appendChild(formArea);
+
   set_delete_btn_disabled(ingredientFields);
   set_add_btn_disabled();
 });
+// 材料名フォームの作成
+function createIngredientNameInput() {
+  let nameInput = document.createElement('input');
+  nameInput.setAttribute('type', 'text');
+  nameInput.setAttribute('name', 'post_form[ingredients_name][]');
+  nameInput.setAttribute('placeholder', '材料名');
+  nameInput.setAttribute('class', 'input input-bordered input-info form-control mb-2 mr-1 w-full mx-auto basis-4/6');
+  return nameInput;
+}
+// 材料の分量フォームの作成
+function createIngredientQuantityInput() {
+  let quantityInput = document.createElement('input');
+  quantityInput.setAttribute('type', 'text');
+  quantityInput.setAttribute('name', 'post_form[ingredients_quantity][]');
+  quantityInput.setAttribute('placeholder', '分量');
+  quantityInput.setAttribute('class', 'input input-bordered input-info form-control mb-2 w-full mx-auto basis-2/6');
+  return quantityInput;
+}
+// 削除ボタンの作成
+function createDelButton() {
+  let delButton = document.createElement('button');
+  delButton.setAttribute('type', 'button');
+  delButton.setAttribute('class', 'btn btn-ghost delete_button');
+  delButton.innerText = "X"
+  return delButton;
+}
 
 // 材料フォームの削除
 ingredientFields.addEventListener('click', (event) => {
@@ -69,7 +100,7 @@ addStepButton.addEventListener('click', function() {
   stepFields.innerHTML += `
     <div class="flex items-center mb-2">
         <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10">${num}</div>
-        <input name="post_form[steps_instruction][]" class="input input-bordered input-info form-control ml-1 w-full mx-auto inline" type="text" id="post_form_steps_instruction">
+        <input name="post_form[steps_instruction][]" class="input input-bordered input-info form-control ml-1 w-full mx-auto inline" type="text">
         <button type="button" class="btn btn-ghost delete_button">X</button>
     </div>
   `;
