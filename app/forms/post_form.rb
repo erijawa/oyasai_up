@@ -73,12 +73,12 @@ class PostForm
 
   def default_attributes
     {
-      # user_id: post.user_id,
-      # title: post.title,
-      # description: description,
-      # post_image: post_image,
-      # mode: mode,
-      # serving: serving,
+      user_id: post.user_id,
+      title: post.title,
+      description: description,
+      post_image: post_image,
+      mode: mode,
+      serving: serving,
       ingredients_name: post.recipe_ingredients.map(&:name),
       ingredients_quantity: post.recipe_ingredients.map(&:quantity),
       steps_instruction: post.recipe_steps.map(&:instruction)

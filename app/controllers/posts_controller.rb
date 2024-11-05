@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index]
+  before_action :set_post, only: %i[edit update]
 
   def index
     @posts = Post.all
@@ -29,9 +30,15 @@ class PostsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @ingredients_form_count = [3, @post_form.ingredients_name.size].max
-  # end
+  def edit
+    @post_form = PostForm.new(post: @post)
+    @ingredients_form_count = [3, @post_form.ingredients_name.size].max
+    @steps_form_count = [3, @post_form.steps_instruction.size].max
+  end
+
+  def update
+    
+  end
 
   private
 
@@ -49,5 +56,9 @@ class PostsController < ApplicationController
     ).merge(
       user_id: current_user.id
     )
+  end
+
+  def set_post
+    @post = current_user.posts.find(params[:id])
   end
 end
