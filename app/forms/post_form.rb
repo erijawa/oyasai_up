@@ -75,13 +75,13 @@ class PostForm
     {
       user_id: post.user_id,
       title: post.title,
-      description: description,
-      post_image: post_image,
-      mode: mode,
-      serving: serving,
-      ingredients_name: post.recipe_ingredients.map(&:name),
-      ingredients_quantity: post.recipe_ingredients.map(&:quantity),
-      steps_instruction: post.recipe_steps.map(&:instruction)
+      description: post.description,
+      post_image: post.post_image,
+      mode: post.mode_before_type_cast,
+      serving: post.recipe_serving&.serving,
+      ingredients_name: post.recipe_ingredients&.map(&:name),
+      ingredients_quantity: post.recipe_ingredients&.map(&:quantity),
+      steps_instruction: post.recipe_steps&.map(&:instruction)
     }
   end
 

@@ -32,12 +32,12 @@ class PostsController < ApplicationController
 
   def edit
     @post_form = PostForm.new(post: @post)
-    @ingredients_form_count = [3, @post_form.ingredients_name.size].max
-    @steps_form_count = [3, @post_form.steps_instruction.size].max
+    @ingredients_form_count = @post_form.ingredients_name.size
+    @steps_form_count = @post_form.steps_instruction.size
   end
 
   def update
-    
+
   end
 
   private
