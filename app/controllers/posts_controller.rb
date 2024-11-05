@@ -8,8 +8,8 @@ class PostsController < ApplicationController
 
   def new
     @post_form = PostForm.new
-    @ingredients_form_count = [3, @post_form.ingredients_name.size].max
-    @steps_form_count = [3, @post_form.steps_instruction.size].max
+    @ingredients_form_count = 3
+    @steps_form_count = 3
   end
 
   def show
@@ -18,8 +18,8 @@ class PostsController < ApplicationController
 
   def create
     @post_form = PostForm.new(post_params)
-    @ingredients_form_count = [3, @post_form.ingredients_name.size].max
-    @steps_form_count = [3, @post_form.steps_instruction.size].max
+    @ingredients_form_count = @post_form.ingredients_name.size
+    @steps_form_count = @post_form.steps_instruction.size
     tag_list = params[:post_form][:tag_names].split(',')
     post = @post_form.save(tag_list) # 保存成功時に該当の投稿詳細にリダイレクトするため、保存されたpostを取得
     if post
