@@ -1,0 +1,75 @@
+<div class="container">
+  <h2><%= @post.title %></h2>
+  <div class="max-w-2xl mx-auto">
+    <% if @post.tags.present? %>
+      <% @post.tags.each do |tag| %>
+        <div class="badge badge-outline badge-lg"><%= tag.name %></div>
+      <% end %>
+    <% end %>
+    <div class="mx-auto w-10/12 mt-4 rounded-md">
+        <%= image_tag "#{@post.post_image}", class:"rounded-2xl" %>
+    </div>
+
+    <% if @post.description.present? %>
+      <p class="mt-10 text-xl text-center break-words"><%= @post.description %></p>
+    <% end %>
+    <div class="text-right mt-10 w-8">
+      <%= link_to "#", class:"" do %>
+        <svg class="w-8 h-8 text-neutral" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+        </svg>
+      <% end %>
+    </div>
+    <div class="mt-10 flex items-center">
+      <div class="avatar mr-2">
+        <div class="w-16 rounded-full">
+          <%= image_tag "post_default.png"%>
+        </div>
+      </div>
+      <p class="text-lg"><%= @post.user.name %></p>
+    </div>
+
+    <% if @post.with_recipe?%>
+      <div class="md:flex justify-between w-full mt-10">
+        <div class="md:w-5/12">
+          <p class="text-xl font-bold md:mb-8">材料 / <span class="text-base"><%= @post.recipe_serving.serving %>人分</span></p>
+          <div class="overflow-x-auto mb-10">
+            <table class="table">
+              <!-- head -->
+              <thead>
+                <tr>
+                  <th>食材</th>
+                  <th>分量</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- row  -->
+                <% @post.recipe_ingredients.each do |ingredient|%>
+                  <tr>
+                    <td><%= ingredient.name %></td>
+                    <td><%= ingredient.quantity %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="md:w-1/2">
+          <p class="text-xl font-bold md:mb-8">作り方</p>
+          <div class="mt-4 md:mt-10">
+            <% @post.recipe_steps.each do |step|%>
+              <div class="flex items-start mb-4">
+                <div class="inline w-8 h-8 rounded-full bg-[#8DBA30] text-center leading-8 mr-1 shrink-0"><%= step.order %></div>
+                <p class=""><%= step.instruction %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="text-center mt-20">
+    <%= link_to "一覧に戻る",posts_path, class: "btn btn-primary" %>
+  </div>
+</div>
