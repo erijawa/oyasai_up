@@ -1,7 +1,7 @@
 <div class="container form-container">
-  <h2>おやさいReport新規投稿</h2>
+  <h2>おやさいReport投稿編集</h2>
 
-  <%= form_with model: @post_form, url: posts_path do |f| %>
+  <%= form_with model: @post_form, url: post_path(@post) do |f| %>
     <%= render "shared/error_messages", object: f.object %>
 
     <div class="field">

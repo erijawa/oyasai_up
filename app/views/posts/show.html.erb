@@ -20,13 +20,21 @@
         </svg>
       <% end %>
     </div>
-    <div class="mt-10 flex items-center">
-      <div class="avatar mr-2">
-        <div class="w-16 rounded-full">
-          <%= image_tag "post_default.png"%>
+    <div class="md:flex justify-between w-full">
+      <div class="mt-10 flex items-center">
+        <div class="avatar mr-2">
+          <div class="w-16 rounded-full">
+            <%= image_tag "post_default.png"%>
+          </div>
         </div>
+        <p class="text-lg"><%= @post.user.name %></p>
       </div>
-      <p class="text-lg"><%= @post.user.name %></p>
+      <% if current_user&.own?(@post)%>
+        <div class="mt-10 flex items-center">
+          <%= link_to "編集", edit_post_path, class:"btn btn-primary text-white mr-2" %>
+          <%= link_to "削除", "#", class:"btn btn-secondary text-white" %>
+        </div>
+      <% end %>
     </div>
 
     <% if @post.with_recipe?%>
