@@ -62,6 +62,7 @@ class PostsController < ApplicationController
       :title,
       :description,
       :post_image,
+      :post_image_cache,
       :tag_names,
       :mode,
       :serving,
