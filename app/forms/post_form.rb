@@ -116,6 +116,7 @@ class PostForm
       title: post.title,
       description: post.description,
       post_image: post.post_image,
+      tag_names: post.tags&.map(&:name)&.join(","),
       mode: post.mode_before_type_cast,
       serving: post.recipe_serving&.serving,
       ingredients_name: post.recipe_ingredients&.map(&:name),
