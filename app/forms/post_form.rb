@@ -29,6 +29,14 @@ class PostForm
 
   mount_uploader :post_image, PostImageUploader
 
+  # 作成・更新に応じてフォームのアクションをPOST・PATCHに切り替える
+  delegate :persisted?, to: :post
+
+  # アクションのURLを適切な場所（posts_pathやpost_path(:id)）に切り替える
+  # def to_model
+  #   post
+  # end
+
   def initialize(attributes = nil, post: Post.new)
     @post = post
     attributes ||= default_attributes
@@ -65,6 +73,37 @@ class PostForm
       end
     false
 
+  end
+
+  def update(tag_list)
+    return false if invalid?
+    if mode == 10
+      if ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)
+        errors.add(:base, 'フォームに空欄があります')
+        return false
+      end
+    end
+    ActiveRecord::Base.transaction do
+      @post.update!(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
+      @post.save_tag(tag_list)
+      if @post.with_recipe?
+        @post.create_recipe_serving(serving: serving)
+        @post.recipe_ingredients.clear
+        @post.recipe_steps.clear
+        (ingredients_name.size).times do |index|
+          @post.recipe_ingredients.create(name: ingredients_name[index], quantity: ingredients_quantity[index])
+        end
+        (steps_instruction.size).times do |index|
+          @post.recipe_steps.create(order: index+1, instruction: steps_instruction[index])
+        end
+      end
+      @post
+    end
+    rescue ActiveRecord::RecordInvalid => e
+      e.record.errors.full_messages.each do |message|
+        errors.add(:base, message)
+      end
+    false
   end
 
   private
