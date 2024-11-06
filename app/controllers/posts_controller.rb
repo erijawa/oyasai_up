@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_post, only: %i[edit update]
+  before_action :set_post, only: %i[edit update destroy]
 
   def index
     @posts = Post.all
@@ -48,6 +48,11 @@ class PostsController < ApplicationController
       flash.now[:alert] = "更新できませんでした。"
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @post.destroy!
+    redirect_to posts_path, notice: "投稿を削除しました", status: :see_other
   end
 
   private
