@@ -46,15 +46,20 @@ class PostForm
 
   def save(tag_list)
     return false if invalid?
-    ActiveRecord::Base.transaction do
-      post = Post.new(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
-      if post.with_recipe?
-        if ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)
-          errors.add(:base, 'フォームに空欄があります')
-          return false
-        end
+    if mode == 10
+      if ingredients_name.nil?
+        errors.add(:base, '材料が入力されていません')
+        return false
+      elsif steps_instruction.nil?
+        errors.add(:base, '作り方が入力されていません')
+        return false
+      elsif ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?) || serving.blank?
+        errors.add(:base, 'レシピ用フォームに空欄があります')
+        return false
       end
-      post.save
+    end
+    ActiveRecord::Base.transaction do
+      post = Post.create!(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
       post.save_tag(tag_list)
       if post.with_recipe?
         post.create_recipe_serving(serving: serving)
@@ -78,8 +83,14 @@ class PostForm
   def update(tag_list)
     return false if invalid?
     if mode == 10
-      if ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)
-        errors.add(:base, 'フォームに空欄があります')
+      if ingredients_name.nil?
+        errors.add(:base, '材料が入力されていません')
+        return false
+      elsif steps_instruction.nil?
+        errors.add(:base, '作り方が入力されていません')
+        return false
+      elsif ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)|| serving.blank?
+        errors.add(:base, 'レシピ用フォームに空欄があります')
         return false
       end
     end

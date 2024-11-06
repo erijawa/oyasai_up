@@ -18,8 +18,8 @@ class PostsController < ApplicationController
 
   def create
     @post_form = PostForm.new(post_params)
-    @ingredients_form_count = @post_form.ingredients_name.size
-    @steps_form_count = @post_form.steps_instruction.size
+    @ingredients_form_count = @post_form.ingredients_name ? @post_form.ingredients_name.size : 0
+    @steps_form_count = @post_form.steps_instruction ? @post_form.steps_instruction.size : 0
     tag_list = params[:post_form][:tag_names]&.split(',')
     post = @post_form.save(tag_list) # 保存成功時に該当の投稿詳細にリダイレクトするため、保存されたpostを取得
     if post
@@ -38,8 +38,8 @@ class PostsController < ApplicationController
 
   def update
     @post_form = PostForm.new(post_params, post: @post)
-    @ingredients_form_count = @post_form.ingredients_name.size
-    @steps_form_count = @post_form.steps_instruction.size
+    @ingredients_form_count = @post_form.ingredients_name ? @post_form.ingredients_name.size : 0
+    @steps_form_count = @post_form.steps_instruction ? @post_form.steps_instruction.size : 0
     tag_list = params[:post_form][:tag_names]&.split(',')
     post = @post_form.update(tag_list)
     if post
