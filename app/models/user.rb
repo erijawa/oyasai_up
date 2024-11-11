@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :destroy
+  has_many :vegetable_logs, dependent: :destroy
 
   def own?(object)
     id == object&.user_id
