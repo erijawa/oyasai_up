@@ -3,13 +3,13 @@
     <%= image_tag "#{post.post_image}" %>
   </figure>
   <div class="card-body">
-    <h3 class="card-title">
+    <h3 class="card-title txt-limit">
       <%= post.title %>
       <% if post.with_recipe? %>
         <div class="badge badge-secondary">レシピ付き</div>
       <% end %>
     </h3>
-    <p><%= post.description %></p>
+    <p class="txt-limit"><%= post.description %></p>
     <p><%= post.user.name %></p>
     <div class="card-actions justify-end">
       <% post.tags.each do |tag| %>

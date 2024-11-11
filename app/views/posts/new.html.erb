@@ -12,6 +12,8 @@
     <div class="field">
       <%= f.label :post_image, class:"label w-full mx-auto" %>
       <%= f.file_field :post_image, autocomplete: "ファイル", class: 'file-input file-input-bordered file-input-info form-control mb-6 w-full mx-auto text-neutral' %>
+      <%= f.hidden_field :post_image_cache %>
+      <%= image_tag(@post_form.post_image.url) if @post_form.post_image? %>
     </div>
 
     <div class="field">
