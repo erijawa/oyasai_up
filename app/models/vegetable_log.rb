@@ -4,8 +4,8 @@ class VegetableLog < ApplicationRecord
     validates :lunch
     validates :diner
     validates :total
-    validates :date
   end
+  validates :date, presence: true, uniqueness: { scope: :user_id }
   belongs_to :user
 
   enum :breakfast, { none: 0, had_vegetable: 1 }, validate: true
