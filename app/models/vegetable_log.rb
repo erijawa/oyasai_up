@@ -8,12 +8,12 @@ class VegetableLog < ApplicationRecord
   validates :date, presence: true, uniqueness: { scope: :user_id }
   belongs_to :user
 
-  enum :breakfast, { no_vegetable: 0, had_vegetable: 1 }, validate: true, prefix: true
-  enum :lunch, { no_vegetable: 0, had_vegetable: 1 }, validate: true, prefix: true
-  enum :dinner, { no_vegetable: 0, had_vegetable: 1 }, validate: true, prefix: true
+  # enum :breakfast, { no_vegetable: 0, had_vegetable: 1 }, validate: true, prefix: true
+  # enum :lunch, { no_vegetable: 0, had_vegetable: 1 }, validate: true, prefix: true
+  # enum :dinner, { no_vegetable: 0, had_vegetable: 1 }, validate: true, prefix: true
 
   def calculate_total
-    total = self.breakfast_before_type_cast.to_i + self.lunch_before_type_cast.to_i + self.dinner_before_type_cast.to_i
+    total = self.breakfast + self.lunch+ self.dinner
     self.update(total: total)
   end
 

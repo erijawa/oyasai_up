@@ -1,11 +1,11 @@
 <h3>フォーム</h3>
 <%= form_with model: @vegetable_log do |f| %>
   <%= f.label :breakfast, class: "label cursor-pointer" %>
-  <%= f.check_box :breakfast, class: "checkbox checkbox-primary" %>
+  <%= f.range_field :breakfast, in: 0..10, class: "range range-primary" %>
   <%= f.label :lunch, class: "label cursor-pointer" %>
-  <%= f.check_box :lunch, class: "checkbox checkbox-primary" %>
+  <%= f.range_field :lunch, in: 0..10, class: "range range-primary" %>
   <%= f.label :dinner, class: "label cursor-pointer" %>
-  <%= f.check_box :dinner, class: "checkbox checkbox-primary" %>
+  <%= f.range_field :dinner, in: 0..10, class: "range range-primary" %>
   <div class="actions mt-16">
     <%= f.submit '登録', class: 'btn btn-info w-full mt-6 mb-6 mx-auto' %>
   </div>
