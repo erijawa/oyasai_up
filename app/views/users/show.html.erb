@@ -1,0 +1,19 @@
+<div class="container">
+  <h2><%= @user.name %>さんのページ</h2>
+  <h3 class="my-10">おやさいLog</h3>
+  <div id="cal-heatmap"></div>
+  <div class="text-center">
+    <button id="heatmap_btn" class="btn" onclick="my_modal_1.showModal()">今日のおやさいLogを更新</button>
+  </div>
+
+  <dialog id="my_modal_1" class="modal">
+    <div class="modal-box">
+      <%= render "vegetable_logs/form" %>
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn">キャンセル</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+</div>
