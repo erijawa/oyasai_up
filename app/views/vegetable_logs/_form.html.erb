@@ -1,12 +1,13 @@
-<h3>フォーム</h3>
+<h3>おやさい、食べた？</h3>
+<p class="my-8 text-center">どのくらいおやさいを食べたか、直感で記録しましょう！</p>
 <%= form_with model: @vegetable_log do |f| %>
   <%= f.label :breakfast, class: "label cursor-pointer" %>
-  <%= f.range_field :breakfast, in: 0..10, class: "range range-primary" %>
+  <%= f.range_field :breakfast, in: 0..10, class: "range range-secondary" %>
   <%= f.label :lunch, class: "label cursor-pointer" %>
-  <%= f.range_field :lunch, in: 0..10, class: "range range-primary" %>
+  <%= f.range_field :lunch, in: 0..10, class: "range range-secondary" %>
   <%= f.label :dinner, class: "label cursor-pointer" %>
-  <%= f.range_field :dinner, in: 0..10, class: "range range-primary" %>
+  <%= f.range_field :dinner, in: 0..10, class: "range range-secondary" %>
   <div class="actions mt-16">
-    <%= f.submit '登録', class: 'btn btn-info w-full mt-6 mb-6 mx-auto' %>
+    <%= f.submit class: 'btn btn-primary w-full mt-6 mb-6 mx-auto text-white' %>
   </div>
 <% end %>
