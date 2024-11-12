@@ -1,10 +1,10 @@
 class VegetableLogsController < ApplicationController
   def create
     @vegetable_log = current_user.vegetable_logs.build(vegetable_log_params)
-    if @vegetable_log.calculate_total && @vegetable_log.save
+    if @vegetable_log.save && @vegetable_log.calculate_total
       redirect_to user_path(current_user), success: "記録しました"
     else
-      flash.now[:danger] = "記録できませんでした"
+      redirect_to user_path(current_user), success: "記録できませんでした", status: :unprocessable_entity
     end
   end
 
