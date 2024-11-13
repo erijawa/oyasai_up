@@ -1,10 +1,35 @@
-<footer class="footer bg-neutral text-neutral-content items-center p-4 text-white z-50 fixed bottom-0 left-0">
-  <aside class="grid-flow-col items-center">
-    <p>Copyright 2024 - All right reserved</p>
-  </aside>
-  <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end hidden lg:grid">
-    <%= link_to "利用規約", "#", class: "link link-hover" %>
-    <%= link_to "お問合せ", "#", class: "link link-hover" %>
-    <%= link_to "プライバシーポリシー", "#", class: "link link-hover" %>
-  </nav>
-</footer>
+<div class="navbar bg-gray-100 fixed bottom-0 z-40 flex justify-between w-full">
+
+    <%= link_to posts_path, class: "flex flex-col items-center flex-1 py-1" do %>
+        <%= image_tag 'tomato.png', class: "h-5 w-5 mb-1" %>
+        <span class="text-[0.5rem] btm-nav-label">Report一覧</span>
+    <% end %>
+
+    <%= link_to "#", class: "flex flex-col items-center flex-1 py-1" do %>
+        <%= image_tag 'tomato.png', class: "h-5 w-5 mb-1" %>
+        <span class="text-[0.5rem] btm-nav-label">ブックマーク</span>
+    <% end %>
+
+    <%= link_to new_post_path, class: "flex flex-col items-center flex-1 py-1" do %>
+        <%= image_tag 'tomato.png', class: "h-5 w-5 mb-1" %>
+        <span class="text-[0.5rem] btm-nav-label">Reportを書く</span>
+    <% end %>
+
+    <%= link_to "#", class: "flex flex-col items-center flex-1 py-1" do %>
+        <%= image_tag 'tomato.png', class: "h-5 w-5 mb-1" %>
+        <span class="text-[0.5rem] btm-nav-label">下書き</span>
+    <% end %>
+    
+    <% if current_user %>
+      <%= link_to user_path(current_user), class: "flex flex-col items-center flex-1 py-1" do %>
+          <%= image_tag 'tomato.png', class: "h-5 w-5 mb-1" %>
+          <span class="text-[0.5rem] btm-nav-label">おやさいLog</span>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_session_path, class: "flex flex-col items-center flex-1 py-1" do %>
+        <%= image_tag 'tomato.png', class: "h-5 w-5 mb-1" %>
+        <span class="text-[0.5rem] btm-nav-label">おやさいLog</span>
+      <% end %>
+    <% end %>
+
+</div>

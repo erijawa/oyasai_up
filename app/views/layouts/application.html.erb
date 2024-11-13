@@ -22,11 +22,7 @@
 
   <body class="text-neutral">
     <%= render "shared/flash_messages" %>
-    <% if user_signed_in? %>
-      <%= render "shared/header" %>
-    <% else %>
-      <%= render "shared/before_login_header" %>
-    <% end %>
+    <%= render "shared/header" %>
     <%= yield %>
     <%= render "shared/footer" %>
   </body>
