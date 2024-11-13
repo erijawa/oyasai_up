@@ -1,10 +1,14 @@
 <div class="container">
   <h2><%= @user.name %>さんのページ</h2>
   <h3 class="my-10">おやさいLog</h3>
-  <div id="cal-heatmap"></div>
-  <div class="text-center">
-    <button id="heatmap_btn" class="btn" onclick="my_modal_1.showModal()">今日のおやさいLogを更新</button>
-  </div>
+  <div class="w-full flex lg:items-center flex-col">
+    <div id="cal-heatmap" class="overflow-auto md:overflow-scroll"></div>
+  <div>
+  <% if current_user&.id == @user.id %>
+    <div class="text-center my-10">
+      <button id="heatmap_btn" class="btn btn-accent text-neutral" onclick="my_modal_1.showModal()">今日のおやさいLogを更新</button>
+    </div>
+  <% end %>
 
   <dialog id="my_modal_1" class="modal">
     <div class="modal-box">
@@ -17,3 +21,38 @@
     </div>
   </dialog>
 </div>
+
+<script>
+  function set_heatmap() {
+    let startDate = new Date();
+    startDate.setMonth(startDate.getMonth() - 5);
+    let data = <%= sanitize(@vegetable_logs) %>;
+    const parser = function(data) {
+            return eval("[" + data + "]");
+        };
+    const cal = new CalHeatmap();
+    cal.paint({
+      itemSelector: '#cal-heatmap',
+      domain: {
+          type: 'month',
+          gutter: 4,
+          label: { text: 'MMM', textAlign: 'start', position: 'top' },
+        },
+        subDomain: { type: 'ghDay', radius: 2, width: 11, height: 11, gutter: 4 },
+        date: { start: startDate },
+        range: 12,
+        data: { source: data, x: 'date',y: 'total'},
+        afterLoadData: parser,
+        type:'json',
+        scale: {
+          color: {
+            type: 'linear',
+            range: ['#ededed','#4dd05a','#37a446','#166b34'],
+            domain: [0,10,20,30],
+          },
+        },
+    });
+  }
+  set_heatmap();
+
+</script>
