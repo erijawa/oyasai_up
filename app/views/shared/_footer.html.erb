@@ -1,35 +1,30 @@
-<div class="navbar bg-gray-100 fixed bottom-0 z-40 flex justify-between w-full">
+<footer class="navbar bg-neutral fixed bottom-0 z-40 flex justify-between w-full text-white">
 
     <%= link_to posts_path, class: "flex flex-col items-center flex-1 py-1" do %>
-        <%= image_tag 'tomato.png', class: "h-5 w-5 mb-1" %>
-        <span class="text-[0.5rem] btm-nav-label">Report一覧</span>
+        <%= image_tag 'search.svg', class: "h-5 w-5 mb-1" %>
     <% end %>
 
     <%= link_to "#", class: "flex flex-col items-center flex-1 py-1" do %>
-        <%= image_tag 'tomato.png', class: "h-5 w-5 mb-1" %>
-        <span class="text-[0.5rem] btm-nav-label">ブックマーク</span>
+        <%= image_tag 'bookmark_white.svg', class: "h-5 w-5 mb-1" %>
     <% end %>
 
     <%= link_to new_post_path, class: "flex flex-col items-center flex-1 py-1" do %>
-        <%= image_tag 'tomato.png', class: "h-5 w-5 mb-1" %>
+        <%= image_tag 'post.svg', class: "h-5 w-5 mb-1" %>
         <span class="text-[0.5rem] btm-nav-label">Reportを書く</span>
     <% end %>
 
     <%= link_to "#", class: "flex flex-col items-center flex-1 py-1" do %>
-        <%= image_tag 'tomato.png', class: "h-5 w-5 mb-1" %>
-        <span class="text-[0.5rem] btm-nav-label">下書き</span>
+        <%= image_tag 'draft.svg', class: "h-5 w-5 mb-1" %>
     <% end %>
     
     <% if current_user %>
       <%= link_to user_path(current_user), class: "flex flex-col items-center flex-1 py-1" do %>
-          <%= image_tag 'tomato.png', class: "h-5 w-5 mb-1" %>
-          <span class="text-[0.5rem] btm-nav-label">おやさいLog</span>
+          <%= image_tag 'person.svg', class: "h-5 w-5 mb-1" %>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path, class: "flex flex-col items-center flex-1 py-1" do %>
-        <%= image_tag 'tomato.png', class: "h-5 w-5 mb-1" %>
-        <span class="text-[0.5rem] btm-nav-label">おやさいLog</span>
+        <%= image_tag 'person.svg', class: "h-5 w-5 mb-1" %>
       <% end %>
     <% end %>
 
-</div>
+</footer>
