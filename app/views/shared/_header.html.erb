@@ -17,63 +17,75 @@
             </div>
             <div class="drawer-side">
                 <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
-                <ul class="menu bg-base-200 bg-opacity-95 text-base-content min-h-full w-80 p-4">
+                <ul class="menu bg-base-200 bg-opacity-95 text-neutral min-h-full w-80 p-4">
 
                     <% if user_signed_in? %>
+                      <li class="mb-4">
+                          <%= link_to "おやさいLogはこちら",user_path(current_user), class: "btn btn-accent text-neutral"%>
+                      </li>
                       <li>
-                          <%= link_to "#", class: "text-base hover:text-secondary" do %>
-                              <%= image_tag 'tomato.png', class: 'h-4 w-4 mr-2' %>
-                              <%= t('header.my_page') %>
-                          <% end %>
+                        <%= link_to user_path(current_user), data: { turbo: false }, class: "text-base hover:text-secondary" do %>
+                            <%= image_tag 'person_neutral.svg', class: 'h-4 w-4 mr-2' %>
+                            マイページ
+                        <% end %>
                       </li>
                       <li>
                           <%= link_to destroy_user_session_path, class: "text-base hover:text-secondary", data: { turbo_method: :delete } do %>
-                              <%= image_tag 'tomato.png', class: 'h-4 w-4 mr-2' %>
-                              <%= t('header.logout') %>
+                              <%= image_tag 'logout.svg', class: 'h-4 w-4 mr-2' %>
+                              ログアウト
                           <% end %>
                       </li>
                     <% else %>
                       <li>
                           <%= link_to "#", class: "text-base hover:text-secondary" do %>
-                              <%= image_tag 'tomato.png', class: 'h-4 w-4 mr-2' %>
-                              <%= t('header.login') %>
+                              <%= image_tag 'login.svg', class: 'h-4 w-4 mr-2' %>
+                              ログイン・新規登録
                           <% end %>
                       </li>
                     <% end %>
 
                     <div class="divider"></div>
                     <li>
+                        <%= link_to posts_path, data: { turbo: false }, class: "text-base hover:text-secondary" do %>
+                            <%= image_tag 'search_neutral.svg', class: 'h-4 w-4 mr-2' %>
+                            おやさいReport一覧
+                        <% end %>
+                    </li>
+                    <li>
                         <%= link_to "#", data: { turbo: false }, class: "text-base hover:text-secondary" do %>
-                            <%= image_tag 'tomato.png', class: 'h-4 w-4 mr-2' %>
-                            <%= t('header.spot_search') %>
+                            <%= image_tag 'bookmark_neutral.svg', class: 'h-4 w-4 mr-2' %>
+                            ブックマーク一覧
                         <% end %>
                     </li>
+                    <li>
+                        <%= link_to new_post_path, data: { turbo: false }, class: "text-base hover:text-secondary" do %>
+                            <%= image_tag 'pencil_neutral.svg', class: 'h-4 w-4 mr-2' %>
+                            おやさいReportを書く
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to "#", data: { turbo: false }, class: "text-base hover:text-secondary" do %>
+                            <%= image_tag 'note_neutral.svg', class: 'h-4 w-4 mr-2' %>
+                            下書き一覧
+                        <% end %>
+                    </li>
+
 
                     <div class="divider"></div>
 
                     <li>
-                        <%= link_to "#", class: "text-base hover:text-secondary" do %>
-                            <%= image_tag 'tomato.png', class: 'h-4 w-4 mr-2' %>
-                            <%= t('header.terms_of_use') %>
-                        <% end %>
+                        <%= link_to "利用規約","#", class: "text-base hover:text-secondary" %>
                     </li>
                     <li>
-                        <%= link_to "#", class: "text-base hover:text-secondary" do %>
-                            <%= image_tag 'tomato.png', class: 'h-4 w-4 mr-2' %>
-                            <%= t('header.privacy_policy') %>
-                        <% end %>
+                        <%= link_to "プライバシーポリシー","#", class: "text-base hover:text-secondary" %>
                     </li>
                     <li>
-                        <%= link_to "#", target: "_blank", rel: "noopener noreferrer", class: "text-base hover:text-secondary" do %>
-                            <%= image_tag 'tomato.png', class: 'h-4 w-4 mr-2' %>
-                            <%= t('header.contact') %>
-                        <% end %>
+                        <%= link_to "お問い合わせ","#", target: "_blank", rel: "noopener noreferrer", class: "text-base hover:text-secondary"%>
                     </li>
 
                     <div class="divider"></div>
 
-                    <%# コピーライト %>
-                    <div class="text-sm text-center m-3"><%= t('header.copy_right') %></div>
+                    <div class="text-sm text-center m-3">© <%= Time.current.year %> - おやさいUP</div>
 
                     <div class="flex justify-center items-center my-3">
                         <%= link_to "#", target: "_blank", rel: "noopener noreferrer" , class: "mr-3" do %>
