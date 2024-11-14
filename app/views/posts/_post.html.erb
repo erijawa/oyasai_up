@@ -1,14 +1,14 @@
-<%= link_to post_path(post), class: "card bg-base-100 shadow-xl transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300" do %>
+<%= link_to post_path(post), class: "card bg-base-100 shadow-xl hover:bg-[#f7f4ef] duration-300" do %>
   <figure>
     <%= image_tag "#{post.post_image}" %>
   </figure>
   <div class="card-body">
     <h3 class="card-title title-limit">
       <%= post.title %>
-      <% if post.with_recipe? %>
-        <div class="badge badge-secondary">レシピ付き</div>
-      <% end %>
     </h3>
+    <% if post.with_recipe? %>
+      <div class="badge badge-secondary text-white">レシピ付き</div>
+    <% end %>
     <p class="txt-limit"><%= post.description %></p>
     <p><%= post.user.name %></p>
     <div class="card-actions justify-end">

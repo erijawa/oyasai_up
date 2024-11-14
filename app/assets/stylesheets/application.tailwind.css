@@ -20,7 +20,8 @@ h3 {
 }
 .container {
   width: 80%;
-  margin: 80px auto;
+  margin: 20px auto;
+  padding: 80px 0;
 }
 .form-container {
   max-width: 800px;
