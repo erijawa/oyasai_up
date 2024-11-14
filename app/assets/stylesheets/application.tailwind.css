@@ -20,7 +20,7 @@ h3 {
 }
 .container {
   width: 80%;
-  margin: 120px auto;
+  margin: 80px auto;
 }
 .form-container {
   max-width: 800px;
@@ -29,5 +29,5 @@ h3 {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; /* 任意の行数を指定 */
+  -webkit-line-clamp: 2; /* 投稿カードの表示行数指定 */
 }
