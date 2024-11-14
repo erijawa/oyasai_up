@@ -25,9 +25,15 @@ h3 {
 .form-container {
   max-width: 800px;
 }
+.title-limit {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 投稿カードのタイトル表示行数指定 */
+}
 .txt-limit {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; /* 投稿カードの表示行数指定 */
+  -webkit-line-clamp: 4;
 }
