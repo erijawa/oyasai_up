@@ -5,39 +5,39 @@
     <%= render "shared/error_messages", object: f.object %>
 
     <div class="field">
-      <%= f.label :title, class:"label w-full mx-auto" %>
+      <%= f.label :title,"タイトル", class:"label w-full mx-auto" %>
       <%= f.text_field :title, autofocus: true, autocomplete: "タイトル", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
     </div>
 
     <div class="field">
-      <%= f.label :post_image, class:"label w-full mx-auto" %>
+      <%= f.label :post_image,"画像", class:"label w-full mx-auto" %>
       <%= f.file_field :post_image, autocomplete: "ファイル", class: 'file-input file-input-bordered file-input-info form-control mb-6 w-full mx-auto text-neutral' %>
       <%= f.hidden_field :post_image_cache %>
       <%= image_tag(@post_form.post_image.url) if @post_form.post_image? %>
     </div>
 
     <div class="field">
-      <%= f.label :description, class:"label w-full mx-auto" %>
+      <%= f.label :description,"内容詳細", class:"label w-full mx-auto" %>
       <%= f.text_area :description, autofocus: true, autocomplete: "詳細", class: 'textarea textarea-bordered textarea-info form-control mb-6 w-full mx-auto' %>
     </div>
 
     <div class="field">
-      <%= f.label :tag_names, class:"label w-full mx-auto" %>
+      <%= f.label :tag_names,"タグ", class:"label w-full mx-auto" %>
       <%= f.text_field :tag_names, autofocus: true, autocomplete: ",で区切ってタグを入力", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
     </div>
 
     <div class="field">
-      <%= f.label :mode, class:"label w-full mx-auto" %>
-      <%= f.select :mode, [["レシピなし", 0], ["レシピ付き", 10]], {}, {id: 'mode', class: 'select select-bordered select-info w-full max-w-xs mb-6'} %>
+      <%= f.label :mode,"レシピの有無", class:"label w-full mx-auto" %>
+      <%= f.select :mode, [["レシピなし", 0], ["レシピを書く", 10]], {}, {id: 'mode', class: 'select select-bordered select-info w-full max-w-xs mb-6'} %>
     </div>
 
     <div id="recipe_fields" style="<%= "display:none" if @post_form.mode.nil? || @post_form.mode == 0 %>">
       <div class="field">
-        <%= f.label :serving, class:"label w-full mx-auto" %>
+        <%= f.label :serving,"何人分", class:"label w-full mx-auto" %>
             <%= f.text_field :serving, class:'input input-bordered input-info form-control mb-6 inline' %><p class="inline">人分</p>
       </div>
 
-      <%= f.label :ingredients, class:"label w-full mx-auto" %>
+      <%= f.label :ingredients,"材料", class:"label w-full mx-auto" %>
       <div id="ingredient_fields" class="field">
         <% @ingredients_form_count.times do |index| %>
           <div class="flex">
@@ -49,7 +49,7 @@
       </div>
       <div class="text-center"><button id="add_ingredient_button"  type="button" class="btn btn-info mt-2 mb-6 mx-auto">+ 材料を追加</button></div>
 
-      <%= f.label :steps, class:"label w-full mx-auto" %>
+      <%= f.label :steps,"作り方", class:"label w-full mx-auto" %>
       <div id="step_fields" class="field">
         <% @steps_form_count.times do |index| %>
           <div class="flex items-center mb-2">
