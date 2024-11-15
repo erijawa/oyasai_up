@@ -20,14 +20,21 @@ h3 {
 }
 .container {
   width: 80%;
-  margin: 120px auto;
+  margin: 20px auto;
+  padding: 80px 0;
 }
 .form-container {
   max-width: 800px;
+}
+.title-limit {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 投稿カードのタイトル表示行数指定 */
 }
 .txt-limit {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; /* 任意の行数を指定 */
+  -webkit-line-clamp: 4;
 }

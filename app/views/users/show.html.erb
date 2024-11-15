@@ -10,6 +10,7 @@
     </div>
   <% end %>
 
+  <% # おやさいLog登録フォームのモーダル %>
   <dialog id="my_modal_1" class="modal">
     <div class="modal-box">
       <%= render "vegetable_logs/form" %>
@@ -20,6 +21,17 @@
       </div>
     </div>
   </dialog>
+
+  <h3 class="mt-28 mb-20">投稿したおやさいReport</h3>
+  <% if @user.posts.present? %>
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 xl:grid-cols-3 xl:gap-6 break-words">
+      <% @user.posts.each do |post|%>
+        <%= render "posts/post", post: post %>
+      <% end%>
+    </div>
+  <% else %>
+    <p class="text-center">投稿がありません</p>
+  <% end %>
 </div>
 
 <script>
