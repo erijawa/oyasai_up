@@ -48,13 +48,13 @@ class PostForm
     return false if invalid?
     if mode == 10
       if ingredients_name.nil?
-        errors.add(:base, '材料が入力されていません')
+        errors.add(:base, "材料が入力されていません")
         return false
       elsif steps_instruction.nil?
-        errors.add(:base, '作り方が入力されていません')
+        errors.add(:base, "作り方が入力されていません")
         return false
       elsif ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?) || serving.blank?
-        errors.add(:base, 'レシピ用フォームに空欄があります')
+        errors.add(:base, "レシピ用フォームに空欄があります")
         return false
       end
     end
@@ -77,20 +77,19 @@ class PostForm
         errors.add(:base, message)
       end
     false
-
   end
 
   def update(tag_list)
     return false if invalid?
     if mode == 10
       if ingredients_name.nil?
-        errors.add(:base, '材料が入力されていません')
+        errors.add(:base, "材料が入力されていません")
         return false
       elsif steps_instruction.nil?
-        errors.add(:base, '作り方が入力されていません')
+        errors.add(:base, "作り方が入力されていません")
         return false
       elsif ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)|| serving.blank?
-        errors.add(:base, 'レシピ用フォームに空欄があります')
+        errors.add(:base, "レシピ用フォームに空欄があります")
         return false
       end
     end

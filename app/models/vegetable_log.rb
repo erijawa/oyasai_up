@@ -12,5 +12,4 @@ class VegetableLog < ApplicationRecord
     total = breakfast + lunch+ dinner
     self.update(total: total)
   end
-
 end

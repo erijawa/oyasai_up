@@ -4,16 +4,16 @@ Rails.application.routes.draw do
   resources :posts, only: %i[index new create show edit update destroy]
   resources :vegetable_logs, only: %i[create update]
   devise_for :users,
-    path: '',
+    path: "",
     path_names: {
-      sign_up: '',
-      sign_in: 'login',
-      sign_out: 'logout',
-      registration: "signup",
+      sign_up: "",
+      sign_in: "login",
+      sign_out: "logout",
+      registration: "signup"
     },
     controllers: {
       registrations: "users/registrations",
-      sessions: 'users/sessions'
+      sessions: "users/sessions"
   }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
