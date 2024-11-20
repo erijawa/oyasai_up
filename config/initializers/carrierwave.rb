@@ -1,6 +1,6 @@
-require 'carrierwave/storage/abstract'
-require 'carrierwave/storage/file'
-require 'carrierwave/storage/fog'
+require "carrierwave/storage/abstract"
+require "carrierwave/storage/file"
+require "carrierwave/storage/fog"
 
 CarrierWave.configure do |config|
   if Rails.env.production?
@@ -8,9 +8,9 @@ CarrierWave.configure do |config|
     config.fog_directory  = Rails.application.credentials.S3_BUCKET_NAME
     config.fog_public = false
     config.fog_credentials = {
-      provider: 'AWS',
+      provider: "AWS",
       aws_access_key_id: Rails.application.credentials.S3_ACCESS_KEY_ID,
-      aws_secret_access_key: Rails.application.credentials.S3_SECRET_ACCESS_KEY,
+      aws_secret_access_key: Rails.application.credentials.S3_SECRET_ACCESS_KEY
     }
   else
     config.storage :file

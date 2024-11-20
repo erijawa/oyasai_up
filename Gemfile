@@ -47,9 +47,8 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 
   # debugger
-  gem 'pry-rails'
-  gem 'pry-byebug'
-
+  gem "pry-rails"
+  gem "pry-byebug"
 end
 
 group :development do
@@ -67,8 +66,8 @@ end
 gem "devise"
 
 # Image Uploader
-gem 'carrierwave', '~> 3.0'
-gem 'rmagick'
+gem "carrierwave", "~> 3.0"
+gem "rmagick"
 
 # amazons3
-gem 'fog-aws'
+gem "fog-aws"
