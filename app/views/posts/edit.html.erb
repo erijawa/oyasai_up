@@ -1,72 +1,8 @@
 <div class="container form-container">
   <h2>おやさいReport投稿編集</h2>
 
-  <%= form_with model: @post_form, url: post_path(@post) do |f| %>
-    <%= render "shared/error_messages", object: f.object %>
+  <%= render "form", post_form: @post_form, url: post_path(@post), ingredients_form_count:@ingredients_form_count,steps_form_count:@steps_form_count %>
 
-    <div class="field">
-      <%= f.label :title, "タイトル", class:"label w-full mx-auto" %>
-      <%= f.text_field :title, autofocus: true, autocomplete: "タイトル", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
-    </div>
-
-    <div class="field">
-      <%= f.label :post_image,"画像", class:"label w-full mx-auto" %>
-      <%= f.file_field :post_image, autocomplete: "ファイル", class: 'file-input file-input-bordered file-input-info form-control mb-6 w-full mx-auto text-neutral' %>
-      <%= f.hidden_field :post_image_cache %>
-      <%= image_tag(@post_form.post_image.url) if @post_form.post_image? %>
-    </div>
-
-    <div class="field">
-      <%= f.label :description,"内容詳細", class:"label w-full mx-auto" %>
-      <%= f.text_area :description, autofocus: true, autocomplete: "詳細", class: 'textarea textarea-bordered textarea-info form-control mb-6 w-full mx-auto' %>
-    </div>
-
-    <div class="field">
-      <%= f.label :tag_names,"タグ", class:"label w-full mx-auto" %>
-      <%= f.text_field :tag_names, autofocus: true, autocomplete: ",で区切ってタグを入力", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
-    </div>
-
-    <div class="field">
-      <%= f.label :mode,"レシピの有無", class:"label w-full mx-auto" %>
-      <%= f.select :mode, [["レシピなし", 0], ["レシピを書く", 10]], {}, {id: 'mode', class: 'select select-bordered select-info w-full max-w-xs mb-6'} %>
-    </div>
-
-    <div id="recipe_fields" style="<%= "display:none" if @post_form.mode.nil? || @post_form.mode == 0 %>">
-      <div class="field">
-        <%= f.label :serving,"何人分", class:"label w-full mx-auto" %>
-            <%= f.text_field :serving, class:'input input-bordered input-info form-control mb-6 inline' %><p class="inline">人分</p>
-      </div>
-
-      <%= f.label :ingredients,"材料", class:"label w-full mx-auto" %>
-      <div id="ingredient_fields" class="field">
-        <% @ingredients_form_count.times do |index| %>
-          <div class="flex">
-              <%= f.text_field :ingredients_name, name: "post_form[ingredients_name][]", value: @post_form.ingredients_name[index], placeholder: "材料名", class:'input input-bordered input-info form-control mb-2 mr-1 w-full mx-auto basis-4/6' %>
-              <%= f.text_field :ingredients_quantity, name: "post_form[ingredients_quantity][]",value: @post_form.ingredients_quantity[index], placeholder: "分量", class:'input input-bordered input-info form-control mb-2 mr-1 w-full mx-auto basis-2/6' %>
-              <button type="button" class="btn btn-ghost delete_button">X</button>
-          </div>
-        <% end %>
-      </div>
-      <div class="text-center"><button id="add_ingredient_button"  type="button" class="btn btn-info mt-2 mb-6 mx-auto">+ 材料を追加</button></div>
-
-      <%= f.label :steps,"作り方", class:"label w-full mx-auto" %>
-      <div id="step_fields" class="field">
-        <% @steps_form_count.times do |index| %>
-          <div class="flex items-center mb-2">
-              <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10"><%= index+1 %></div>
-              <%= f.text_field :steps_instruction,name: "post_form[steps_instruction][]", placeholder:"もやしを1分ほどレンジにかける",value: @post_form.steps_instruction[index], class:'input input-bordered input-info form-control ml-1 mr-1 w-full mx-auto inline' %>
-              <button type="button" class="btn btn-ghost delete_button">X</button>
-          </div>
-        <% end %>
-      </div>
-      <div class="text-center"><button id="add_step_button"  type="button" class="btn btn-info mt-2 mb-6 mx-auto">+ 手順を追加</button></div>
-
-    </div>
-
-    <div class="actions mt-16">
-      <%= f.submit '登録', class: 'btn btn-info w-full mt-6 mb-6 mx-auto' %>
-    </div>
-  <% end %>
 
 </div>
 
