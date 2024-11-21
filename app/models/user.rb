@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :vegetable_logs, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_posts, through: :bookmarks, source: :post
 
   mount_uploader :avatar, AvatarUploader
 
