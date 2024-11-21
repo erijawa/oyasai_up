@@ -1,0 +1,24 @@
+<div class="container form-container">
+  <h2><%= t('.title') %></h2>
+
+  <%= form_with model: @user  do |f| %>
+    <%= render "shared/error_messages", object: f.object %>
+  
+    <div class="field">
+      <%= f.label :name,User.human_attribute_name(:name), class:"label w-full mx-auto" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "名前", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :avatar,User.human_attribute_name(:avatar), class:"label w-full mx-auto" %>
+      <%= f.file_field :avatar, autocomplete: "ファイル", class: 'file-input file-input-bordered file-input-info form-control mb-6 w-full mx-auto text-neutral' %>
+      <%= f.hidden_field :avatar_cache %>
+      <%= image_tag(@user.avatar.url) if @user.avatar? %>
+    </div>
+
+    <div class="actions mt-16">
+      <%= f.submit '登録', class: 'btn btn-info w-full mt-6 mb-6 mx-auto' %>
+    </div>
+  <% end %>
+
+</div>
