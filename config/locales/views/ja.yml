@@ -14,6 +14,9 @@ ja:
     delete: 削除
     unspecified: 指定なし
     password_reset: パスワードリセット
+    terms_of_service: 利用規約
+    privacy_policy: プライバシーポリシー
+    contact: お問い合わせ
   helpers:
     submit:
       create: 登録
@@ -23,12 +26,16 @@ ja:
       email: メールアドレス
       password: パスワード
   header:
-    login: ログイン
+    login: ログイン・新規登録
     logout: ログアウト
-    post: 投稿
+    vegetable_log: おやさいLogはこちら
+    my_page: マイページ
     post_index: おやさいReport一覧
     bookmark_index: ブックマーク一覧
-    profile: プロフィール
+    post_new: おやさいReportを書く
+    draft_index: 下書き一覧
+  footer:
+    post_new: Reportを書く
   posts:
     new:
       title: おやさいReport作成

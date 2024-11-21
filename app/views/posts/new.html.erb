@@ -1,5 +1,5 @@
 <div class="container form-container">
-  <h2>おやさいReport新規投稿</h2>
+  <h2><%= t('.title') %></h2>
 
   <%= render "form", post_form: @post_form, url: posts_path, ingredients_form_count:@ingredients_form_count,steps_form_count:@steps_form_count %>
 
