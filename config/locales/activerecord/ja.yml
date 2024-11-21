@@ -1,0 +1,50 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      post: おやさいReport
+      tag: タグ
+      recipe_serving: 何人前
+      recipe_ingredient: 材料
+      recipe_step: 作り方
+      vegetable_log: おやさいLog
+    attributes:
+      user:
+        email: メールアドレス
+        name: 名前
+        avatar: アバター
+        password: パスワード
+        password_confirmation: パスワード確認
+        id: ID
+        created_at: 作成日時
+      post:
+        title: タイトル
+        description: 内容詳細
+        post_image: 画像
+        mode: レシピの有無
+        id: ID
+        created_by: 作成者
+        created_at: 作成日時
+      recipe_serving:
+        serving: 何人前
+      recipe_ingredient:
+        name: 材料
+        quantity: 分量
+      recipe_step:
+        order: 順序
+        instruction: 作り方
+      vegetable_log:
+        breakfast: 朝ごはん
+        lunch: 昼ごはん
+        dinner: 夜ご飯
+        total: 合計
+        date: 日付
+    activemodel:
+      attributes:
+        post_form:
+          title: タイトル
+  enums:
+    post:
+      mode:
+        without_recipe: レシピなし
+        with_recipe: レシピあり

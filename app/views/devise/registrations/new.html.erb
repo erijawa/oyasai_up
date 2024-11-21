@@ -1,5 +1,5 @@
 <div class="container form-container">
-  <h2>ユーザー新規登録</h2>
+  <h2><%= t('devise.registrations.new.sign_up') %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -25,7 +25,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit '登録', class: 'btn btn-info w-full mt-6 mb-6 mx-auto' %>
+      <%= f.submit class: 'btn btn-info w-full mt-6 mb-6 mx-auto' %>
     </div>
   <% end %>
 

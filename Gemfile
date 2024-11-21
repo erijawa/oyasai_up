@@ -71,3 +71,7 @@ gem "rmagick"
 
 # amazons3
 gem "fog-aws"
+
+# i18n
+gem 'rails-i18n', '~> 7.0.0'
+gem 'devise-i18n'

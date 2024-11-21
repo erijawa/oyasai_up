@@ -10,7 +10,7 @@
 
     <%= link_to new_post_path, class: "flex flex-col items-center flex-1 py-1" do %>
         <%= image_tag 'post.svg', class: "h-5 w-5 mb-1" %>
-        <span class="text-[0.5rem] btm-nav-label">Reportを書く</span>
+        <span class="text-[0.5rem] btm-nav-label"><%= t('footer.post_new') %></span>
     <% end %>
 
     <%= link_to "#", class: "flex flex-col items-center flex-1 py-1" do %>
