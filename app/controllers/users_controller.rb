@@ -13,9 +13,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: t("defaults.flash_message.created", item: User.model_name.human)
+      redirect_to user_path(@user), notice: t("defaults.flash_message.edited", item: User.model_name.human)
     else
-      flash.now[:alert] = t("defaults.flash_message.not_created", item: User.model_name.human)
+      flash.now[:alert] = t("defaults.flash_message.not_edited", item: User.model_name.human)
       render :new, status: :unprocessable_entity
     end
   end
