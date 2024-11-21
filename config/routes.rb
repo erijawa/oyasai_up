@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "static_pages#home"
-  resources :users, only: %i[show]
+  resources :users, only: %i[show edit update]
   resources :posts, only: %i[index new create show edit update destroy]
   resources :vegetable_logs, only: %i[create update]
   devise_for :users,

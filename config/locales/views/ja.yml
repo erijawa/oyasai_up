@@ -7,6 +7,7 @@ ja:
       edited: "%{item}を更新しました"
       not_edited: "%{item}を更新出来ませんでした"
       deleted: "%{item}を削除しました"
+      not_authenticated: 権限がありません
       post_form:
         detected_blank: レシピ用フォームに空欄があります
         no_item: "%{item}が入力されていません"
