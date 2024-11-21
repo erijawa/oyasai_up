@@ -1,0 +1,63 @@
+ja:
+  defaults:
+    post: 投稿
+    flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
+      edited: "%{item}を更新しました"
+      not_edited: "%{item}を更新出来ませんでした"
+      deleted: "%{item}を削除しました"
+    delete_confirm: "削除しますか"
+    edit: 編集
+    update: 更新
+    show: 詳細
+    delete: 削除
+    unspecified: 指定なし
+    password_reset: パスワードリセット
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  header:
+    login: ログイン
+    logout: ログアウト
+    post: 投稿
+    post_index: おやさいReport一覧
+    bookmark_index: ブックマーク一覧
+    profile: プロフィール
+  posts:
+    new:
+      title: おやさいReport作成
+    show:
+      title: おやさいReport詳細
+    index:
+      title: おやさいReport一覧
+    edit:
+      title: おやさいReport編集
+    bookmarks:
+      title: ブックマーク一覧
+      no_result: ブックマーク中のおやさいReportがありません。
+  bookmarks:
+    create:
+      success: ブックマークしました
+    destroy:
+      success: ブックマークを外しました
+  profiles:
+    show:
+      title: プロフィール
+    edit:
+      title: プロフィール編集
+  password_resets:
+    new:
+      title: パスワードリセット申請
+      submit: 送信
+    edit:
+      title: パスワードリセット
+    create:
+      success: パスワードリセット手順を送信しました
+    update:
+      success: パスワードを変更しました
