@@ -1,5 +1,5 @@
 <div class="container form-container">
-  <h2>ログイン</h2>
+  <h2><%= t('devise.sessions.new.sign_in') %></h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
@@ -15,7 +15,7 @@
 
 
     <div class="actions">
-      <%= f.submit 'ログイン', class: 'btn btn-info w-full mt-6 mx-auto' %>
+      <%= f.submit t('devise.sessions.new.sign_in'), class: 'btn btn-info w-full mt-6 mx-auto' %>
     </div>
   <% end %>
 
