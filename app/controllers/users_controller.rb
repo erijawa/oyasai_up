@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  before_action :ensure_correct_user, only: %i[ edit update ]
 
   def show
+    @user = User.find(params[:id])
     vegetable_logs = VegetableLog.where(user_id: @user.id)
     @vegetable_logs = vegetable_logs.to_json(only: [ :date, :total ])
     vegetable_log = VegetableLog.find_by(user_id: @user.id, date: Time.zone.today)
@@ -20,10 +21,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def set_user
-    @user = User.find(params[:id])
-  end
 
   def user_params
     params.require(:user).permit(:name, :avatar, :avatar_cache)
