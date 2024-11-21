@@ -23,9 +23,9 @@ class PostsController < ApplicationController
     tag_list = params[:post_form][:tag_names]&.split(",")
     post = @post_form.save(tag_list) # 保存成功時に該当の投稿詳細にリダイレクトするため、保存されたpostを取得
     if post
-      redirect_to post_path(post), notice: "おやさいReportを投稿しました。"
+      redirect_to post_path(post), notice: t('defaults.flash_message.created', item: Post.model_name.human)
     else
-      flash.now[:alert] = "投稿できませんでした。"
+      flash.now[:alert] = t('defaults.flash_message.not_created', item: Post.model_name.human)
       render :new, status: :unprocessable_entity
     end
   end
@@ -43,16 +43,16 @@ class PostsController < ApplicationController
     tag_list = params[:post_form][:tag_names]&.split(",")
     post = @post_form.update(tag_list)
     if post
-      redirect_to post_path(post), notice: "おやさいReportを更新しました。"
+      redirect_to post_path(post), notice: t('defaults.flash_message.edited', item: Post.model_name.human)
     else
-      flash.now[:alert] = "更新できませんでした。"
+      flash.now[:alert] = t('defaults.flash_message.not_edited', item: Post.model_name.human)
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @post.destroy!
-    redirect_to posts_path, notice: "投稿を削除しました", status: :see_other
+    redirect_to posts_path, notice: t('defaults.flash_message.deleted', item: Post.model_name.human), status: :see_other
   end
 
   private

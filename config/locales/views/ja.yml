@@ -7,6 +7,12 @@ ja:
       edited: "%{item}を更新しました"
       not_edited: "%{item}を更新出来ませんでした"
       deleted: "%{item}を削除しました"
+      post_form:
+        detected_blank: レシピ用フォームに空欄があります
+        no_item: "%{item}が入力されていません"
+      vegetable_log:
+        recorded: "%{item}を記録しました"
+        not_recorded: "%{item}を記録できませんでした"
     delete_confirm: "削除しますか"
     edit: 編集
     update: 更新
