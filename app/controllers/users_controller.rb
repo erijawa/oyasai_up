@@ -6,4 +6,12 @@ class UsersController < ApplicationController
     vegetable_log = VegetableLog.find_by(user_id: @user.id, date: Time.zone.today)
     @vegetable_log = vegetable_log ? vegetable_log : VegetableLog.new
   end
+
+  def edit
+
+  end
+
+  def update
+    
+  end
 end
