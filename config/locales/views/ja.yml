@@ -75,3 +75,6 @@ ja:
       success: パスワードリセット手順を送信しました
     update:
       success: パスワードを変更しました
+  pagination:
+    previous: 前へ
+    next: 次へ
