@@ -1,0 +1,10 @@
+<div class="container">
+  <h2><%= t('.title') %></h2>
+  <% if @bookmark_posts.present? %>
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 xl:grid-cols-3 xl:gap-6 break-words">
+      <%= render @bookmark_posts %>
+    </div>
+  <% else %>
+    <p class="text-center"><%= t('.no_result') %></p>
+  <% end %>
+</div>
