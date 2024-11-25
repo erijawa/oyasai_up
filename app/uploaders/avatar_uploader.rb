@@ -48,4 +48,3 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #   "something.jpg"
   # end
 end
-
