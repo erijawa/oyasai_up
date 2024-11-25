@@ -1,5 +1,6 @@
 <div class="container">
   <h2><%= t('.title') %></h2>
+  <%= render 'search_form', q: @q, url: bookmarks_posts_path %>
   <% if @bookmark_posts.present? %>
     <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 xl:grid-cols-3 xl:gap-6 break-words">
       <%= render @bookmark_posts %>

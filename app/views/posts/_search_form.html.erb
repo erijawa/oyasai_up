@@ -1,18 +1,6 @@
 <%= search_form_for q, url: url, class: "flex flex-wrap items-center" do |f| %>
   <div class="w-full md:w-1/2 px-2 flex items-center">
-  <label class="input input-bordered input-accent flex items-center justify-between gap-2 mb-6 w-full h-12">
-    <%= f.search_field :title_or_description_cont, class: '', placeholder: "検索ワード" %>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 16 16"
-      fill="currentColor"
-      class="h-4 w-4 opacity-70">
-      <path
-        fill-rule="evenodd"
-        d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-        clip-rule="evenodd" />
-    </svg>
-    </label>
+    <%= f.search_field :title_or_description_cont, class: 'input input-bordered input-accent form-control mb-6 w-full h-12', placeholder: "検索ワード" %>
   </div>
   <div class="w-full md:w-1/2 px-2 flex items-center">
     <%= f.select :mode_eq, [['レシピなし', 0], ['レシピ付き', 10]],{include_blank: 'レシピの有無'}, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3 mb-6 w-full h-12' %>
