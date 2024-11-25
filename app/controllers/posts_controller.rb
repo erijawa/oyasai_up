@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[ edit update destroy ]
 
   def index
-    @posts = Post.all.page(params[:page])
+    @q = Post.ransack(params[:q])
+    @posts =  @q.result(distinct: true).includes(:user).page(params[:page]).order("created_at desc")
   end
 
   def new
@@ -56,7 +57,8 @@ class PostsController < ApplicationController
   end
 
   def bookmarks
-    @bookmark_posts = current_user.bookmark_posts.includes(:user).order(created_at: :desc)
+    @q = current_user.bookmark_posts.ransack(params[:q])
+    @bookmark_posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   private

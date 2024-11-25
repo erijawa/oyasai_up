@@ -30,4 +30,15 @@ class Post < ApplicationRecord
       self.tags << new_post_tag
     end
   end
+
+  # Ransack用のホワイトリスト
+  def self.searchable_attributes
+    [ "title", "description", "mode" ]
+  end
+  def self.ransackable_attributes(auth_object = nil)
+    [ "title", "description", "mode" ]
+  end
+  def self.ransackable_associations(auth_object = nil)
+    [] # 検索可能な関連名を指定
+  end
 end
