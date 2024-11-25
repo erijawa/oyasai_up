@@ -78,3 +78,6 @@ gem "devise-i18n"
 
 # pagenation
 gem "kaminari"
+
+# search
+gem "ransack"

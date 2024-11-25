@@ -1,0 +1,5 @@
+ja:
+  activemodel:
+    attributes:
+      post_form:
+        title: タイトル
