@@ -78,3 +78,6 @@ ja:
   pagination:
     previous: 前へ
     next: 次へ
+  search:
+    placeholder: タイトル・本文
+    blank: レシピの有無

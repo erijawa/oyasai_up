@@ -1,11 +1,11 @@
 <%= search_form_for q, url: url, class: "flex flex-wrap items-center" do |f| %>
   <div class="w-full md:w-1/2 px-2 flex items-center">
-    <%= f.search_field :title_or_description_cont, class: 'input input-bordered input-accent form-control mb-6 w-full h-12', placeholder: "検索ワード" %>
+    <%= f.search_field :title_or_description_cont, class: 'input input-bordered input-accent form-control mb-6 w-full h-12', placeholder: t("search.placeholder") %>
   </div>
   <div class="w-full md:w-1/2 px-2 flex items-center">
-    <%= f.select :mode_eq, [['レシピなし', 0], ['レシピ付き', 10]],{include_blank: 'レシピの有無'}, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3 mb-6 w-full h-12' %>
+    <%= f.select :mode_eq, Post.enum_options_for_select(:mode),{include_blank: t("search.blank")}, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3 mb-6 w-full h-12' %>
   </div>
   <div class="w-full flex">
-    <%= f.submit class: 'btn btn-primary flex-auto mb-4' %>
+    <%= f.submit class: 'btn btn-primary text-white flex-auto mb-4' %>
   </div>
 <% end %>

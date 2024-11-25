@@ -25,6 +25,9 @@ ja:
         id: ID
         created_by: 作成者
         created_at: 作成日時
+      post/mode:
+        without_recipe: レシピなし
+        with_recipe: レシピ付き
       recipe_serving:
         serving: 何人前
       recipe_ingredient:
@@ -39,10 +42,6 @@ ja:
         dinner: 夜ご飯
         total: 合計
         date: 日付
-    activemodel:
-      attributes:
-        post_form:
-          title: タイトル
   enums:
     post:
       mode:
