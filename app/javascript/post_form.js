@@ -156,3 +156,22 @@ function set_add_step_btn_disabled() {
     addStepButton.disabled = true;
   }
 }
+
+// タグ入力サポートボタン
+const tagInput = document.querySelector('input[name="post_form[tag_names]"]');
+
+// タグをクリックした時の処理
+const tagLinks = document.querySelectorAll('.tag-link');
+tagLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    // リンクのデフォルト動作を無効化
+    e.preventDefault();
+    // テキストボックスの内容にタグを追加
+    const clickedTag = e.target.innerText.trim();
+    if (tagInput.value) {
+      tagInput.value = `${tagInput.value},${clickedTag}`;
+    } else {
+      tagInput.value = `${clickedTag}`;
+    }
+  });
+});

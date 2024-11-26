@@ -20,7 +20,15 @@
 
   <div class="field">
     <%= f.label :tag_names,Tag.model_name.human, class:"label w-full mx-auto" %>
-    <%= f.text_field :tag_names, autofocus: true, autocomplete: ",で区切ってタグを入力", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
+    <%= f.text_field :tag_names, autofocus: true, autocomplete: ",で区切って入力してください", class: 'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+    <div class="flex justify-center flex-wrap mb-6">
+      <%= link_to 'コンビニ', '#', class: 'tag-link badge badge-ghost badge-lg mr-4 mt-4 mb-3' %>
+      <%= link_to 'スーパー', '#', class: 'tag-link badge badge-ghost badge-lg mr-4 mt-4 mb-3' %>
+      <%= link_to '外食', '#', class: 'tag-link badge badge-ghost badge-lg mr-4 mt-4 mb-3' %>
+      <%= link_to '自炊', '#', class: 'tag-link badge badge-ghost badge-lg mr-4 mt-4 mb-3' %>
+      <%= link_to 'デリバリー', '#', class: 'tag-link badge badge-ghost badge-lg mr-4 mt-4 mb-3' %>
+      <%= link_to '包丁・まな板不要', '#', class: 'tag-link badge badge-ghost badge-lg mr-4 mt-4 mb-3' %>
+    </div>
   </div>
 
   <div class="field">

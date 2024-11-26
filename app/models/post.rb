@@ -15,6 +15,7 @@ class Post < ApplicationRecord
   enum :mode, { without_recipe: 0, with_recipe: 10 }, validate: true
 
   def save_tag(sent_tags)
+    sent_tags.uniq!
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
     old_tags = current_tags - sent_tags
     new_tags = sent_tags - current_tags
