@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     post = @post_form.save(tag_list) # 保存成功時に該当の投稿詳細にリダイレクトするため、保存されたpostを取得
     if post
       if post.draft?
-        redirect_to post_path(post), notice: t("defaults.flash_message.created", item: defaults.draft)
+        redirect_to post_path(post), notice: t("defaults.flash_message.created", item: "下書き")
       else
         redirect_to post_path(post), notice: t("defaults.flash_message.created", item: Post.model_name.human)
       end
@@ -48,7 +48,11 @@ class PostsController < ApplicationController
     tag_list = params[:post_form][:tag_names]&.split(",")
     post = @post_form.update(tag_list)
     if post
-      redirect_to post_path(post), notice: t("defaults.flash_message.edited", item: Post.model_name.human)
+      if post.draft?
+        redirect_to post_path(post), notice: t("defaults.flash_message.edited", item: "下書き")
+      else
+        redirect_to post_path(post), notice: t("defaults.flash_message.edited", item: Post.model_name.human)
+      end
     else
       flash.now[:alert] = t("defaults.flash_message.not_edited", item: Post.model_name.human)
       render :edit, status: :unprocessable_entity
@@ -75,7 +79,7 @@ class PostsController < ApplicationController
       :post_image_cache,
       :tag_names,
       :mode,
-      :draft,
+      :status,
       :serving,
       { ingredients_name: [] },
       { ingredients_quantity: [] },

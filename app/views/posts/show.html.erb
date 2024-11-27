@@ -42,7 +42,7 @@
     <% if @post.with_recipe?%>
       <div class="md:flex justify-between w-full mt-10">
         <div class="md:w-5/12">
-          <p class="text-xl font-bold md:mb-8">材料 / <span class="text-base"><%= @post.recipe_serving.serving %>人分</span></p>
+          <p class="text-xl font-bold md:mb-8">材料 / <span class="text-base"><%= @post.recipe_serving&.serving %>人分</span></p>
           <div class="overflow-x-auto mb-10">
             <table class="table">
               <!-- head -->
