@@ -42,9 +42,9 @@ class PostForm
 
 
   def save(tag_list)
+    self.status = status == "公開する" ? 0 : 1
     return false if invalid?
     ActiveRecord::Base.transaction do
-      status = status == "公開する" ? 0 : 1
       post = Post.create!(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode, status: status)
       post.save_tag(tag_list)
       if post.with_recipe?
@@ -66,9 +66,9 @@ class PostForm
   end
 
   def update(tag_list)
+    self.status = status == "公開する" ? 0 : 1
     return false if invalid?
     ActiveRecord::Base.transaction do
-      status = status == "公開する" ? 0 : 1
       @post.update!(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode, status: status)
       @post.save_tag(tag_list)
       if @post.with_recipe?
