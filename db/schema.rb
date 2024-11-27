@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_21_130753) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_27_012834) do
   create_table "bookmarks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_21_130753) do
     t.datetime "updated_at", null: false
     t.string "post_image"
     t.integer "mode", default: 0, null: false
+    t.integer "status", default: 0, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
