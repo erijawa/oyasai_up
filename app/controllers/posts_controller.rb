@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @q = Post.ransack(params[:q])
-    @posts =  @q.result(distinct: true).includes(:user).page(params[:page]).order("created_at desc")
+    @posts =  @q.result(distinct: true).published.includes(:user).page(params[:page]).order("created_at desc")
   end
 
   def new
@@ -24,7 +24,11 @@ class PostsController < ApplicationController
     tag_list = params[:post_form][:tag_names]&.split(",")
     post = @post_form.save(tag_list) # 保存成功時に該当の投稿詳細にリダイレクトするため、保存されたpostを取得
     if post
-      redirect_to post_path(post), notice: t("defaults.flash_message.created", item: Post.model_name.human)
+      if post.draft?
+        redirect_to post_path(post), notice: t("defaults.flash_message.created", item: defaults.draft)
+      else
+        redirect_to post_path(post), notice: t("defaults.flash_message.created", item: Post.model_name.human)
+      end
     else
       flash.now[:alert] = t("defaults.flash_message.not_created", item: Post.model_name.human)
       render :new, status: :unprocessable_entity
@@ -71,6 +75,7 @@ class PostsController < ApplicationController
       :post_image_cache,
       :tag_names,
       :mode,
+      :draft,
       :serving,
       { ingredients_name: [] },
       { ingredients_quantity: [] },

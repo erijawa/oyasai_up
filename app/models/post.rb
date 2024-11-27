@@ -13,6 +13,7 @@ class Post < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
 
   enum :mode, { without_recipe: 0, with_recipe: 10 }, validate: true
+  enum :status, { published: 0, draft: 1 }, validate: true
 
   def save_tag(sent_tags)
     sent_tags.uniq!

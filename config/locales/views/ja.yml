@@ -1,6 +1,7 @@
 ja:
   defaults:
     post: 投稿
+    draft: 下書き
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"

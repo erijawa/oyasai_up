@@ -8,6 +8,8 @@ class PostForm
   attribute :description, :string
   attribute :post_image, :string
   attribute :mode, :integer
+  attribute :status, :integer
+  attribute :draft, :integer
   attribute :serving, :integer
   attribute :ingredients_name
   attribute :ingredients_quantity
@@ -43,7 +45,8 @@ class PostForm
   def save(tag_list)
     return false if invalid?
     ActiveRecord::Base.transaction do
-      post = Post.create!(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
+      status = draft.nil? ? 0 : 1
+      post = Post.create!(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode, status: status)
       post.save_tag(tag_list)
       if post.with_recipe?
         post.create_recipe_serving(serving: serving)
@@ -66,7 +69,7 @@ class PostForm
   def update(tag_list)
     return false if invalid?
     ActiveRecord::Base.transaction do
-      @post.update!(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
+      @post.update!(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode, status: status)
       @post.save_tag(tag_list)
       if @post.with_recipe?
         @post.create_recipe_serving(serving: serving)
@@ -100,6 +103,8 @@ class PostForm
       post_image: post.post_image,
       tag_names: post.tags&.map(&:name)&.join(","),
       mode: post.mode_before_type_cast,
+      status: post.status_before_type_cast,
+      draft: post.status_before_type_cast,
       serving: post.recipe_serving&.serving,
       ingredients_name: post.recipe_ingredients&.map(&:name),
       ingredients_quantity: post.recipe_ingredients&.map(&:quantity),
@@ -108,7 +113,7 @@ class PostForm
   end
 
   def with_recipe?
-    return true if mode == 10
+    return true if mode == 10 && status == 0
     false
   end
 
