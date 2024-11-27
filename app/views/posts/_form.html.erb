@@ -39,7 +39,7 @@
   <div id="recipe_fields" style="<%= "display:none" if @post_form.mode.nil? || @post_form.mode == 0 %>">
     <div class="field">
       <%= f.label :serving,RecipeServing.model_name.human, class:"label w-full mx-auto" %>
-          <%= f.text_field :serving, class:'input input-bordered input-info form-control mb-6 inline' %><p class="inline">人分</p>
+          <%= f.text_field :serving, class:'input input-bordered input-info form-control mb-6 inline w-16' %><p class="inline ml-2">人前</p>
     </div>
 
     <%= f.label :ingredients,RecipeIngredient.model_name.human, class:"label w-full mx-auto" %>

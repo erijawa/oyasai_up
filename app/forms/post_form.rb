@@ -18,14 +18,10 @@ class PostForm
   validates :title, presence: true, length: { maximum: 255 }
   validates :description, length: { maximum: 65_535 }
 
-  # with_options if: :with_recipe? do |recipe|
-  #   recipe.validates :serving, presence: true
-  #   recipe.validates :ingredients_name, presence: true, length: { maximum: 20 }
-  #   recipe.validates :ingredients_quantity, presence: true, length: { maximum: 20 }
-  #   recipe.validates :steps_instruction, presence: true, length: { maximum: 100 }
-  # end
-
-  # validate :no_blank
+  with_options if: :with_recipe? do
+    validates :serving, presence: true
+    validate :no_blank_for_recipe_field
+  end
 
   mount_uploader :post_image, PostImageUploader
 
@@ -46,18 +42,6 @@ class PostForm
 
   def save(tag_list)
     return false if invalid?
-    if mode == 10
-      if ingredients_name.nil?
-        errors.add(:base, "材料が入力されていません")
-        return false
-      elsif steps_instruction.nil?
-        errors.add(:base, "作り方が入力されていません")
-        return false
-      elsif ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?) || serving.blank?
-        errors.add(:base, "レシピ用フォームに空欄があります")
-        return false
-      end
-    end
     ActiveRecord::Base.transaction do
       post = Post.create!(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
       post.save_tag(tag_list)
@@ -81,18 +65,6 @@ class PostForm
 
   def update(tag_list)
     return false if invalid?
-    if mode == 10
-      if ingredients_name.nil?
-        errors.add(:base, "材料が入力されていません")
-        return false
-      elsif steps_instruction.nil?
-        errors.add(:base, "作り方が入力されていません")
-        return false
-      elsif ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)|| serving.blank?
-        errors.add(:base, "レシピ用フォームに空欄があります")
-        return false
-      end
-    end
     ActiveRecord::Base.transaction do
       @post.update!(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode)
       @post.save_tag(tag_list)
@@ -135,11 +107,21 @@ class PostForm
     }
   end
 
-  # def with_recipe?
-  #   return false unless self.mode == "10"
-  # end
+  def with_recipe?
+    return true if mode == 10
+    false
+  end
 
-  # def no_blank
-  #   errors.add(:base, 'フォームに空欄があります') if ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)
-  # end
+  def no_blank_for_recipe_field
+    if ingredients_name.nil?
+      errors.add(:base, "材料が入力されていません")
+      return false
+    elsif steps_instruction.nil?
+      errors.add(:base, "作り方が入力されていません")
+      return false
+    elsif ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)
+      errors.add(:base, "レシピ用フォームに空欄があります")
+      return false
+    end
+  end
 end
