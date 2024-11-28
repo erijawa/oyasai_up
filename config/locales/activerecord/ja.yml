@@ -47,3 +47,6 @@ ja:
       mode:
         without_recipe: レシピなし
         with_recipe: レシピあり
+      status:
+        published: 公開済み
+        draft: 下書き

@@ -1,9 +1,12 @@
 <div class="container">
   <h2><%= @post.title %></h2>
   <div class="max-w-2xl mx-auto">
+    <% if @post.draft? %>
+      <div class="badge badge-accent md:badge-lg badge-sm text-white block mb-2">下書き</div>
+    <% end %>
     <% if @post.tags.present? %>
       <% @post.tags.each do |tag| %>
-        <div class="badge badge-outline badge-lg"><%= tag.name %></div>
+        <div class="badge badge-outline md:badge-lg badge-sm"><%= tag.name %></div>
       <% end %>
     <% end %>
     <div class="mx-auto w-10/12 mt-4 rounded-md flex justify-center">
@@ -13,15 +16,18 @@
     <% if @post.description.present? %>
       <p class="mt-10 text-xl text-center break-words"><%= @post.description %></p>
     <% end %>
-    <div class="text-right mt-10 w-8">
-      <%= link_to "#", class:"" do %>
+    <div class="flex flex-row-reverse sm:mt-10 mt-4 items-center">
+      <%= link_to "#", class:"ml-2" do %>
         <svg class="w-8 h-8 text-neutral" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
         </svg>
       <% end %>
+      <% if current_user && !current_user.own?(@post) %>
+        <%= render "bookmark_buttons", { post: @post } %>
+      <% end %>
     </div>
-    <div class="md:flex justify-between w-full">
-      <%= link_to user_path(@post.user), class: "mt-10 flex items-center text-lg underline underline-offset-4 hover:text-secondary hover:duration-100" do %>
+    <div class="sm:flex sm:mt-10 mt-4 justify-between items-center w-full">
+      <%= link_to user_path(@post.user), class: "flex items-center text-lg underline underline-offset-4 hover:text-secondary hover:duration-100" do %>
         <div class="avatar mr-2">
           <div class="w-16 rounded-full">
             <%= image_tag "post_default.png"%>
@@ -30,19 +36,17 @@
         <%= @post.user.name%>
       <% end %>
       <% if current_user&.own?(@post)%>
-        <div class="mt-10 flex items-center">
+        <div class="flex items-center">
           <%= link_to "編集", edit_post_path, class:"btn btn-primary text-white mr-2" %>
           <%= link_to '削除', post_path(@post), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか?' }, class:"btn btn-secondary text-white" %>
         </div>
-      <% elsif current_user %>
-        <%= render "bookmark_buttons", { post: @post } %>
       <% end %>
     </div>
 
     <% if @post.with_recipe?%>
       <div class="md:flex justify-between w-full mt-10">
         <div class="md:w-5/12">
-          <p class="text-xl font-bold md:mb-8">材料 / <span class="text-base"><%= @post.recipe_serving.serving %>人分</span></p>
+          <p class="text-xl font-bold md:mb-8">材料 / <span class="text-base"><%= @post.recipe_serving&.serving %>人分</span></p>
           <div class="overflow-x-auto mb-10">
             <table class="table">
               <!-- head -->
@@ -79,7 +83,12 @@
     <% end %>
   </div>
 
-  <div class="text-center mt-20 mb-40">
-    <%= link_to "一覧に戻る",posts_path, class: "btn btn-primary" %>
+  <div class="flex flex-col items-center mt-20 mb-40">
+    <%= link_to "おやさいReport一覧を見る",posts_path, class: "btn btn-primary text-white mb-4" %>
+    <% if current_user && @post.published? %>
+      <%= link_to "お気に入り一覧を見る", bookmarks_posts_path, class: "btn btn-primary text-white mb-4" %>
+    <% elsif @post.draft? %>
+      <%= link_to "下書き一覧を見る", drafts_posts_path, class: "btn btn-primary text-white"%>
+    <% end %>
   </div>
 </div>

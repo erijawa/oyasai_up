@@ -9,6 +9,9 @@
     <% if post.with_recipe? %>
       <div class="badge badge-secondary text-white">レシピ付き</div>
     <% end %>
+    <% if post.draft? %>
+      <div class="badge badge-accent text-white">下書き</div>
+    <% end %>
     <p class="txt-limit"><%= post.description %></p>
     <p><%= post.user.name %></p>
     <div class="card-actions justify-end">

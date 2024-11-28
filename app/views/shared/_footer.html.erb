@@ -2,10 +2,12 @@
 
     <%= link_to posts_path, class: "flex flex-col items-center flex-1 py-1" do %>
         <%= image_tag 'search.svg', class: "h-5 w-5 mb-1" %>
+        <span class="text-[0.5rem] btm-nav-label"><%= t('footer.post_index') %></span>
     <% end %>
 
     <%= link_to bookmarks_posts_path, class: "flex flex-col items-center flex-1 py-1" do %>
         <%= image_tag 'bookmark_white.svg', class: "h-5 w-5 mb-1" %>
+        <span class="text-[0.5rem] btm-nav-label"><%= t('footer.bookmarks') %></span>
     <% end %>
 
     <%= link_to new_post_path, class: "flex flex-col items-center flex-1 py-1" do %>
@@ -13,17 +15,20 @@
         <span class="text-[0.5rem] btm-nav-label"><%= t('footer.post_new') %></span>
     <% end %>
 
-    <%= link_to "#", class: "flex flex-col items-center flex-1 py-1" do %>
+    <%= link_to drafts_posts_path, class: "flex flex-col items-center flex-1 py-1" do %>
         <%= image_tag 'draft.svg', class: "h-5 w-5 mb-1" %>
+        <span class="text-[0.5rem] btm-nav-label"><%= t('footer.drafts') %></span>
     <% end %>
     
     <% if current_user %>
       <%= link_to user_path(current_user), class: "flex flex-col items-center flex-1 py-1" do %>
           <%= image_tag 'person.svg', class: "h-5 w-5 mb-1" %>
+          <span class="text-[0.5rem] btm-nav-label"><%= t('footer.mypage') %></span>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path, class: "flex flex-col items-center flex-1 py-1" do %>
         <%= image_tag 'person.svg', class: "h-5 w-5 mb-1" %>
+        <span class="text-[0.5rem] btm-nav-label"><%= t('footer.login') %></span>
       <% end %>
     <% end %>
 

@@ -1,5 +1,9 @@
 <div class="container form-container">
-  <h2><%= t('.title') %></h2>
+  <% if @post.draft? %>
+    <h2><%= t('.draft_title') %></h2>
+  <% else %>
+    <h2><%= t('.title') %></h2>
+  <% end %>
 
   <%= render "form", post_form: @post_form, url: post_path(@post), ingredients_form_count:@ingredients_form_count,steps_form_count:@steps_form_count %>
 

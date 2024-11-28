@@ -1,10 +1,13 @@
 ja:
   defaults:
     post: 投稿
+    draft: 下書き
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
       edited: "%{item}を更新しました"
+      draft_edited: 下書きに保存しました
+      publish_edited: "%{item}を更新し公開しました"
       not_edited: "%{item}を更新出来ませんでした"
       deleted: "%{item}を削除しました"
       not_authenticated: 権限がありません
@@ -43,6 +46,11 @@ ja:
     draft_index: 下書き一覧
   footer:
     post_new: Reportを書く
+    post_index: Report一覧
+    bookmarks: ブックマーク
+    drafts: 下書き
+    mypage: マイページ
+    login: ログイン
   posts:
     new:
       title: おやさいReport作成
@@ -51,10 +59,17 @@ ja:
     index:
       title: おやさいReport一覧
     edit:
+      draft_title: 下書き編集
       title: おやさいReport編集
     bookmarks:
       title: ブックマーク一覧
-      no_result: ブックマーク中のおやさいReportがありません。
+      no_result: ブックマーク中のおやさいReportはありません
+    drafts:
+      title: 下書き一覧
+      no_result: おやさいReportの下書きはありません
+    users:
+      edit:
+        title: プロフィール編集
   bookmarks:
     create:
       success: ブックマークしました
@@ -81,3 +96,6 @@ ja:
   search:
     placeholder: タイトル・本文
     blank: レシピの有無
+  form:
+    publish: 公開する
+    draft: 下書き保存

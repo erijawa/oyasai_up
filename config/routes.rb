@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[show edit update]
   resources :posts, only: %i[index new create show edit update destroy] do
     get "bookmarks", on: :collection
+    get "drafts", on: :collection
   end
   resources :bookmarks, only: %i[create destroy]
   resources :vegetable_logs, only: %i[create update]
