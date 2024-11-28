@@ -52,7 +52,7 @@
                         <% end %>
                     </li>
                     <li>
-                        <%= link_to "#", data: { turbo: false }, class: "text-base hover:text-secondary" do %>
+                        <%= link_to bookmarks_posts_path, data: { turbo: false }, class: "text-base hover:text-secondary" do %>
                             <%= image_tag 'bookmark_neutral.svg', class: 'h-4 w-4 mr-2' %>
                             <%= t('header.bookmark_index') %>
                         <% end %>
@@ -64,7 +64,7 @@
                         <% end %>
                     </li>
                     <li>
-                        <%= link_to "#", data: { turbo: false }, class: "text-base hover:text-secondary" do %>
+                        <%= link_to drafts_posts_path, data: { turbo: false }, class: "text-base hover:text-secondary" do %>
                             <%= image_tag 'note_neutral.svg', class: 'h-4 w-4 mr-2' %>
                             <%= t('header.draft_index') %>
                         <% end %>

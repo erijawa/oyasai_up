@@ -5,6 +5,7 @@
     <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 xl:grid-cols-3 xl:gap-6 break-words">
       <%= render @draft_posts %>
     </div>
+    <%= paginate @draft_posts %>
   <% else %>
     <p class="text-center"><%= t('.no_result') %></p>
   <% end %>
