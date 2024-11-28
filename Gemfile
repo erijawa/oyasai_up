@@ -81,3 +81,6 @@ gem "kaminari"
 
 # search
 gem "ransack"
+
+# openAI用
+gem "faraday"
