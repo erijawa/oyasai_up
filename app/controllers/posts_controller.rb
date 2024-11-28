@@ -15,6 +15,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if @post.draft?
+      if !current_user || @post.user_id != current_user.id
+        redirect_back fallback_location: root_path, notice: t("defaults.flash_message.not_authenticated")
+      end
+    end
   end
 
   def create
@@ -96,6 +101,10 @@ class PostsController < ApplicationController
   end
 
   def set_post
-    @post = current_user.posts.find(params[:id])
+    begin
+      @post = current_user.posts.find(params[:id])
+    rescue
+      redirect_back fallback_location: root_path, notice: t("defaults.flash_message.not_authenticated")
+    end
   end
 end

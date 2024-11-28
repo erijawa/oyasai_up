@@ -46,6 +46,11 @@ ja:
     draft_index: 下書き一覧
   footer:
     post_new: Reportを書く
+    post_index: Report一覧
+    bookmarks: ブックマーク
+    drafts: 下書き
+    mypage: マイページ
+    login: ログイン
   posts:
     new:
       title: おやさいReport作成

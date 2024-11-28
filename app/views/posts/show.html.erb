@@ -83,7 +83,12 @@
     <% end %>
   </div>
 
-  <div class="text-center mt-20 mb-40">
-    <%= link_to "戻る",:back, class: "btn btn-primary text-white" %>
+  <div class="flex flex-col items-center mt-20 mb-40">
+    <%= link_to "おやさいReport一覧を見る",posts_path, class: "btn btn-primary text-white mb-4" %>
+    <% if current_user && @post.published? %>
+      <%= link_to "お気に入り一覧を見る", bookmarks_posts_path, class: "btn btn-primary text-white mb-4" %>
+    <% elsif @post.draft? %>
+      <%= link_to "下書き一覧を見る", drafts_posts_path, class: "btn btn-primary text-white"%>
+    <% end %>
   </div>
 </div>
