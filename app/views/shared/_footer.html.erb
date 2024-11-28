@@ -13,7 +13,7 @@
         <span class="text-[0.5rem] btm-nav-label"><%= t('footer.post_new') %></span>
     <% end %>
 
-    <%= link_to "#", class: "flex flex-col items-center flex-1 py-1" do %>
+    <%= link_to drafts_posts_path, class: "flex flex-col items-center flex-1 py-1" do %>
         <%= image_tag 'draft.svg', class: "h-5 w-5 mb-1" %>
     <% end %>
     

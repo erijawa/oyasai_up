@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   root "static_pages#home"
-  resources :users, only: %i[show edit update] do
-    get "drafts", on: :member
-  end
+  resources :users, only: %i[show edit update]
   resources :posts, only: %i[index new create show edit update destroy] do
     get "bookmarks", on: :collection
+    get "drafts", on: :collection
   end
   resources :bookmarks, only: %i[create destroy]
   resources :vegetable_logs, only: %i[create update]

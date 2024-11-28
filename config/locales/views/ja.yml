@@ -58,7 +58,13 @@ ja:
       title: おやさいReport編集
     bookmarks:
       title: ブックマーク一覧
-      no_result: ブックマーク中のおやさいReportがありません。
+      no_result: ブックマーク中のおやさいReportはありません
+    drafts:
+      title: 下書き一覧
+      no_result: おやさいReportの下書きはありません
+    users:
+      edit:
+        title: プロフィール編集
   bookmarks:
     create:
       success: ブックマークしました
