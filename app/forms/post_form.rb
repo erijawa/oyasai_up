@@ -42,7 +42,6 @@ class PostForm
 
 
   def save(tag_list)
-    self.status = status == "公開する" ? 0 : 1
     return false if invalid?
     ActiveRecord::Base.transaction do
       post = Post.create!(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode, status: status)
@@ -66,7 +65,6 @@ class PostForm
   end
 
   def update(tag_list)
-    self.status = status == "公開する" ? 0 : 1
     return false if invalid?
     ActiveRecord::Base.transaction do
       @post.update!(user_id: user_id, title: title, description: description, post_image: post_image, mode: mode, status: status)

@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
   def create
     @post_form = PostForm.new(post_params)
+    @post_form.status = params[:draft] ? 1 : 0
     @ingredients_form_count = @post_form.ingredients_name ? @post_form.ingredients_name.size : 0
     @steps_form_count = @post_form.steps_instruction ? @post_form.steps_instruction.size : 0
     tag_list = params[:post_form][:tag_names]&.split(",")
@@ -43,15 +44,16 @@ class PostsController < ApplicationController
 
   def update
     @post_form = PostForm.new(post_params, post: @post)
+    @post_form.status = params[:draft] ? 1 : 0
     @ingredients_form_count = @post_form.ingredients_name ? @post_form.ingredients_name.size : 0
     @steps_form_count = @post_form.steps_instruction ? @post_form.steps_instruction.size : 0
     tag_list = params[:post_form][:tag_names]&.split(",")
     post = @post_form.update(tag_list)
     if post
       if post.draft?
-        redirect_to post_path(post), notice: t("defaults.flash_message.edited", item: "下書き")
+        redirect_to post_path(post), notice: t("defaults.flash_message.draft_edited")
       else
-        redirect_to post_path(post), notice: t("defaults.flash_message.edited", item: Post.model_name.human)
+        redirect_to post_path(post), notice: t("defaults.flash_message.publish_edited", item: Post.model_name.human)
       end
     else
       flash.now[:alert] = t("defaults.flash_message.not_edited", item: Post.model_name.human)
@@ -79,7 +81,6 @@ class PostsController < ApplicationController
       :post_image_cache,
       :tag_names,
       :mode,
-      :status,
       :serving,
       { ingredients_name: [] },
       { ingredients_quantity: [] },
