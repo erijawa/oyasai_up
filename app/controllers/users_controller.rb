@@ -21,6 +21,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def drafts
+    @q = current_user.bookmark_posts.ransack(params[:q])
+    @draft_posts = @q.result(distinct: true).draft.includes(:user).order(created_at: :desc).page(params[:page])
+  end
+
   private
 
   def user_params
