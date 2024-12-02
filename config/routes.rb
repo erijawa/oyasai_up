@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :posts, only: %i[index new create show edit update destroy] do
     get "bookmarks", on: :collection
     get "drafts", on: :collection
-    resources :ai_recipes, only: %i[create]
   end
+  resources :ai_recipes, only: %i[create]
   resources :bookmarks, only: %i[create destroy]
   resources :vegetable_logs, only: %i[create update]
   devise_for :users,
