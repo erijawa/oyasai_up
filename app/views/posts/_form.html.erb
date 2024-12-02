@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= f.label :mode,Post.human_attribute_name(:mode), class:"label w-full mx-auto" %>
-    <%= f.select :mode, [["レシピなし", 0], ["レシピを書く", 10]], {}, {id: 'mode', class: 'select select-bordered select-info w-full max-w-xs mb-6'} %>
+    <%= f.select :mode, Post.enum_options_for_select(:mode), {}, {id: 'mode', class: 'select select-bordered select-info w-full max-w-xs mb-6'} %>
   </div>
 
   <div id="recipe_fields" style="<%= "display:none" if @post_form.mode.nil? || @post_form.mode == 0 %>">
