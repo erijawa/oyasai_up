@@ -1,5 +1,6 @@
 class AiRecipesController < ApplicationController
   class CsrfProtectionError < StandardError; end
+  before_action :authenticate_user!
 
   protect_from_forgery
   before_action :check_csrf

@@ -15,6 +15,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @ingredient_names = @post.recipe_ingredients.pluck(:name)
     if @post.draft?
       if !current_user || @post.user_id != current_user.id
         redirect_back fallback_location: root_path, notice: t("defaults.flash_message.not_authenticated")
