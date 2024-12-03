@@ -27,15 +27,16 @@ module Openai
 
               Ingredients: replace #{former_ingredient_name} with #{new_ingredient_name}
               Plese answer in Japanese.
-              Output should be less than 300 tokens
+              Output should be JSON object and less than 300 tokens
 
-
-              # output
-              タイトル:(no break)
-              材料(一人前):(no more than 6, format:-ingredient_name:quantity)
-              手順:(less than 8 steps)"
+              # keys for output
+              - title
+              - ingredients:(no more than 6, format: keys for JSON should be ingredient_name and values for JSON should be quantity)
+              - steps:(less than 8 steps, format: keys for JSON should be step_number and values for JSON should be instruction)
+              - tips:(tips for cooking)"
           }
-        ]
+        ],
+        response_format: { "type": "json_object" }
       }.to_json
     end
 

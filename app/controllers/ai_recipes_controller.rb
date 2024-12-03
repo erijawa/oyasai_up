@@ -10,7 +10,7 @@ class AiRecipesController < ApplicationController
     @post = Post.find(params[:post_id])
     former_ingredients = @post.recipe_ingredients.to_json(only: [:name, :quantity])
     former_steps = @post.recipe_steps.to_json(only: [:order, :instruction])
-    @response = Openai::ApiResponseService.new.call(former_ingredient_name, new_ingredient_name,former_ingredients,former_steps)
+    @response = JSON.parse(Openai::ApiResponseService.new.call(former_ingredient_name, new_ingredient_name,former_ingredients,former_steps))
 
   rescue => e
     render json: { error: e.message }, status: :internal_server_error
