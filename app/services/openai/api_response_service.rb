@@ -1,17 +1,41 @@
 module Openai
   class ApiResponseService < BaseService
-    def call(input)
-      body = build_body(input)
+    def call(former_ingredient_name, new_ingredient_name,former_ingredients,former_steps)
+      body = build_body(former_ingredient_name, new_ingredient_name,former_ingredients,former_steps)
       response = post_request(url: '/v1/chat/completions', body: body)
       extract_message_content(response)
     end
 
     private
 
-    def build_body(input)
+    def build_body(former_ingredient_name, new_ingredient_name,former_ingredients,former_steps)
       {
         model: @model,
-        messages: [{ role: "user", content: input }]
+        messages: [
+          { role: "system", content: "You are professional chef." },
+          { role: "user",
+            content:
+              "Please provide a recipe with the following conditions.
+
+              # a recipe to refer to
+              Ingredients:
+                #{former_ingredients}
+              How to cook:
+                #{former_steps}
+
+              # conditions
+
+              Ingredients: replace #{former_ingredient_name} with #{new_ingredient_name}
+              Plese answer in Japanese.
+              Output should be less than 300 tokens
+
+
+              # output
+              タイトル:(no break)
+              材料(一人前):(no more than 6, format:-ingredient_name:quantity)
+              手順:(less than 8 steps)"
+          }
+        ]
       }.to_json
     end
 
