@@ -10,7 +10,7 @@ module Openai
 
     def initialize(model: 'gpt-3.5-turbo', timeout: 10)
       @model = model
-      @connection = Faraday.new(url: 'https://api.openai.com') do |f| # point1
+      @connection = Faraday.new(url: 'https://api.openai.com') do |f|
         f.headers['Authorization'] = "Bearer #{Rails.application.credentials.OPENAI_API_KEY}"
         f.headers['Content-Type'] = 'application/json'
         f.options[:timeout] = timeout
@@ -30,7 +30,7 @@ module Openai
 
     private
 
-    def handle_response_errors(response) # point2
+    def handle_response_errors(response)
       case response.status
       when 200
       when 401

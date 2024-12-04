@@ -31,12 +31,10 @@
               <tbody>
                 <!-- row  -->
                 <% @response["ingredients"].each do |key,value|%>
-  
-                    <tr>
-                      <td><%= key %></td>
-                      <td><%= value %></td>
-                    </tr>
-
+                  <tr>
+                    <td><%= key %></td>
+                    <td><%= value %></td>
+                  </tr>
                 <% end %>
               </tbody>
             </table>
@@ -46,12 +44,10 @@
           <p class="text-xl font-bold md:mb-8">作り方</p>
           <div class="mt-4 md:mt-10">
             <% @response["steps"].each do |key,value|%>
-
-                <div class="flex items-start mb-4">
-                  <div class="inline w-8 h-8 rounded-full bg-[#8DBA30] text-center leading-8 mr-1 shrink-0"><%= key %></div>
-                  <p class=""><%= value %></p>
-                </div>
-
+              <div class="flex items-start mb-4">
+                <div class="inline w-8 h-8 rounded-full bg-[#8DBA30] text-center leading-8 mr-1 shrink-0"><%= key %></div>
+                <p class=""><%= value %></p>
+              </div>
             <% end %>
           </div>
         </div>

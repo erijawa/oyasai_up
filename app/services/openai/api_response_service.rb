@@ -12,10 +12,13 @@ module Openai
       {
         model: @model,
         messages: [
-          { role: "system", content: "You are professional chef." },
+          { role: "system", content: "You are a professional chef." },
           { role: "user",
             content:
-              "Please provide a recipe with the following conditions.
+              "Please process the input differently depending on whether a 'new ingredient' is an ingredient or not.
+              new ingredient : #{new_ingredient_name}
+              If the 'new ingredient' is not a food item or a word you don't know, your output should be '食材を入力してください'.
+              Otherwise, please provide a recipe with the following conditions.
 
               # a recipe to refer to
               Ingredients:
