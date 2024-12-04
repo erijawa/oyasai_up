@@ -14,6 +14,7 @@ class AiRecipesController < ApplicationController
     former_ingredients = @post.recipe_ingredients.to_json(only: [:name, :quantity])
     former_steps = @post.recipe_steps.to_json(only: [:order, :instruction])
     @response = JSON.parse(Openai::ApiResponseService.new.call(former_ingredient_name, new_ingredient_name,former_ingredients,former_steps))
+    @post_form = PostForm.new
     if @response == "食材を入力してください"
       flash.now[:alert] = "食材を入力してください"
       render "posts/show", status: :unprocessable_entity

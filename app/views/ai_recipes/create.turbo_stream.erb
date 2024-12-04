@@ -53,8 +53,26 @@
         </div>
       </div>
   </div>
-  <div class="max-w-2xl mx-auto">
+  <div class="max-w-2xl mx-auto mt-4 md:mt-8">
     <p class="text-xl font-bold md:mb-8">調理のコツ</p>
     <p><%= @response["tips"] %></p>
   </div>
+  <%= form_with model: @post_form, url: posts_path do |f| %>
+    <%= f.hidden_field :title, name: "post_form[title]", value: @response["title"] %>
+    <%= f.hidden_field :description,name: "post_form[description]", value: @response["tips"] %>
+    <%= f.hidden_field :tag_names, name: "post_form[tag_names]", value: "AIによる提案レシピ" %>
+    <%= f.hidden_field :mode,name: "post_form[mode]", value: "10" %>
+    <%= f.hidden_field :serving, value: @post.recipe_serving.serving %>
+    <% @response["ingredients"].each do |key,value| %>
+      <%= f.hidden_field :ingredients_name, name: "post_form[ingredients_name][]", value: key %>
+      <%= f.hidden_field :ingredients_quantity, name: "post_form[ingredients_quantity][]",value: value %>
+    <% end %>
+    <% @response["steps"].each do |key,value| %>
+      <%= f.hidden_field :steps_instruction, name: "post_form[steps_instruction][]",value: value %>
+    <% end %>
+    <div class="mt-4 md:mt-16 text-center">
+      <%= f.submit t("form.draft"), name: "draft", class: 'btn btn-accent text-neutral' %>
+    </div>
+  <% end %>
+  
 <% end %>
