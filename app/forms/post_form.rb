@@ -29,11 +29,6 @@ class PostForm
   # 作成・更新に応じてフォームのアクションをPOST・PATCHに切り替える
   delegate :persisted?, to: :post
 
-  # アクションのURLを適切な場所（posts_pathやpost_path(:id)）に切り替える
-  # def to_model
-  #   post
-  # end
-
   def initialize(attributes = nil, post: Post.new)
     @post = post
     attributes ||= default_attributes

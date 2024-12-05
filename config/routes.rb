@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get "bookmarks", on: :collection
     get "drafts", on: :collection
   end
+  resources :ai_recipes, only: %i[create]
   resources :bookmarks, only: %i[create destroy]
   resources :vegetable_logs, only: %i[create update]
   devise_for :users,
