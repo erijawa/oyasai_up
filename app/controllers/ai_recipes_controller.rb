@@ -27,7 +27,7 @@ class AiRecipesController < ApplicationController
 
   def check_csrf
     # Originが許可されていない場合はエラー
-    allowed_origins = ['https://oyasaiup.com', 'https://www.oyasaiup.com', 'http://localhost:3000']
+    allowed_origins = ['https://oyasaiup.com', 'https://www.oyasaiup.com']
     origin = request.headers['Origin']
 
     if origin.blank? || allowed_origins.exclude?(origin)
