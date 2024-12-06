@@ -8,11 +8,11 @@ module Openai
   class BaseService
     attr_reader :model
 
-    def initialize(model: 'gpt-3.5-turbo', timeout: 10)
+    def initialize(model: "gpt-3.5-turbo", timeout: 10)
       @model = model
-      @connection = Faraday.new(url: 'https://api.openai.com') do |f|
-        f.headers['Authorization'] = "Bearer #{Rails.application.credentials.OPENAI_API_KEY}"
-        f.headers['Content-Type'] = 'application/json'
+      @connection = Faraday.new(url: "https://api.openai.com") do |f|
+        f.headers["Authorization"] = "Bearer #{Rails.application.credentials.OPENAI_API_KEY}"
+        f.headers["Content-Type"] = "application/json"
         f.options[:timeout] = timeout
         f.adapter Faraday.default_adapter
       end
@@ -20,12 +20,12 @@ module Openai
 
     protected
 
-    def post_request(url: '/', body: '{}')
+    def post_request(url: "/", body: "{}")
       response = @connection.post(url) { |req| req.body = body }
       handle_response_errors(response)
       response
     rescue Faraday::TimeoutError
-      raise TimeoutError, 'リクエストがタイムアウトしました。もう一度お試しください。'
+      raise TimeoutError, "リクエストがタイムアウトしました。もう一度お試しください。"
     end
 
     private
@@ -42,7 +42,7 @@ module Openai
       when 503
         raise ServiceUnavailableError, extract_message(response.body)
       else
-        raise StandardError, '不明なエラーです。'
+        raise StandardError, "不明なエラーです。"
       end
     end
 
@@ -55,7 +55,7 @@ module Openai
                           rescue JSON::ParserError
                             nil
                           end
-      extracted_message || 'エラーが発生しましたが、エラーメッセージが取得できませんでした。'
+      extracted_message || "エラーが発生しましたが、エラーメッセージが取得できませんでした。"
     end
   end
 end
