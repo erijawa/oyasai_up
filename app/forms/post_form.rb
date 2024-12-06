@@ -112,13 +112,13 @@ class PostForm
   def no_blank_for_recipe_field
     if ingredients_name.nil?
       errors.add(:base, "材料が入力されていません")
-      return false
+      false
     elsif steps_instruction.nil?
       errors.add(:base, "作り方が入力されていません")
-      return false
+      false
     elsif ingredients_name.any?(&:blank?) || ingredients_quantity.any?(&:blank?) || steps_instruction.any?(&:blank?)
       errors.add(:base, "レシピ用フォームに空欄があります")
-      return false
+      false
     end
   end
 end

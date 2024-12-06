@@ -34,6 +34,7 @@ class PostsController < ApplicationController
       if post.draft?
         redirect_to post_path(post), notice: t("defaults.flash_message.created", item: "下書き")
       else
+        current_user.update(level: current_user.level + 1) if current_user.posts.published.count % 5 == 0
         redirect_to post_path(post), notice: t("defaults.flash_message.created", item: Post.model_name.human)
       end
     else
