@@ -85,10 +85,10 @@
 
   <div id="ai-recipe-form-for-post-<%= @post.id %>">
     <% if @post.with_recipe? && @post.published? %>
-      <h3>他の食材で作れるか試してみる</h3>
+      <h3 class="mt-20">材料が無い時は…</h3>
       <div class="text-center">
         <p class="mt-4">レシピの材料が家にない時や、お好みの食材で作ってみたい時はこちら！</p>
-        <p class="my-4">AIがレシピのアレンジをお手伝いします！</p>
+        <p class="mt-4 mb-10">AIがレシピのアレンジをお手伝いします！</p>
         <%= form_with url: ai_recipes_path do |f| %>
           <div class="flex items-center flex-col">
             <p class="my-2">このレシピの</p>

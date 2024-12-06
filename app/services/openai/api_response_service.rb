@@ -1,14 +1,14 @@
 module Openai
   class ApiResponseService < BaseService
-    def call(former_ingredient_name, new_ingredient_name, former_ingredients, former_steps)
-      body = build_body(former_ingredient_name, new_ingredient_name, former_ingredients, former_steps)
+    def call(former_ingredient_name, new_ingredient_name, former_ingredients)
+      body = build_body(former_ingredient_name, new_ingredient_name, former_ingredients)
       response = post_request(url: "/v1/chat/completions", body: body)
       extract_message_content(response)
     end
 
     private
 
-    def build_body(former_ingredient_name, new_ingredient_name, former_ingredients, former_steps)
+    def build_body(former_ingredient_name, new_ingredient_name, former_ingredients)
       {
         model: @model,
         messages: [
@@ -18,16 +18,14 @@ module Openai
               "1.When a word '#{new_ingredient_name}' is invalid, your response should be '999'.
 
               # Invalid Cases:(Return '999')
-              - not a foodstuff
-              - meaningless words or phrases
+              - a word '#{new_ingredient_name}' is not a foodstuff
+              - a word '#{new_ingredient_name}' is meaningless words or phrases
 
               2.When a word '#{new_ingredient_name}' is valid, please provide a recipe with the following conditions.
 
               # a recipe to refer to
               Ingredients:
                 #{former_ingredients}
-              How to cook:
-                #{former_steps}
 
               # conditions
               Ingredients: replace #{former_ingredient_name} with #{new_ingredient_name}
