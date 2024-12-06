@@ -64,6 +64,8 @@ end
 
 # User authentication
 gem "devise"
+gem "omniauth-line"
+gem "omniauth-rails_csrf_protection"
 
 # Image Uploader
 gem "carrierwave", "~> 3.0"
