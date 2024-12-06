@@ -4,7 +4,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: %i[line]
 
   has_many :posts, dependent: :destroy
   has_many :vegetable_logs, dependent: :destroy
