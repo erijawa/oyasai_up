@@ -18,7 +18,8 @@ Rails.application.routes.draw do
     },
     controllers: {
       registrations: "users/registrations",
-      sessions: "users/sessions"
+      sessions: "users/sessions",
+      omniauth_callbacks: "omniauth_callbacks"
   }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
