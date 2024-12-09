@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  enum :line_alert, { need_alert: 0, no_alert: 1 }, validate: true
+
   def own?(object)
     id == object&.user_id
   end
