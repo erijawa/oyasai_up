@@ -26,6 +26,6 @@ class Users::SessionsController < Devise::SessionsController
   # end
   # サインイン後のリダイレクト先を指定する
   def after_sign_in_path_for(resource)
-    posts_path
+    user_path(current_user)
   end
 end

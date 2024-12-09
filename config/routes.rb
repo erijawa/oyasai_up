@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     controllers: {
       registrations: "users/registrations",
       sessions: "users/sessions",
-      omniauth_callbacks: "omniauth_callbacks"
+      omniauth_callbacks: "users/omniauth_callbacks"
   }
   post "/callback" => "linebots#callback"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
