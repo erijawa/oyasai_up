@@ -16,6 +16,15 @@
       <%= image_tag(@user.avatar.url) if @user.avatar? %>
     </div>
 
+    <% if @user.uid.present? %>
+      <div class="field mt-10">
+        <%= f.label :line_alert,User.human_attribute_name(:line_alert), class:"label w-full mx-auto" %>
+        <%= f.collection_radio_buttons :line_alert, User.enum_options_for_radio(:line_alert), :last , :first do |b|  %>
+          <% b.label(class: "label cursor-pointer justify-start") { b.radio_button(class: "radio radio-primary") + b.text } %>
+        <% end %>
+      </div>
+    <% end %>
+
     <div class="actions mt-16">
       <%= f.submit '登録', class: 'btn btn-info w-full mt-6 mb-6 mx-auto' %>
     </div>

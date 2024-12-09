@@ -67,6 +67,9 @@ gem "devise"
 gem "omniauth-line"
 gem "omniauth-rails_csrf_protection"
 
+# line bot
+gem "line-bot-api"
+
 # Image Uploader
 gem "carrierwave", "~> 3.0"
 gem "rmagick"

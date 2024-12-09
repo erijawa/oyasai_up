@@ -75,9 +75,7 @@ ja:
       success: ブックマークしました
     destroy:
       success: ブックマークを外しました
-  profiles:
-    show:
-      title: プロフィール
+  users:
     edit:
       title: プロフィール編集
   password_resets:

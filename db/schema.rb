@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_06_034942) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_09_015137) do
   create_table "bookmarks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
@@ -88,6 +88,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_06_034942) do
     t.integer "level", default: 0, null: false
     t.string "provider"
     t.string "uid"
+    t.integer "line_alert", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
