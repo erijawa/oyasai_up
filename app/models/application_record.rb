@@ -13,4 +13,8 @@ class ApplicationRecord < ActiveRecord::Base
   def self.enum_options_for_select(attr_name)
     self.send(attr_name.to_s.pluralize).map { |key, value| [ self.human_attribute_enum_value(attr_name, key), value ] }.to_h
   end
+
+  def self.enum_options_for_radio(attr_name)
+    self.send(attr_name.to_s.pluralize).map { |k, _| [self.human_attribute_enum_value(attr_name, k), k] }.to_h
+  end
 end

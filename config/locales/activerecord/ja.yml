@@ -17,6 +17,10 @@ ja:
         password_confirmation: パスワード確認
         id: ID
         created_at: 作成日時
+        line_alert: おやさいLogリマインダ設定
+      user/line_alert:
+        need_alert: リマインダを送信する
+        no_alert: リマインダを送信しない
       post:
         title: タイトル
         description: 内容詳細
