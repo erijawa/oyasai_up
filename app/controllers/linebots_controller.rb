@@ -26,7 +26,7 @@ class LinebotsController < ApplicationController
       when Line::Bot::Event::MessageType::Unfollow #友達削除イベント
         userId = event['source']['userId']
         user = User.find_by(uid: userId)
-        user.no_alert!
+        user.update(uid: nil)
       end
     }
 
