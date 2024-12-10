@@ -38,3 +38,7 @@ h3 {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
 }
+.loaded {
+  opacity: 0;
+  visibility: hidden;
+}
