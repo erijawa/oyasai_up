@@ -22,24 +22,4 @@ class AiRecipesController < ApplicationController
   rescue => e
     render json: { error: e.message }, status: :internal_server_error
   end
-
-  private
-
-  def check_csrf
-    # Originが許可されていない場合はエラー
-    allowed_origins = [ "https://oyasaiup.com", "https://www.oyasaiup.com" ]
-    origin = request.headers["Origin"]
-
-    if origin.blank? || allowed_origins.exclude?(origin)
-      raise CsrfProtectionError
-    end
-
-    # Sec-Fetch-Siteが存在していて許可されていない場合はエラー
-    allowed_values = [ "same-origin", "same-site" ]
-    sec_fetch_site = request.headers["Sec-Fetch-Site"]
-
-    if sec_fetch_site.present? && allowed_values.exclude?(sec_fetch_site.downcase)
-      raise CsrfProtectionError
-    end
-  end
 end
