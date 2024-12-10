@@ -4,6 +4,9 @@
     <title><%= content_for(:title) || "Myapp" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <% if @turbo_control %>
+      <meta name="turbo-visit-control" content="reload">
+    <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -15,6 +18,7 @@
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= javascript_include_tag "loading", "data-turbo-track": "reload", type: "module" %>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/cal-heatmap/dist/cal-heatmap.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/cal-heatmap/dist/cal-heatmap.css">
@@ -31,6 +35,7 @@
   </head>
 
   <body class="text-neutral">
+    <%= render "shared/loading" %>
     <%= render "shared/header" %>
     <%= render "shared/flash_messages" %>
     <%= yield %>

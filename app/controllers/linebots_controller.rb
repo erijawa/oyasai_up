@@ -1,6 +1,9 @@
 class LinebotsController < ApplicationController
   require "line/bot"
 
+  protect_from_forgery
+  before_action :check_csrf
+
   def client
     @client ||= Line::Bot::Client.new { |config|
       config.channel_secret = Rails.application.credentials.LINE_CHANNEL_SECRET
