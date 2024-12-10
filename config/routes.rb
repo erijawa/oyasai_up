@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root "static_pages#home"
+  get "policy", to: "static_pages#policy"
+  get "term", to: "static_pages#term"
   resources :users, only: %i[show edit update]
   resources :posts, only: %i[index new create show edit update destroy] do
     get "bookmarks", on: :collection
