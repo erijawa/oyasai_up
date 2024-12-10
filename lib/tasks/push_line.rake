@@ -9,7 +9,7 @@ namespace :push_line do
       users = User.where.not(uid: nil).need_alert
       users.each do |user|
         message = {
-            type: 'text',
+            type: "text",
             text: "今日はお野菜食べましたか？おやさいLogに記録しましょう！https://www.oyasaiup.com/login"
         }
         client.push_message(user.uid, message)
