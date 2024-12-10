@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, only: %i[ edit update ]
 
   def show
+    @turbo_control = true
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page])
     vegetable_logs = VegetableLog.where(user_id: @user.id)
