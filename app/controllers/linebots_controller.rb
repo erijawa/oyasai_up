@@ -11,7 +11,7 @@ class LinebotsController < ApplicationController
   def callback
     body = request.body.read
 
-    signature = request.env['HTTP_X_LINE_SIGNATURE']
+    signature = request.env["HTTP_X_LINE_SIGNATURE"]
     unless client.validate_signature(body, signature)
       head :bad_request
     end
@@ -19,12 +19,12 @@ class LinebotsController < ApplicationController
     events = client.parse_events_from(body)
 
     events.each { |event|
-      user_id = event['source']['userId']
+      user_id = event["source"]["userId"]
       user = User.find_by(uid: user_id)
-      if event.message['text'].include?("リマインダ登録")
+      if event.message["text"].include?("リマインダ登録")
         message = "リマインダを設定しました。毎日20時におやさいLogのリマインダを送信します。"
         user.need_alert!
-      elsif event.message['text'].include?("リマインダ解除")
+      elsif event.message["text"].include?("リマインダ解除")
         message = "おやさいLogのリマインダを解除しました。リマインダを再開したい時は「リマインダ登録」と送信してください。"
         user.no_alert!
       else
@@ -34,11 +34,11 @@ class LinebotsController < ApplicationController
       when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          client.reply_message(event['replyToken'], message)
+          client.reply_message(event["replyToken"], message)
         end
-      when Line::Bot::Event::MessageType::Follow #友達登録イベント
+      when Line::Bot::Event::MessageType::Follow # 友達登録イベント
         User.find_or_create_by(uid: user_id)
-      when Line::Bot::Event::MessageType::Unfollow #友達削除イベント
+      when Line::Bot::Event::MessageType::Unfollow # 友達削除イベント
         user.update(uid: nil)
       end
     }
