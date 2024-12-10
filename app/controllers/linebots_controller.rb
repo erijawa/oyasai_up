@@ -19,13 +19,27 @@ class LinebotsController < ApplicationController
     events = client.parse_events_from(body)
 
     events.each { |event|
+      user_id = event['source']['userId']
+      user = User.find_by(uid: user_id)
+      if event.message['text'].include?("リマインダ登録")
+        message = "リマインダを設定しました。毎日20時におやさいLogのリマインダを送信します。"
+        user.need_alert!
+      elsif event.message['text'].include?("リマインダ解除")
+        message = "おやさいLogのリマインダを解除しました。リマインダを再開したい時は「リマインダ登録」と送信してください。"
+        user.no_alert!
+      else
+        message = "このトークルームではおやさいLogのリマインダ設定の変更ができます。リマインダが必要な場合は「リマインダ登録」、解除したいときは「リマインダ解除」と送信してください。"
+      end
       case event
+      when Line::Bot::Event::Message
+        case event.type
+        when Line::Bot::Event::MessageType::Text
+          client.reply_message(event['replyToken'], message)
+        end
+      end
       when Line::Bot::Event::MessageType::Follow #友達登録イベント
-        userId = event['source']['userId']
-        User.find_or_create_by(uid: userId)
+        User.find_or_create_by(uid: user_id)
       when Line::Bot::Event::MessageType::Unfollow #友達削除イベント
-        userId = event['source']['userId']
-        user = User.find_by(uid: userId)
         user.update(uid: nil)
       end
     }

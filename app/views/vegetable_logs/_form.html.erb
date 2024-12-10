@@ -1,5 +1,23 @@
 <h3>おやさい、食べた？</h3>
 <p class="my-8 text-center">どのくらいおやさいを食べたか、直感で記録しましょう！</p>
+<div role="alert" class="alert">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    class="stroke-info h-6 w-6 shrink-0">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+  </svg>
+  <span>LINEで友だち追加すると、毎日20時におやさいLog更新のリマインダが届きます</span>
+  <div class="line-it-button" data-lang="ja" data-type="friend" data-env="REAL"   data-lineId="@149ixjmn" style="display: none;"></div>
+  <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+</div>
+
+
 <%= form_with model: @vegetable_log do |f| %>
   <%= f.label :breakfast,"朝ごはん", class: "label cursor-pointer" %>
   <%= f.range_field :breakfast, in: 0..10, class: "range range-secondary" %>
