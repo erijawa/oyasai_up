@@ -24,6 +24,12 @@
       <%= f.password_field :password, autocomplete: "current-password", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
     </div>
 
+    <% if devise_mapping.rememberable? %>
+      <div class="mx-auto flex items-center justify-center mt-16">
+        <%= f.check_box :remember_me, class: "checkbox checkbox-info mr-2" %>
+        <%= f.label :remember_me, class: "cursor-pointer" %>
+      </div>
+    <% end %>
 
 
     <div class="actions">
