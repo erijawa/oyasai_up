@@ -1,8 +1,7 @@
 class LinebotsController < ApplicationController
   require "line/bot"
 
-  protect_from_forgery
-  before_action :check_csrf
+  protect_from_forgery :except => [:callback]
 
   def client
     @client ||= Line::Bot::Client.new { |config|
