@@ -3,8 +3,11 @@
   <p class="text-center mb-10"><span class="text-red-600">*</span>は入力必須項目です。</p>
 
   <div class="field">
-    <span class="text-red-600">*</span>
-    <%= f.label :title,Post.human_attribute_name(:title), class:"w-full mx-auto font-bold" %>
+    
+    <%= f.label :title, class:"w-full mx-auto font-bold" do %>
+      <span class="text-red-600">*</span>
+      <%= Post.human_attribute_name(:title) %>
+    <% end %>
     <%= f.text_field :title, autofocus: true, autocomplete: "タイトル", class: 'input input-bordered input-info form-control mb-6 mt-2 w-full mx-auto' %>
   </div>
 
@@ -39,11 +42,13 @@
   </div>
 
   <div id="recipe_fields" style="<%= "display:none" if @post_form.mode.nil? || @post_form.mode == 0 %>">
-    <div class="field">
-      <span class="text-red-600">*</span>
-      <%= f.label :serving,RecipeServing.model_name.human, class:"w-full mx-auto font-bold" %>
+    <div class="field mb-6">
+      <%= f.label :serving, class:"w-full mx-auto font-bold" do %>
+        <span class="text-red-600">*</span>
+        <%= RecipeServing.model_name.human %>
+      <% end %>
       <div class="mt-2">
-        <%= f.text_field :serving, class:'input input-bordered input-info form-control mb-6 inline w-16' %><p class="inline ml-2">人前</p>
+        <%= f.text_field :serving, class:'input input-bordered input-info form-control inline w-16' %><p class="inline ml-2">人前</p>
       </div>
     </div>
 
