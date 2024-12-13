@@ -43,9 +43,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
       @profile.set_values(@omniauth)
       sign_in(:user, @profile)
+
+      flash[:notice] = "ログインしました"
+      redirect_to user_path(current_user)
+    else
+      flash[:alert] = "認証に失敗しました"
+      redirect_to user_session_path
     end
-    flash[:notice] = "ログインしました"
-    redirect_to user_path(current_user)
+
   end
 
   def fake_email(uid, provider)
