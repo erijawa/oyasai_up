@@ -29,6 +29,8 @@ ja:
         id: ID
         created_by: 作成者
         created_at: 作成日時
+      tag:
+        name: タグ
       post/mode:
         without_recipe: レシピなし
         with_recipe: レシピ付き

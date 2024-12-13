@@ -94,7 +94,7 @@
             <p class="my-2">このレシピの</p>
             <%= f.select(:former_ingredient_name, @ingredient_names, { include_blank: "選択してください" }, class: "select select-primary w-full max-w-xs") %>
             <p class="my-2">を</p>
-            <%= f.text_field(:new_ingredient_name, class:"input input-bordered input-primary w-full max-w-xs", placeholder: "食材を入力") %>
+            <%= f.text_field(:new_ingredient_name, class:"input input-bordered input-primary w-full max-w-xs", placeholder: "30字以内で食材を入力") %>
             <p class="mt-2">に変えたら…？</p>
           </div>
           <%= f.hidden_field :post_id, value: @post.id %>
