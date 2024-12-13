@@ -15,25 +15,38 @@
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
+    <p class="text-center mt-4 mb-10"><span class="text-red-600">*</span>は入力必須項目です。</p>
 
     <div class="field">
-      <%= f.label :name, class:"label w-full mx-auto" %>
-      <%= f.text_field :name, autofocus: true, autocomplete: "ユーザー名", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
+      <%= f.label :name, class:"w-full mx-auto" do %>
+        <span class="text-red-600">*</span>
+        <%= User.human_attribute_name(:name) %>
+      <% end%>
+      <%= f.text_field :name, autofocus: true, autocomplete: "ユーザー名", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto mt-2', placeholder: "10文字以下" %>
     </div>
 
     <div class="field">
-      <%= f.label :email, class:"label w-full mx-auto" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
+      <%= f.label :email, class:"w-full mx-auto" do %>
+        <span class="text-red-600">*</span>
+        <%= User.human_attribute_name(:email) %>
+      <% end%>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto mt-2', placeholder: "メールアドレスを入力" %>
     </div>
 
     <div class="field">
-      <%= f.label :password, class:"label w-full mx-auto" %>
-      <%= f.password_field :password, autocomplete: "new-password", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
+      <%= f.label :password, class:"w-full mx-auto" do %>
+        <span class="text-red-600">*</span>
+        <%= User.human_attribute_name(:password) %>
+      <% end%>
+      <%= f.password_field :password, autocomplete: "new-password", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto mt-2', placeholder: "6文字以上" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation, class:"label w-full mx-auto" %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
+      <%= f.label :password_confirmation, class:"w-full mx-auto" do %>
+        <span class="text-red-600">*</span>
+        <%= User.human_attribute_name(:password_confirmation) %>
+      <% end%>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto mt-2', placeholder: "パスワードをもう一度" %>
     </div>
 
     <div class="mx-auto flex items-center justify-center mt-16">

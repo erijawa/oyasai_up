@@ -23,7 +23,7 @@
         </svg>
       <% end %>
       <% if current_user && !current_user.own?(@post) %>
-        <%= render "bookmark_buttons", { post: @post } %>
+        <%= render "posts/bookmark_buttons", { post: @post } %>
       <% end %>
     </div>
     <div class="sm:flex sm:mt-10 mt-4 justify-between items-center w-full">
@@ -94,7 +94,7 @@
             <p class="my-2">このレシピの</p>
             <%= f.select(:former_ingredient_name, @ingredient_names, { include_blank: "選択してください" }, class: "select select-primary w-full max-w-xs") %>
             <p class="my-2">を</p>
-            <%= f.text_field(:new_ingredient_name, class:"input input-bordered input-primary w-full max-w-xs", placeholder: "30字以内で食材を入力") %>
+            <%= f.text_field(:new_ingredient_name, class:"input input-bordered input-primary w-full max-w-xs", placeholder: "20字以内で食材を入力") %>
             <p class="mt-2">に変えたら…？</p>
           </div>
           <%= f.hidden_field :post_id, value: @post.id %>

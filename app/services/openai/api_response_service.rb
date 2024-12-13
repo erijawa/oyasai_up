@@ -36,7 +36,7 @@ module Openai
               - title
               - ingredients:(no more than 6, format: keys for JSON should be ingredient_name and values for JSON should be quantity)
               - steps:(less than 8 steps, format: keys for JSON should be step_number and values for JSON should be instruction)
-              - tips:(tips for cooking)"
+              - tips:(values for JSON should be tips for cooking)"
           }
         ],
         response_format: { "type": "json_object" }
