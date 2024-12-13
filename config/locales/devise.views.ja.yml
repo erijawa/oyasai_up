@@ -17,6 +17,7 @@ ja:
         locked_at: ロック時刻
         password: パスワード
         password_confirmation: パスワード（確認用）
+        registration_check: 利用規約、プライバシーポリシーチェック
         remember_created_at: ログイン記憶時刻
         remember_me: 次回から自動でログインする
         reset_password_sent_at: パスワードリセット送信時刻

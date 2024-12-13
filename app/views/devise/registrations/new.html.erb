@@ -36,6 +36,13 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input input-bordered input-info form-control mb-6 w-full mx-auto' %>
     </div>
 
+    <div class="mx-auto flex items-center justify-center mt-16">
+      <%= f.label :registration_check, class: "label cursor-pointer" do %>
+        <%= f.check_box :registration_check, class: "checkbox checkbox-info mr-2" %>
+        <span><%= link_to "利用規約", term_path, class: "text-blue-500 hover:underline" %> および<%= link_to "プライバシーポリシー", policy_path, class: "text-blue-500 hover:underline" %>に同意しました。</span>
+      <% end %>
+    </div>
+
     <div class="actions">
       <%= f.submit class: 'btn btn-info w-full mt-6 mb-6 mx-auto' %>
     </div>
