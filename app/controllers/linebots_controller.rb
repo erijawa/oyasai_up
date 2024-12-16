@@ -42,8 +42,10 @@ class LinebotsController < ApplicationController
           }
           client.reply_message(event["replyToken"], message)
         when Line::Bot::Event::MessageType::Follow # 友達登録イベント
-          User.find_or_create_by(uid: user_id)
+          user = User.find_or_create_by(uid: user_id)
+          user.need_alert!
         when Line::Bot::Event::MessageType::Unfollow # 友達削除イベント
+          user.no_alert!
           user.update(uid: nil)
         end
       end
