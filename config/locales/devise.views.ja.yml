@@ -63,9 +63,11 @@ ja:
       reset_password_instructions:
         action: パスワード変更
         greeting: "%{recipient}様"
+        reset_password_link: パスワードを変更する
         instruction: パスワード再設定の依頼を受けたため、メールを送信しています。下のリンクからパスワードの再設定ができます。
         instruction_2: パスワード再設定の依頼をしていない場合、このメールを無視してください。
         instruction_3: パスワードの再設定は、上のリンクから新しいパスワードを登録するまで完了しません。
+        reset_password_within: ※リンクの有効期限は6時間です。
         subject: パスワードの再設定について
       unlock_instructions:
         action: アカウントのロック解除
