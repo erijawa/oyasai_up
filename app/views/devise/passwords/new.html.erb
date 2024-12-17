@@ -1,16 +1,20 @@
-<h2>Forgot your password?</h2>
+<div class="container form-container">
+  <h2><%= t(".forgot_your_password") %></h2>
+  <p class="text-center mt-4">ご登録中のメールアドレスを入力してください。</p>
+  <p class="text-center mb-10">パスワード変更手続きのご案内メールをお送りします。</p>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <%= f.label :email, class:"label w-full mx-auto"  %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input input-bordered input-primary form-control mb-6 w-full mx-auto' %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= f.submit t(".send_me_reset_password_instructions"), class: 'btn btn-primary text-white w-full mt-6 mx-auto mb-20' %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
