@@ -7,10 +7,7 @@
 
     <div class="field">
       <%= f.label :password, t(".new_password"), class:"label w-full mx-auto" %>
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> 文字以上)</em><br />
-      <% end %>
-      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'input input-bordered input-primary form-control mb-6 w-full mx-auto' %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password",placeholder: "6文字以上でパスワードを入力", class: 'input input-bordered input-primary form-control mb-6 w-full mx-auto' %>
     </div>
 
     <div class="field">

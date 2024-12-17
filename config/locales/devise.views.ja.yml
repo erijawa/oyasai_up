@@ -81,7 +81,7 @@ ja:
     passwords:
       edit:
         change_my_password: パスワードを変更する
-        change_your_password: パスワードを変更
+        change_your_password: パスワード再設定
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
       new:
