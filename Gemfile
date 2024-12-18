@@ -89,3 +89,6 @@ gem "ransack"
 
 # openAI用
 gem "faraday"
+
+# OGP
+gem "meta-tags"
