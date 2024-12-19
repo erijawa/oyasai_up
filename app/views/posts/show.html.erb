@@ -1,5 +1,5 @@
 <% if @post.post_image.present? %>
-  <% assign_meta_tags title: @post.title, image: @post.post_image..url %>
+  <% assign_meta_tags title: @post.title, image: @post.post_image.url %>
 <% else %>
   <% assign_meta_tags title: @post.title %>
 <% end %>
