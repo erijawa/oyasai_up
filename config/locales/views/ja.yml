@@ -97,3 +97,9 @@ ja:
   form:
     publish: 公開する
     draft: 下書きに保存する
+  meta-tags:
+    defaults:
+      site: お野菜摂取応援アプリ
+      title: おやさいUP
+      description: 日々のお野菜摂取を促進するためのアプリです。
+      keywords: 野菜,食事,健康,体調管理

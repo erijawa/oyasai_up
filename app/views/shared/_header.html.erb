@@ -2,7 +2,7 @@
 
 <header class="navbar bg-base sticky top-0 left-0 w-full z-50">
     <div class="flex-1">
-      <%= image_tag 'tomato.png', class: "h-10 ml-2 rounded-full" %>
+      <%= image_tag 'logo.png', class: "h-10 ml-2 rounded-full" %>
       <%= link_to "おやさいUP", root_path, class: "btn btn-ghost text-xl" %>
     </div>
     <div class="flex-none">
@@ -88,10 +88,10 @@
                     <div class="text-sm text-center m-3">© <%= Time.current.year %> - おやさいUP</div>
 
                     <div class="flex justify-center items-center my-3">
-                        <%= link_to "#",class: "mr-3" do %>
+                        <%= link_to "https://github.com/erijawa/oyasai_up", target: "_blank", rel: "noopener noreferrer",class: "mr-3", data: { toggle: "tooltip", placement: "bottom" }, title: "GitHub" do %>
                             <%= image_tag 'github-icon.svg', class: "h-6" %>
                         <% end %>
-                        <%= link_to "#",class: "ml-3" do %>
+                        <%= link_to "https://twitter.com/intent/tweet?url=#{root_url}&text=【おやさいUP】日々のお野菜摂取を応援します。%0a%23おやさいUP%0a", target: "_blank", rel: "noopener noreferrer",data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア",class: "ml-3" do %>
                             <%= image_tag 'x.svg', class: "h-6" %>
                         <% end %>
                     </div>
