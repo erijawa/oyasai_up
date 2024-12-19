@@ -71,7 +71,7 @@ gem "omniauth-rails_csrf_protection"
 gem "line-bot-api"
 
 # Image Uploader
-gem "carrierwave", "~> 3.0"
+gem "carrierwave", "~> 3.1"
 gem "rmagick"
 
 # amazons3
