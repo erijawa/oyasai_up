@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     @turbo_control = true
     @user = User.find(params[:id])
-    @posts = @user.posts.page(params[:page])
+    @posts = @user.posts.published.order(created_at: :desc).page(params[:page])
     vegetable_logs = VegetableLog.where(user_id: @user.id)
     @vegetable_logs = vegetable_logs.to_json(only: [ :date, :total ])
     vegetable_log = VegetableLog.find_by(user_id: @user.id, date: Time.zone.today)
