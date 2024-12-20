@@ -44,6 +44,9 @@ h3 {
 }
 
 /* 投稿カード */
+.card {
+  border-radius: 5px;
+}
 .title-limit {
   overflow: hidden;
   display: -webkit-box;
