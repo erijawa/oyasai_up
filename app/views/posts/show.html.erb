@@ -79,7 +79,7 @@
           <div class="mt-4 md:mt-10">
             <% @post.recipe_steps.each do |step|%>
               <div class="flex items-start mb-4">
-                <div class="inline w-8 h-8 rounded-full bg-[#8DBA30] text-center leading-8 mr-1 shrink-0"><%= step.order %></div>
+                <div class="inline w-8 h-8 rounded-full bg-primary text-white text-center leading-8 mr-1 shrink-0"><%= step.order %></div>
                 <p class=""><%= step.instruction %></p>
               </div>
             <% end %>
@@ -101,6 +101,11 @@
             <%= f.select(:former_ingredient_name, @ingredient_names, { include_blank: "選択してください" }, class: "select select-primary w-full max-w-xs") %>
             <p class="my-2">を</p>
             <%= f.text_field(:new_ingredient_name, class:"input input-bordered input-primary w-full max-w-xs", placeholder: "20字以内で食材を入力") %>
+              <div class="flex text-xs my-2">
+                <div>残り</div>
+                <div class="length">20</div>
+                <div>文字</div>
+              </div>
             <p class="mt-2">に変えたら…？</p>
           </div>
           <%= f.hidden_field :post_id, value: @post.id %>
@@ -122,3 +127,17 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  const newIngredientNameField = document.getElementById('new_ingredient_name');
+  const length = document.querySelector('.length');
+  const maxLength = 20
+  newIngredientNameField.addEventListener('input', () => {
+    length.textContent = maxLength - newIngredientNameField.value.length;
+    if(maxLength - newIngredientNameField.value.length < 0){
+      length.style.color = 'red';
+    }else{
+      length.style.color = '#48350e';
+    }
+  }, false);
+</script>

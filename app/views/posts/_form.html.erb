@@ -8,24 +8,24 @@
       <span class="text-red-600">*</span>
       <%= Post.human_attribute_name(:title) %>
     <% end %>
-    <%= f.text_field :title, autofocus: true, autocomplete: "タイトル", class: 'input input-bordered input-info form-control mb-6 mt-2 w-full mx-auto' %>
+    <%= f.text_field :title, autofocus: true, autocomplete: "タイトル", class: 'input input-bordered input-primary form-control mb-6 mt-2 w-full mx-auto' %>
   </div>
 
   <div class="field">
     <%= f.label :post_image,Post.human_attribute_name(:post_image), class:"label w-full mx-auto font-bold" %>
-    <%= f.file_field :post_image, autocomplete: "ファイル", class: 'file-input file-input-bordered file-input-info form-control mb-6 w-full mx-auto text-neutral' %>
+    <%= f.file_field :post_image, autocomplete: "ファイル", class: 'file-input file-input-bordered file-input-primary form-control mb-6 w-full mx-auto text-neutral' %>
     <%= f.hidden_field :post_image_cache %>
     <%= image_tag(@post_form.post_image.url) if @post_form.post_image? %>
   </div>
 
   <div class="field">
     <%= f.label :description,Post.human_attribute_name(:description), class:"label w-full mx-auto font-bold" %>
-    <%= f.text_area :description, autofocus: true, autocomplete: "詳細", class: 'textarea textarea-bordered textarea-info form-control mb-6 w-full mx-auto' %>
+    <%= f.text_area :description, autofocus: true, autocomplete: "詳細", class: 'textarea textarea-bordered textarea-primary form-control mb-6 w-full mx-auto' %>
   </div>
 
   <div class="field">
     <%= f.label :tag_names,Tag.model_name.human, class:"label w-full mx-auto font-bold" %>
-    <%= f.text_field :tag_names, autofocus: true, autocomplete: ",で区切って入力してください", class: 'input input-bordered input-info form-control mb-2 w-full mx-auto' %>
+    <%= f.text_field :tag_names, autofocus: true, autocomplete: ",で区切って入力してください", class: 'input input-bordered input-primary form-control mb-2 w-full mx-auto' %>
     <div class="flex justify-center flex-wrap mb-6">
       <%= link_to 'コンビニ', '#', class: 'tag-link badge badge-ghost badge-lg mr-4 mt-4 mb-3' %>
       <%= link_to 'スーパー', '#', class: 'tag-link badge badge-ghost badge-lg mr-4 mt-4 mb-3' %>
@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= f.label :mode,Post.human_attribute_name(:mode), class:"label w-full mx-auto font-bold" %>
-    <%= f.select :mode, Post.enum_options_for_select(:mode), {}, {id: 'mode', class: 'select select-bordered select-info w-full max-w-xs mb-6'} %>
+    <%= f.select :mode, Post.enum_options_for_select(:mode), {}, {id: 'mode', class: 'select select-bordered select-primary w-full max-w-xs mb-6'} %>
   </div>
 
   <div id="recipe_fields" style="<%= "display:none" if @post_form.mode.nil? || @post_form.mode == 0 %>">
@@ -48,7 +48,7 @@
         <%= RecipeServing.model_name.human %>
       <% end %>
       <div class="mt-2">
-        <%= f.text_field :serving, class:'input input-bordered input-info form-control inline w-16' %><p class="inline ml-2">人前</p>
+        <%= f.text_field :serving, class:'input input-bordered input-primary form-control inline w-16' %><p class="inline ml-2">人前</p>
       </div>
     </div>
 
@@ -57,31 +57,31 @@
     <div id="ingredient_fields" class="field mt-2">
       <% ingredients_form_count.times do |index| %>
         <div class="flex">
-            <%= f.text_field :ingredients_name, name: "post_form[ingredients_name][]", value: post_form.ingredients_name[index], placeholder: "材料名", class:'input input-bordered input-info form-control mb-2 mr-1 w-full mx-auto basis-4/6' %>
-            <%= f.text_field :ingredients_quantity, name: "post_form[ingredients_quantity][]",value: @post_form.ingredients_quantity[index], placeholder: "分量", class:'input input-bordered input-info form-control mb-2 mr-1 w-full mx-auto basis-2/6' %>
+            <%= f.text_field :ingredients_name, name: "post_form[ingredients_name][]", value: post_form.ingredients_name[index], placeholder: "材料名", class:'input input-bordered input-primary form-control mb-2 mr-1 w-full mx-auto basis-4/6' %>
+            <%= f.text_field :ingredients_quantity, name: "post_form[ingredients_quantity][]",value: @post_form.ingredients_quantity[index], placeholder: "分量", class:'input input-bordered input-primary form-control mb-2 mr-1 w-full mx-auto basis-2/6' %>
             <button type="button" class="btn btn-ghost delete_button">X</button>
         </div>
       <% end %>
     </div>
-    <div class="text-center"><button id="add_ingredient_button"  type="button" class="btn btn-info mt-2 mb-6 mx-auto">+ 材料を追加</button></div>
+    <div class="text-center"><button id="add_ingredient_button"  type="button" class="btn btn-primary mt-2 mb-6 mx-auto">+ 材料を追加</button></div>
 
     <span class="text-red-600">*</span>
     <%= f.label :steps,RecipeStep.model_name.human, class:"w-full mx-auto font-bold" %>
     <div id="step_fields" class="field mt-2">
       <% steps_form_count.times do |index| %>
         <div class="flex items-center mb-2">
-            <div class="inline w-10 h-10 rounded-full bg-[#8DBA30] text-center leading-10"><%= index+1 %></div>
-            <%= f.text_field :steps_instruction,name: "post_form[steps_instruction][]", placeholder:"もやしを1分ほどレンジにかける",value: post_form.steps_instruction[index], class:'input input-bordered input-info form-control ml-1 mr-1 w-full mx-auto inline' %>
+            <div class="inline w-10 h-10 rounded-full bg-primary text-white text-center leading-10"><%= index+1 %></div>
+            <%= f.text_field :steps_instruction,name: "post_form[steps_instruction][]", placeholder:"もやしを1分ほどレンジにかける",value: post_form.steps_instruction[index], class:'input input-bordered input-primary form-control ml-1 mr-1 w-full mx-auto inline' %>
             <button type="button" class="btn btn-ghost delete_button">X</button>
         </div>
       <% end %>
     </div>
-    <div class="text-center"><button id="add_step_button"  type="button" class="btn btn-info mt-2 mb-6 mx-auto">+ 手順を追加</button></div>
+    <div class="text-center"><button id="add_step_button"  type="button" class="btn btn-primary mt-2 mb-6 mx-auto">+ 手順を追加</button></div>
 
   </div>
 
   <div class="md:flex justify-between mt-16">
-    <%= f.submit t("form.publish"), class: 'btn btn-info w-full md:basis-9/12' %>
-    <%= f.submit t("form.draft"), name: "draft", class: 'btn btn-primary w-full mt-4 md:basis-1/5 md:mt-0' %>
+    <%= f.submit t("form.publish"), class: 'btn btn-primary w-full md:basis-9/12' %>
+    <%= f.submit t("form.draft"), name: "draft", class: 'btn btn-accent w-full mt-4 md:basis-1/5 md:mt-0' %>
   </div>
 <% end %>
