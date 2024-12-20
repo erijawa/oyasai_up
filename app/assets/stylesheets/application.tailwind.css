@@ -42,3 +42,9 @@ h3 {
   opacity: 0;
   visibility: hidden;
 }
+.btn-primary {
+  color: white;
+}
+.btn-accent {
+  color: #48350e;
+}

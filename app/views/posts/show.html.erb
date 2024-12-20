@@ -79,7 +79,7 @@
           <div class="mt-4 md:mt-10">
             <% @post.recipe_steps.each do |step|%>
               <div class="flex items-start mb-4">
-                <div class="inline w-8 h-8 rounded-full bg-[#8DBA30] text-center leading-8 mr-1 shrink-0"><%= step.order %></div>
+                <div class="inline w-8 h-8 rounded-full bg-primary text-white text-center leading-8 mr-1 shrink-0"><%= step.order %></div>
                 <p class=""><%= step.instruction %></p>
               </div>
             <% end %>
