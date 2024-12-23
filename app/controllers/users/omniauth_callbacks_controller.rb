@@ -50,7 +50,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:alert] = "認証に失敗しました"
       redirect_to user_session_path
     end
-
   end
 
   def fake_email(uid, provider)
