@@ -1,10 +1,28 @@
-<div class="container">
-  <div class="flex flex-col justify-center items-center">
-      <h1 class="text-5xl font-bold mt-40 mb-20">おやさいUP</h1>
-      <p class=""></p>
-      <div class="flex ">
-        <%= link_to "使ってみる",posts_path, class: "btn btn-primary text-white mr-2" %>
-        <%= link_to "ログイン",new_user_session_path, class: "btn btn-secondary text-white" %>
-      </div>
+<section>
+  <div class="container flex flex-col justify-center items-center">
+    <p class="mt-28">お野菜摂取の応援アプリ</p>
+    <h1 class="text-5xl font-bold mt-4 mb-20">おやさいUP</h1>
+    <div class="flex ">
+      <%= link_to "新規登録",posts_path, class: "btn btn-primary text-white mr-2" %>
+      <%= link_to "ログイン",new_user_session_path, class: "btn btn-secondary text-white" %>
+    </div>
   </div>
-</div>
+</section>
+
+<section class="curved">
+  <div class="container flex flex-col justify-center items-center">
+    <h3 class="mt-20">おやさいUPとは</h3>
+    <div class="w-2/3">
+      <p>
+        忙しい毎日の中、毎食バランスのよい食事を用意するのは、気をつけていてもなかなか難しいものです。</br>
+        かと言って毎食何gの野菜を摂取したかを記録するのは手間がかかる上、1日の必要野菜摂取量を毎日達成しようと意識しすぎると、
+        義務感や達成できていない罪悪感で食事が楽しくなくなってしまいます。</br>
+        </br>
+        もっと気軽に楽しく、野菜を食べることへのモチベーションになるようなサービスを作りたいと考え、
+        野菜を食べたかどうかを自己判断で「ゆるっと」記録するという発想に至りました。</br>
+        </br>
+        毎日野菜を食べたかを記録する機能と、野菜を食べたレポートを投稿し共有する機能により、楽しみながら栄養バランスの向上をサポートします。
+      </p>
+    </div>
+  </div>
+</section>
