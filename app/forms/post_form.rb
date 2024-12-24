@@ -20,7 +20,7 @@ class PostForm
   validates :description, length: { maximum: 65_535 }
 
   with_options if: :with_recipe? do
-    validates :serving, presence: true
+    validates :serving, presence: true, numericality: { only_integer: true, greater_than: 0 }
     validate :no_blank_for_recipe_field
   end
 
@@ -44,10 +44,10 @@ class PostForm
       if post.with_recipe?
         post.create_recipe_serving(serving: serving)
         (ingredients_name.size).times do |index|
-          post.recipe_ingredients.create(name: ingredients_name[index], quantity: ingredients_quantity[index])
+          post.recipe_ingredients.create!(name: ingredients_name[index], quantity: ingredients_quantity[index])
         end
         (steps_instruction.size).times do |index|
-          post.recipe_steps.create(order: index+1, instruction: steps_instruction[index])
+          post.recipe_steps.create!(order: index+1, instruction: steps_instruction[index])
         end
       end
       post
@@ -69,10 +69,10 @@ class PostForm
         @post.recipe_ingredients.clear
         @post.recipe_steps.clear
         (ingredients_name.size).times do |index|
-          @post.recipe_ingredients.create(name: ingredients_name[index], quantity: ingredients_quantity[index])
+          @post.recipe_ingredients.create!(name: ingredients_name[index], quantity: ingredients_quantity[index])
         end
         (steps_instruction.size).times do |index|
-          @post.recipe_steps.create(order: index+1, instruction: steps_instruction[index])
+          @post.recipe_steps.create!(order: index+1, instruction: steps_instruction[index])
         end
       end
       @post
