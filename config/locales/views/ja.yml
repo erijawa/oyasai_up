@@ -4,11 +4,11 @@ ja:
     draft: 下書き
     flash_message:
       created: "%{item}を作成しました"
-      not_created: "%{item}を作成出来ませんでした"
+      not_created: "%{item}を作成できませんでした"
       edited: "%{item}を更新しました"
       draft_edited: 下書きに保存しました
       publish_edited: "%{item}を更新し公開しました"
-      not_edited: "%{item}を更新出来ませんでした"
+      not_edited: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       not_authenticated: 権限がありません
       post_form:
