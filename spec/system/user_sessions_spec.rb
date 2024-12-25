@@ -30,7 +30,7 @@ RSpec.describe "UserSessions", type: :system do
 
   describe "ログイン後" do
     context "ログアウトボタンをクリック" do
-      fit "ログアウト処理が成功する" do
+      it "ログアウト処理が成功する" do
         login_as(user)
         find(".drawer-button").click
         click_link "ログアウト"
