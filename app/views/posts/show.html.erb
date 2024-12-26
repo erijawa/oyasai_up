@@ -100,7 +100,7 @@
             <p class="my-2">このレシピの</p>
             <%= f.select(:former_ingredient_name, @ingredient_names, { include_blank: "選択してください" }, class: "select select-primary w-full max-w-xs") %>
             <p class="my-2">を</p>
-            <%= f.text_field(:new_ingredient_name, class:"input input-bordered input-primary w-full max-w-xs", placeholder: "20字以内で食材を入力") %>
+            <%= f.text_field(:new_ingredient_name, class:"input input-bordered input-primary w-full max-w-xs new_ingredient_name", placeholder: "20字以内で食材を入力") %>
               <div class="flex text-xs my-2">
                 <div>残り</div>
                 <div class="length">20</div>
@@ -132,15 +132,6 @@
 </div>
 
 <script>
-  let newIngredientNameField = document.getElementById('new_ingredient_name');
-  let length = document.querySelector('.length');
-  let maxLength = 20
-  newIngredientNameField.addEventListener('input', () => {
-    length.textContent = maxLength - newIngredientNameField.value.length;
-    if(maxLength - newIngredientNameField.value.length < 0){
-      length.style.color = 'red';
-    }else{
-      length.style.color = '#48350e';
-    }
-  }, false);
+
 </script>
+<%= javascript_include_tag "ai_form_counter" %>

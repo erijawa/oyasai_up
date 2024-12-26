@@ -53,7 +53,6 @@ group :development, :test do
   # RSpec
   gem "rspec-rails"
   gem "factory_bot_rails"
-
 end
 
 group :development do

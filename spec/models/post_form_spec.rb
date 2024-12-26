@@ -77,7 +77,7 @@ RSpec.describe PostForm, type: :model do
   context "タグが21文字以上の場合" do
     it "無効であること" do
       post_form = build(:post_form, user_id: user.id)
-      post_form.save(["a" * 21])
+      post_form.save([ "a" * 21 ])
       expect(post_form.errors[:base]).to include("タグは20文字以内で入力してください")
     end
   end
@@ -93,8 +93,8 @@ RSpec.describe PostForm, type: :model do
   context "材料が字数制限以上の場合" do
     it "無効であること" do
       post_form = build(:post_form, :with_recipe, user_id: user.id)
-      post_form.ingredients_name = ["a" * 256]
-      post_form.ingredients_quantity = ["a" * 51]
+      post_form.ingredients_name = [ "a" * 256 ]
+      post_form.ingredients_quantity = [ "a" * 51 ]
       post_form.save([])
       expect(post_form.errors[:base]).to include("材料は255文字以内で入力してください")
       expect(post_form.errors[:base]).to include("分量は50文字以内で入力してください")
@@ -104,7 +104,7 @@ RSpec.describe PostForm, type: :model do
   context "作り方が字数制限以上の場合" do
     it "無効であること" do
       post_form = build(:post_form, :with_recipe, user_id: user.id)
-      post_form.steps_instruction = ["a" * 151]
+      post_form.steps_instruction = [ "a" * 151 ]
       post_form.save([])
       expect(post_form.errors[:base]).to include("作り方は150文字以内で入力してください")
     end

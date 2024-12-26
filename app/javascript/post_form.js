@@ -33,7 +33,7 @@ function createIngredientNameInput() {
   nameInput.setAttribute('type', 'text');
   nameInput.setAttribute('name', 'post_form[ingredients_name][]');
   nameInput.setAttribute('placeholder', '材料名');
-  nameInput.setAttribute('class', 'input input-bordered input-info form-control mb-2 mr-1 w-full mx-auto basis-4/6');
+  nameInput.setAttribute('class', 'input input-bordered input-primary form-control mb-2 mr-1 w-full mx-auto basis-4/6');
   return nameInput;
 }
 // 材料の分量フォームの作成
@@ -42,7 +42,7 @@ function createIngredientQuantityInput() {
   quantityInput.setAttribute('type', 'text');
   quantityInput.setAttribute('name', 'post_form[ingredients_quantity][]');
   quantityInput.setAttribute('placeholder', '分量');
-  quantityInput.setAttribute('class', 'input input-bordered input-info form-control mb-2 w-full mx-auto basis-2/6');
+  quantityInput.setAttribute('class', 'input input-bordered input-primary form-control mb-2 w-full mx-auto basis-2/6');
   return quantityInput;
 }
 // 削除ボタンの作成
@@ -126,7 +126,7 @@ function createInstructionInput() {
   instructionInput.setAttribute('type', 'text');
   instructionInput.setAttribute('name', 'post_form[steps_instruction][]');
   instructionInput.setAttribute('placeholder', 'もやしを1分ほどレンジにかける');
-  instructionInput.setAttribute('class', 'input input-bordered input-info form-control ml-1 w-full mx-auto inline');
+  instructionInput.setAttribute('class', 'input input-bordered input-primary form-control ml-1 w-full mx-auto inline');
   return instructionInput;
 }
 

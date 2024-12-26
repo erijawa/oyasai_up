@@ -2,8 +2,8 @@ require "rails_helper"
 
 RSpec.describe "PostForms", type: :system do
   include LoginMacros
-  let!(:user){ create(:user) }
-  let!(:post){ create(:post) }
+  let!(:user) { create(:user) }
+  let!(:post) { create(:post) }
 
   describe "ログイン前" do
     describe "ページ遷移の権限確認" do
@@ -102,6 +102,4 @@ RSpec.describe "PostForms", type: :system do
       end
     end
   end
-
-
 end
