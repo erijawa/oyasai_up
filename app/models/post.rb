@@ -15,6 +15,8 @@ class Post < ApplicationRecord
   enum :mode, { without_recipe: 0, with_recipe: 10 }, validate: true
   enum :status, { published: 0, draft: 1 }, validate: true
 
+  scope :with_tag, ->(tag_name) { joins(:tags).where(tags: { name: tag_name }) }
+
   def save_tag(sent_tags)
     sent_tags.uniq!
     current_tags = self.tags.pluck(:name) unless self.tags.nil?

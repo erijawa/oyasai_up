@@ -1,5 +1,5 @@
 class AiRecipesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[ create ]
 
   protect_from_forgery
   before_action :check_csrf
