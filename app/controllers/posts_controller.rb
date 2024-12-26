@@ -5,10 +5,10 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     @posts =  if (tag_name = params[:tag_name])
-                @q.result(distinct: true).with_tag(tag_name).published.includes(:user).order(created_at: :desc).page(params[:page])
-              else
-                @q.result(distinct: true).published.includes(:user).order(created_at: :desc).page(params[:page])
-              end
+      @q.result(distinct: true).with_tag(tag_name).published.includes(:user).order(created_at: :desc).page(params[:page])
+    else
+      @q.result(distinct: true).published.includes(:user).order(created_at: :desc).page(params[:page])
+    end
   end
 
   def new

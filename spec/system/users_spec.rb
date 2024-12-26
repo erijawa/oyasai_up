@@ -28,7 +28,7 @@ RSpec.describe "Users", type: :system do
           check "user_registration_check"
           click_button "登録"
           expect(page).to have_content "メールアドレスを入力してください"
-          expect(current_path).to eq  new_user_registration_path
+          expect(current_path).to eq new_user_registration_path
         end
       end
 
@@ -42,7 +42,7 @@ RSpec.describe "Users", type: :system do
           fill_in "パスワード（確認用）", with: "password"
           click_button "登録"
           expect(page).to have_content "メールアドレスはすでに存在します"
-          expect(current_path).to eq  new_user_registration_path
+          expect(current_path).to eq new_user_registration_path
           expect(page).to have_field "メールアドレス", with: existed_user.email
         end
       end
@@ -63,7 +63,7 @@ RSpec.describe "Users", type: :system do
         end
       end
 
-      context  "名前が未入力" do
+      context "名前が未入力" do
         it "ユーザーの編集が失敗する" do
           visit edit_user_path(user)
           fill_in "名前", with: ""
@@ -78,7 +78,7 @@ RSpec.describe "Users", type: :system do
     describe "マイページ" do
       context "投稿を作成" do
         it "新規作成した投稿が表示される" do
-          create(:post, title:"自分の投稿", user: user)
+          create(:post, title: "自分の投稿", user: user)
           visit user_path(user)
           expect(page).to have_content("自分の投稿")
         end
@@ -88,7 +88,7 @@ RSpec.describe "Users", type: :system do
     describe "下書き一覧" do
       context "下書きを保存" do
         it "保存した下書きが表示される" do
-          post = create(:post, title: "draft", status: 1, user: user )
+          post = create(:post, title: "draft", status: 1, user: user)
           visit drafts_posts_path
           expect(page).to have_content("draft")
         end
@@ -98,9 +98,9 @@ RSpec.describe "Users", type: :system do
     describe "ブックマーク一覧" do
       context "投稿をブックマーク" do
         # 成功と失敗が交互になってしまう
-        fit "ブックマークした投稿が表示される" do
+        xit "ブックマークした投稿が表示される" do
           user2 = create(:user)
-          post = create(:post, title: "user2の投稿", user: user2 )
+          post = create(:post, title: "user2の投稿", user: user2)
           visit post_path(post)
           find(".bookmark-icon").click
           visit bookmarks_posts_path
