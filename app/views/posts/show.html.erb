@@ -12,7 +12,7 @@
     <% end %>
     <% if @post.tags.present? %>
       <% @post.tags.each do |tag| %>
-        <div class="badge badge-outline md:badge-lg badge-sm"><%= tag.name %></div>
+        <%= link_to tag.name, posts_path(tag_name: tag.name), class: 'badge badge-outline md:badge-lg badge-sm hover:text-secondary hover:duration-100' %>
       <% end %>
     <% end %>
     <div class="mx-auto w-10/12 mt-4 rounded-md flex justify-center">
@@ -32,7 +32,7 @@
         <%= render "posts/bookmark_buttons", { post: @post } %>
       <% end %>
     </div>
-    <div class="sm:flex sm:mt-10 mt-4 justify-between items-center w-full">
+    <div class="flex sm:mt-10 mt-4 justify-between items-center w-full flex-wrap">
       <%= link_to user_path(@post.user), class: "flex items-center text-lg underline underline-offset-4 hover:text-secondary hover:duration-100" do %>
         <div class="avatar mr-2">
           <div class="w-16 rounded-full">
@@ -113,7 +113,9 @@
           <div class="mt-10">
             <%= f.submit "AIに提案してもらう", class: "btn btn-secondary text-white" %>
           </div>
-          <span class="text-red-600">※AIの提案レシピの保存には事前にログインが必要です</span>
+          <% if !current_user %>
+            <span class="text-red-600">※AIの提案レシピの保存には事前にログインが必要です</span>
+          <% end %>
         <% end %>
       </div>
     <% end %>
