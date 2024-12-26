@@ -2,14 +2,14 @@
   <div class="container flex flex-col justify-center items-center">
     <p class="mt-28">お野菜摂取の応援アプリ</p>
     <h1 class="text-5xl font-bold mt-4 mb-20">おやさいUP</h1>
-    <div class="flex ">
-      <%= link_to "新規登録",new_user_registration_path, class: "btn btn-primary text-white mr-2" %>
+    <div class="flex">
+      <%= link_to "使ってみる",posts_path, class: "btn btn-primary text-white mr-2" %>
       <%= link_to "ログイン",new_user_session_path, class: "btn btn-secondary text-white" %>
     </div>
   </div>
 </section>
 
-<section class="curved">
+<section class="curved-accent">
   <div class="container flex flex-col justify-center items-center">
     <h3 class="mt-20">おやさいUPとは</h3>
     <div class="w-2/3">
@@ -26,3 +26,149 @@
     </div>
   </div>
 </section>
+
+<section>
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
+          <h3>おやさいUPでできること</h3>
+      </div>
+      <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+          <!-- Card -->
+          <div class="flex flex-col p-6 mx-auto max-w-lg text-center bg-white rounded-lg border border-gray-100 shadow xl:p-8">
+              <h4 class="mb-4 text-2xl font-semibold">おやさいReportで<br>レシピをチェック！</h4>
+              <div class="flex justify-center items-baseline my-8">
+                  <%= image_tag 'carrot.png'%>
+              </div>
+              <!-- List -->
+              <ul role="list" class="mb-4 space-y-4 text-left">
+                  <li class="flex items-center space-x-3">
+                      <!-- Icon -->
+                      <%= image_tag 'check-primary.svg', class: 'h-6 w-6 mr-2' %>
+                      <span>気になる料理のレシピを確認</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                      <!-- Icon -->
+                      <%= image_tag 'check-primary.svg', class: 'h-6 w-6 mr-2' %>
+                      <span>食材名、レシピの有無で検索可能</span>
+                  </li>
+              </ul>
+          </div>
+          <!-- Card -->
+          <div class="flex flex-col p-6 mx-auto max-w-lg text-center bg-white rounded-lg border border-gray-100 shadow xl:p-8">
+              <h4 class="mb-4 text-2xl font-semibold">タグ検索で<br>手軽なお野菜補給アイデアをゲット！</h4>
+              <div class="flex justify-center items-baseline my-8">
+                  <%= image_tag 'post_default.png'%>
+              </div>
+              <!-- List -->
+              <ul role="list" class="mb-4 space-y-4 text-left">
+                  <li class="flex items-center space-x-3">
+                      <!-- Icon -->
+                      <%= image_tag 'check-primary.svg', class: 'h-6 w-6 mr-2' %>
+                      <span>「コンビニ」「外食」などのタグで検索</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                      <!-- Icon -->
+                      <%= image_tag 'check-primary.svg', class: 'h-6 w-6 mr-2' %>
+                      <span>調理不要なお手軽アイデアを確認</span>
+                  </li>
+              </ul>
+          </div>
+          <!-- Card -->
+          <div class="flex flex-col p-6 mx-auto max-w-lg text-center bg-white rounded-lg border border-gray-100 shadow xl:p-8">
+              <h4 class="mb-4 text-2xl font-semibold">レシピの食材がないときは<br>AIに相談！</h4>
+              <div class="flex justify-center items-baseline my-8">
+                <a href="https://gyazo.com/63699efd6add0f13236706903cf2f7d8"><img src="https://i.gyazo.com/63699efd6add0f13236706903cf2f7d8.png" alt="Image from Gyazo" width="630"/></a>
+              </div>
+              <!-- List -->
+              <ul role="list" class="mb-4 space-y-4 text-left">
+                  <li class="flex items-center space-x-3">
+                      <!-- Icon -->
+                      <%= image_tag 'check-primary.svg', class: 'h-6 w-6 mr-2' %>
+                      <span>家にある食材でレシピをアレンジ</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                      <!-- Icon -->
+                      <%= image_tag 'check-primary.svg', class: 'h-6 w-6 mr-2' %>
+                      <span>投稿されたレシピを元に、AIが新しいレシピを提案</span>
+                  </li>
+              </ul>
+              <span class="text-red-600">※AIの提案レシピの保存にはログインが必要です</span>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section>
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
+          <h3>ログインすると、もっと便利！</h3>
+      </div>
+      <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+          <!-- Card -->
+          <div class="flex flex-col p-6 mx-auto max-w-lg text-center bg-white rounded-lg border border-gray-100 shadow xl:p-8">
+              <h4 class="mb-4 text-2xl font-semibold">おやさいReportの下書き・投稿</h4>
+              <div class="flex justify-center items-baseline my-8">
+              <a href="https://gyazo.com/efa5ad4fde6fa253303899c94205c35f"><img src="https://i.gyazo.com/efa5ad4fde6fa253303899c94205c35f.gif" alt="Image from Gyazo" width="856"/></a>
+              </div>
+              <!-- List -->
+              <ul role="list" class="mb-4 space-y-4 text-left">
+                  <li class="flex items-center space-x-3">
+                      <!-- Icon -->
+                      <%= image_tag 'check-primary.svg', class: 'h-6 w-6 mr-2' %>
+                      <span>レシピの覚え書きや、アイデアの備忘録に！</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                      <!-- Icon -->
+                      <%= image_tag 'check-primary.svg', class: 'h-6 w-6 mr-2' %>
+                      <span>下書き保存で時間のある時に投稿できる！</span>
+                  </li>
+              </ul>
+          </div>
+          <!-- Card -->
+          <div class="flex flex-col p-6 mx-auto max-w-lg text-center bg-white rounded-lg border border-gray-100 shadow xl:p-8">
+              <h4 class="mb-4 text-2xl font-semibold">おやさいLogで<br>日々のお野菜摂取を記録</h4>
+              <div class="flex justify-center items-baseline my-8">
+              <a href="https://gyazo.com/fe3e5748662b14e4b54c4aa40e59ba49"><img src="https://i.gyazo.com/fe3e5748662b14e4b54c4aa40e59ba49.gif" alt="Image from Gyazo" width="852"/></a>
+              </div>
+              <!-- List -->
+              <ul role="list" class="mb-4 space-y-4 text-left">
+                  <li class="flex items-center space-x-3">
+                      <!-- Icon -->
+                      <%= image_tag 'check-primary.svg', class: 'h-6 w-6 mr-2' %>
+                      <span>毎食お野菜を食べたかどうか、直感でゆるっと記録</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                      <!-- Icon -->
+                      <%= image_tag 'check-primary.svg', class: 'h-6 w-6 mr-2' %>
+                      <span>LINEで公式アカウントを追加し、入力のリマインダを受け取ろう！</span>
+                  </li>
+              </ul>
+          </div>
+          <!-- Card -->
+          <div class="flex flex-col p-6 mx-auto max-w-lg text-center bg-white rounded-lg border border-gray-100 shadow xl:p-8">
+              <h4 class="mb-4 text-2xl font-semibold">気になるおやさいReportを<br>ブックマークに保存</h4>
+              <div class="flex justify-center items-baseline my-8">
+              <a href="https://gyazo.com/0d587f0351a5e86ed7e91984c0efe0ef"><img src="https://i.gyazo.com/0d587f0351a5e86ed7e91984c0efe0ef.gif" alt="Image from Gyazo" width="856"/></a>
+              </div>
+              <!-- List -->
+              <ul role="list" class="mb-4 space-y-4 text-left">
+                  <li class="flex items-center space-x-3">
+                      <!-- Icon -->
+                      <%= image_tag 'check-primary.svg', class: 'h-6 w-6 mr-2' %>
+                      <span>気になる投稿はブックマークに保存</span>
+                  </li>
+                  <li class="flex items-center space-x-3">
+                      <!-- Icon -->
+                      <%= image_tag 'check-primary.svg', class: 'h-6 w-6 mr-2' %>
+                      <span>ブックマーク一覧でいつでもチェック！</span>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</section>
+
+<div class="text-center mb-40">
+  <%= link_to "ログイン/新規登録",new_user_session_path, class: "btn btn-secondary text-white" %>
+</div>
+

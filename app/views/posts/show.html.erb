@@ -129,9 +129,9 @@
 </div>
 
 <script>
-  const newIngredientNameField = document.getElementById('new_ingredient_name');
-  const length = document.querySelector('.length');
-  const maxLength = 20
+  let newIngredientNameField = document.getElementById('new_ingredient_name');
+  let length = document.querySelector('.length');
+  let maxLength = 20
   newIngredientNameField.addEventListener('input', () => {
     length.textContent = maxLength - newIngredientNameField.value.length;
     if(maxLength - newIngredientNameField.value.length < 0){

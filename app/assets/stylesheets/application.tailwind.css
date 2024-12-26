@@ -35,13 +35,24 @@ h3 {
 }
 
 /* トップページ */
-.curved {
+.curved-accent {
   position: relative;
   background: #f6b827;
 
   border-top-left-radius: 50% 10%;
   border-top-right-radius: 50% 10%;
+  border-bottom-left-radius: 50% 10%;
+  border-bottom-right-radius: 50% 10%;
 }
+
+.curved-primary {
+  position: relative;
+  background: #617b47;
+
+  border-top-left-radius: 50% 10%;
+  border-top-right-radius: 50% 10%;
+}
+
 
 /* 投稿カード */
 .card {
