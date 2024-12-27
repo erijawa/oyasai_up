@@ -30,7 +30,7 @@
               </thead>
               <tbody>
                 <!-- row  -->
-                <% @response["ingredients"].each do |key,value|%>
+                <% @response["ingredients"]&.each do |key,value|%>
                   <tr>
                     <td><%= key %></td>
                     <td><%= value %></td>
@@ -43,7 +43,7 @@
         <div class="md:w-1/2">
           <p class="text-xl font-bold md:mb-8">作り方</p>
           <div class="mt-4 md:mt-10">
-            <% @response["steps"].each do |key,value|%>
+            <% @response["steps"]&.each do |key,value|%>
               <div class="flex items-start mb-4">
                 <div class="inline w-8 h-8 rounded-full bg-[#f6b827] text-neutral text-center leading-8 mr-1 shrink-0"><%= key %></div>
                 <p class=""><%= value %></p>
@@ -64,11 +64,11 @@
       <%= f.hidden_field :tag_names, name: "post_form[tag_names]", value: "AIによる提案レシピ" %>
       <%= f.hidden_field :mode,name: "post_form[mode]", value: "10" %>
       <%= f.hidden_field :serving, value: @post.recipe_serving.serving %>
-      <% @response["ingredients"].each do |key,value| %>
+      <% @response["ingredients"]&.each do |key,value| %>
         <%= f.hidden_field :ingredients_name, name: "post_form[ingredients_name][]", value: key %>
         <%= f.hidden_field :ingredients_quantity, name: "post_form[ingredients_quantity][]",value: value %>
       <% end %>
-      <% @response["steps"].each do |key,value| %>
+      <% @response["steps"]&.each do |key,value| %>
         <%= f.hidden_field :steps_instruction, name: "post_form[steps_instruction][]",value: value %>
       <% end %>
       <div class="mt-4 md:mt-16 text-center">

@@ -15,24 +15,19 @@ module Openai
           { role: "system", content: "You are professional chef." },
           { role: "user",
             content:
-              "1.When a word '#{new_ingredient_name}' is invalid, your response should be '999'.
+              "Please suggest a recipe that substitutes #{former_ingredient_name} with #{new_ingredient_name} from the following ingredients.
+              # Ingredients
+              #{former_ingredients}
 
-              # Invalid Cases:(Return '999')
-              - a word '#{new_ingredient_name}' is not a foodstuff
-              - a word '#{new_ingredient_name}' is meaningless words or phrases
-
-              2.When a word '#{new_ingredient_name}' is valid, please provide a recipe with the following conditions.
-
-              # a recipe to refer to
-              Ingredients:
-                #{former_ingredients}
-
-              # conditions
-              Ingredients: replace #{former_ingredient_name} with #{new_ingredient_name}
-              Plese answer in Japanese.
-              Output should be JSON object and less than 300 tokens
-
-              # keys for output
+              # conditions for output
+              - Please answer in Japanese.
+              - Output should be JSON object and less than 300 tokens
+              - Is '#{new_ingredient_name}' a foodstuff? Then, follow rule2. Otherwise, follow rule1.
+              rule1:
+              key for output:
+              - title:(values for JSON should be 「食材ではありません」)
+              rule2:
+              keys for output:
               - title
               - ingredients:(no more than 6, format: keys for JSON should be ingredient_name and values for JSON should be quantity)
               - steps:(less than 8 steps, format: keys for JSON should be step_number and values for JSON should be instruction)

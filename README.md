@@ -1,3 +1,7 @@
+# **おやさいUP**
+サービスURL：[おやさいUP | 野菜摂取応援アプリ](https://www.oyasaiup.com/)
+![alt text](app/assets/images/default_ogp.png)
+
 ## ■ サービス概要
 忙しい生活の中で不足しがちな野菜の摂取を促進するためのアプリです。
 毎日自分が野菜を食べたかを記録する機能と、野菜を食べた際のレポートを投稿し共有する機能があり、楽しみながら栄養バランスの向上をサポートします。
@@ -11,12 +15,38 @@
 健康面は気になるが、仕事や育児で忙しく栄養バランスをおろそかにしがちな20-40代
 自分自身や同じ年代の家族、友人を見ていると、仕事や学習、子供を優先し、自分のことは後回しにしてしまいがちです。忙しい中でも自分の健康も大切にしてほしいという思いから、ユーザー層を決定しました。
 
+## ■ 機能一覧(⭐︎はログインが必要な機能)
+|トップ画面 |投稿一覧・検索機能|
+|:--:|:--:|
+|<a href="https://gyazo.com/e7d86e337092d2b4e857b1fdbafe1b64"><img src="https://i.gyazo.com/e7d86e337092d2b4e857b1fdbafe1b64.gif" alt="Image from Gyazo" width="280"/></a>|<a href="https://gyazo.com/778438deab8f2a6e04be565eb37f8a38"><img src="https://i.gyazo.com/778438deab8f2a6e04be565eb37f8a38.gif" alt="Image from Gyazo" width="278"/></a>|
+|アプリの使用場面とログイン後に使える機能を紹介しています|投稿の一覧から条件を設定し検索できます|
+
+|投稿共有の動的OGP|AIによるレシピ提案|
+|:--:|:--:|
+|<a href="https://gyazo.com/0cb6bfd92b5778d9dbf4a8bdb566443c"><img src="https://i.gyazo.com/0cb6bfd92b5778d9dbf4a8bdb566443c.gif" alt="Image from Gyazo" width="276"/></a>|<a href="https://gyazo.com/5bf26dbcc401bdc666312702ea407a88"><img src="https://i.gyazo.com/5bf26dbcc401bdc666312702ea407a88.gif" alt="Image from Gyazo" width="280"/></a>|
+|各投稿のシェアを行うとその投稿の写真が動的OGPとして表示されます|投稿されたレシピの食材を入れ替えた代用品レシピをAIが提案します|
+
+|投稿作成・編集⭐︎|おやさいLogへの記録⭐︎|
+|:--:|:--:|
+|<a href="https://gyazo.com/3df4b956a17396fa7142aeb35b7aa947"><img src="https://i.gyazo.com/3df4b956a17396fa7142aeb35b7aa947.gif" alt="Image from Gyazo" width="270"/></a>|<a href="https://gyazo.com/dd6c57af2e9267129c869a6aea296d79"><img src="https://i.gyazo.com/dd6c57af2e9267129c869a6aea296d79.gif" alt="Image from Gyazo" width="270" height="auto"/></a>|
+|住所のオートコンプリート、直感的なレーティング、おすすめのタグによってひとり外食の投稿を作成可能です|気になるお店をブックマークしてマイページでまとめて確認できます|
+
+|LINE通知⭐︎|ブックマーク⭐︎|
+|:--:|:--:|
+|<a href="https://gyazo.com/3df4b956a17396fa7142aeb35b7aa947"><img src="https://i.gyazo.com/3df4b956a17396fa7142aeb35b7aa947.gif" alt="Image from Gyazo" width="270"/></a>|<a href="https://gyazo.com/dd6c57af2e9267129c869a6aea296d79"><img src="https://i.gyazo.com/dd6c57af2e9267129c869a6aea296d79.gif" alt="Image from Gyazo" width="270" height="auto"/></a>|
+|住所のオートコンプリート、直感的なレーティング、おすすめのタグによってひとり外食の投稿を作成可能です|気になるお店をブックマークしてマイページでまとめて確認できます|
+
+|プロフィール編集⭐︎|AIの提案レシピを下書き保存⭐︎|
+|:--:|:--:|
+|<a href="https://gyazo.com/3df4b956a17396fa7142aeb35b7aa947"><img src="https://i.gyazo.com/3df4b956a17396fa7142aeb35b7aa947.gif" alt="Image from Gyazo" width="270"/></a>|<a href="https://gyazo.com/dd6c57af2e9267129c869a6aea296d79"><img src="https://i.gyazo.com/dd6c57af2e9267129c869a6aea296d79.gif" alt="Image from Gyazo" width="270" height="auto"/></a>|
+|住所のオートコンプリート、直感的なレーティング、おすすめのタグによってひとり外食の投稿を作成可能です|気になるお店をブックマークしてマイページでまとめて確認できます|
+
 ## ■ サービスの利用イメージ
 ### 利用場面
 通勤時間や休憩中などの隙間時間の利用を想定しているため、スマホから操作しやすい画面設計を行います。
 
-### 野菜を食べたかどうかの記録「おやさいlog」
-ユーザー登録をすると、毎日3食それぞれで野菜を食べたかどうか記録できます。その日に「野菜を食べた」と記録した回数に応じてカレンダーが色づき、自分がどのくらいの頻度で野菜を食べられているか一目で履歴をみることができます。
+### 野菜をどのくらい食べたか記録する「おやさいlog」
+ユーザー登録をすると、毎日3食それぞれで野菜どのくらい食べたか記録できます。記録した数値に応じてカレンダーが色づき、自分がどのくらい野菜を食べられているか一目で履歴をみることができます。
 記録を可視化することで野菜を食べることへの動機付けとなり、達成感を味わうことができます。
 
 ### 野菜の食べ方のアイデア投稿「おやさいReport」
