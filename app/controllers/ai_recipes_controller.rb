@@ -17,11 +17,11 @@ class AiRecipesController < ApplicationController
     end
     former_ingredients = @post.recipe_ingredients.to_json(only: [ :name, :quantity ])
     @response = JSON.parse(Openai::ApiResponseService.new.call(former_ingredient_name, new_ingredient_name, former_ingredients))
-    @post_form = PostForm.new
-    if @response.include?("999")
-      flash.now[:alert] = "食材を入力してください"
+    if @response["title"].include?("食材ではありません")
+      flash.now[:alert] = "レシピを作成できませんでした"
       render "posts/show", status: :unprocessable_entity
     end
+    @post_form = PostForm.new
   rescue => e
     flash.now[:alert] = "エラーが発生しました"
     render "posts/show", status: :internal_server_error
