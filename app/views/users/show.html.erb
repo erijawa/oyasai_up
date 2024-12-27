@@ -70,7 +70,7 @@
 <script>
   function set_heatmap() {
     let startDate = new Date();
-    startDate.setMonth(startDate.getMonth() - 5);
+    startDate.setMonth(startDate.getMonth() - 2);
     let data = <%= sanitize(@vegetable_logs) %>;
     const parser = function(data) {
             return eval("[" + data + "]");
