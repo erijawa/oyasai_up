@@ -23,7 +23,24 @@
   </dialog>
 
   <% # プロフィール情報 %>
+  <% # ログイン中ユーザーのページの場合 %>
   <% if current_user && current_user.id == @user.id %>
+    <% # LINEの友達追加 %>
+    <div role="alert" class="alert mt-20 w-2/3 mx-auto">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        class="stroke-info h-6 w-6 shrink-0">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <span>LINEで友だち追加すると、毎日20時におやさいLog更新のリマインダが届きます</span>
+      <%= link_to "友だち追加はこちら", edit_user_path(@user), class: "btn btn-primary", data: { turbo: false } %>
+    </div>
     <div class="flex justify-between lg:w-2/5 mx-auto">
       <div class="mt-10 flex items-center text-lg">
         <div class="avatar mr-2">
@@ -37,10 +54,11 @@
         </div>
       </div>
       <div class="mt-10 flex items-center">
-        <%= link_to "編集", edit_user_path(@user), class:"btn btn-primary text-white mr-2" %>
+        <%= link_to "編集", edit_user_path(@user), class:"btn btn-primary text-white mr-2", data: { turbo: false } %>
       </div>
     </div>
   <% else %>
+    <% # 該当ユーザー以外が閲覧中の場合 %>
     <div class="mt-40 flex justify-center text-lg">
       <div class="avatar mr-2">
         <div class="w-16 rounded-full">
@@ -49,7 +67,7 @@
       </div>
       <div>
         <%= @user.name%>
-        <p>おやさいレベル</p>
+        <p class="text-secondary">おやさいLv.<%= @user.level%></p>
       </div>
     </div>
   <% end %>
