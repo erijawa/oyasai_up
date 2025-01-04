@@ -21,10 +21,10 @@
 
                     <% if user_signed_in? %>
                       <li class="mb-4">
-                          <%= link_to t('header.vegetable_log'),user_path(current_user), class: "btn btn-accent text-neutral"%>
+                          <%= link_to t('header.vegetable_log'),user_path(current_user), class: "btn btn-accent text-neutral", data: { turbo: false } %>
                       </li>
                       <li>
-                        <%= link_to user_path(current_user), data: { turbo: false }, class: "text-base hover:text-secondary" do %>
+                        <%= link_to user_path(current_user), data: { turbo: false }, class: "text-base hover:text-secondary", data: { turbo: false } do %>
                             <%= image_tag 'person_neutral.svg', class: 'h-4 w-4 mr-2' %>
                             <%= t('header.my_page') %>
                         <% end %>

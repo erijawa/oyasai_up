@@ -33,7 +33,7 @@
       <% end %>
     </div>
     <div class="flex sm:mt-10 mt-4 justify-between items-center w-full flex-wrap">
-      <%= link_to user_path(@post.user), class: "flex items-center text-lg underline underline-offset-4 hover:text-secondary hover:duration-100" do %>
+      <%= link_to user_path(@post.user), class: "flex items-center text-lg underline underline-offset-4 hover:text-secondary hover:duration-100", data: { turbo: false } do %>
         <div class="avatar mr-2">
           <div class="w-16 rounded-full">
             <%= image_tag "post_default.png"%>

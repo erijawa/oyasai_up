@@ -21,7 +21,7 @@
     <% end %>
     
     <% if current_user %>
-      <%= link_to user_path(current_user), class: "flex flex-col items-center flex-1 py-1" do %>
+      <%= link_to user_path(current_user), class: "flex flex-col items-center flex-1 py-1", data: { turbo: false } do %>
           <%= image_tag 'person.svg', class: "h-5 w-5 mb-1" %>
           <span class="text-[0.5rem] btm-nav-label"><%= t('footer.mypage') %></span>
       <% end %>
