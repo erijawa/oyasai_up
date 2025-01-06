@@ -29,4 +29,11 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :avatar, :avatar_cache, :line_alert)
   end
+
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    if !current_user || @user.id != current_user.id
+      redirect_back fallback_location: root_path, notice: t("defaults.flash_message.not_authenticated")
+    end
+  end
 end

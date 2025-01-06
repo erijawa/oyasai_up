@@ -19,27 +19,27 @@
 ## ■ 機能一覧(⭐︎はログインが必要な機能)
 |トップ画面 |投稿一覧・検索機能|
 |:--:|:--:|
-|<a href="https://gyazo.com/2db20da43ff2d4497f0d364376539c6a"><img src="https://i.gyazo.com/2db20da43ff2d4497f0d364376539c6a.gif" alt="Image from Gyazo" width="880"/></a>|<a href="https://gyazo.com/4621e45224928533342449d67ce36507"><img src="https://i.gyazo.com/4621e45224928533342449d67ce36507.gif" alt="Image from Gyazo" width="886"/></a>|
+|<a href="https://gyazo.com/2db20da43ff2d4497f0d364376539c6a"><img src="https://i.gyazo.com/2db20da43ff2d4497f0d364376539c6a.gif" alt="Image from Gyazo" width="280"/></a>|<a href="https://gyazo.com/4621e45224928533342449d67ce36507"><img src="https://i.gyazo.com/4621e45224928533342449d67ce36507.gif" alt="Image from Gyazo" width="286"/></a>|
 |アプリの使用場面とログイン後に使える機能を紹介しています|投稿の一覧から条件を設定し検索できます|
 
 |投稿共有の動的OGP|AIによるレシピ提案|
 |:--:|:--:|
-|[![Image from Gyazo](https://i.gyazo.com/0ac98f3496644e5b70b353be51638677.png)](https://gyazo.com/0ac98f3496644e5b70b353be51638677)|[![Image from Gyazo](https://i.gyazo.com/b6e00e4773a0795131190a004435eed8.gif)](https://gyazo.com/b6e00e4773a0795131190a004435eed8)|
+|[![Image from Gyazo](https://i.gyazo.com/0ac98f3496644e5b70b353be51638677.png)](https://gyazo.com/0ac98f3496644e5b70b353be51638677)|<a href="https://gyazo.com/b6e00e4773a0795131190a004435eed8"><img src="https://i.gyazo.com/b6e00e4773a0795131190a004435eed8.gif" alt="Image from Gyazo" width="284"/></a>|
 |各投稿のシェアを行うとその投稿の写真が動的OGPとして表示されます|投稿されたレシピの食材を入れ替えた代用品レシピをAIが提案します|
 
 |投稿作成・編集⭐︎|おやさいLogへの記録⭐︎|
 |:--:|:--:|
-|<a href="https://gyazo.com/71571dfe6760f73d7dddaf4be738106f"><img src="https://i.gyazo.com/71571dfe6760f73d7dddaf4be738106f.gif" alt="Image from Gyazo" width="880"/></a>|<a href="https://gyazo.com/84a80f87c938aef25c6182fefb18a607"><img src="https://i.gyazo.com/84a80f87c938aef25c6182fefb18a607.gif" alt="Image from Gyazo" width="882"/></a>|
+|<a href="https://gyazo.com/71571dfe6760f73d7dddaf4be738106f"><img src="https://i.gyazo.com/71571dfe6760f73d7dddaf4be738106f.gif" alt="Image from Gyazo" width="280"/></a>|<a href="https://gyazo.com/84a80f87c938aef25c6182fefb18a607"><img src="https://i.gyazo.com/84a80f87c938aef25c6182fefb18a607.gif" alt="Image from Gyazo" width="282"/></a>|
 |レシピを載せるかは選択制です。下書き保存して後から編集することも可能です。|その日のご飯で野菜をどれだけ食べたか、直感で記録します。記録に基づき、カレンダーが緑色に色づきます。|
 
 |LINE通知⭐︎|ブックマーク⭐︎|
 |:--:|:--:|
-|[![Image from Gyazo](https://i.gyazo.com/cb5c777c89b5190104759f0681e13cd9.jpg)](https://gyazo.com/cb5c777c89b5190104759f0681e13cd9)|<a href="https://gyazo.com/0d587f0351a5e86ed7e91984c0efe0ef"><img src="https://i.gyazo.com/0d587f0351a5e86ed7e91984c0efe0ef.gif" alt="Image from Gyazo" width="856"/></a>|
+|[![Image from Gyazo](https://i.gyazo.com/cb5c777c89b5190104759f0681e13cd9.jpg)](https://gyazo.com/cb5c777c89b5190104759f0681e13cd9)|<a href="https://gyazo.com/0d587f0351a5e86ed7e91984c0efe0ef"><img src="https://i.gyazo.com/0d587f0351a5e86ed7e91984c0efe0ef.gif" alt="Image from Gyazo" width="256"/></a>|
 |おやさいUPのLINE公式アカウントと友達になると、毎日20時におやさいLogのリマインダが受け取れます|気に入った投稿はブックマークに保存し、後で確認できます|
 
 |プロフィール編集⭐︎|AIの提案レシピを下書き保存⭐︎|
 |:--:|:--:|
-|[![Image from Gyazo](https://i.gyazo.com/f2bb3ffb5de49fadc8e95a18fcd3f892.png)](https://gyazo.com/f2bb3ffb5de49fadc8e95a18fcd3f892)|[![Image from Gyazo](https://i.gyazo.com/8859ff7a24947108bf634c12b2c89e83.gif)](https://gyazo.com/8859ff7a24947108bf634c12b2c89e83)|
+|[![Image from Gyazo](https://i.gyazo.com/f2bb3ffb5de49fadc8e95a18fcd3f892.png)](https://gyazo.com/f2bb3ffb5de49fadc8e95a18fcd3f892)|<a href="https://gyazo.com/8859ff7a24947108bf634c12b2c89e83"><img src="https://i.gyazo.com/8859ff7a24947108bf634c12b2c89e83.gif" alt="Image from Gyazo" width="280"/></a>|
 |ユーザー名、アバター画像の変更ができます|AIに生成してもらったレシピを下書きに保存しておくことができます。|
 
 ## ■ サービスの利用イメージ
