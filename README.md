@@ -13,33 +13,34 @@
 
 ## ■ ユーザー層について
 健康面は気になるが、仕事や育児で忙しく栄養バランスをおろそかにしがちな20-40代
+
 自分自身や同じ年代の家族、友人を見ていると、仕事や学習、子供を優先し、自分のことは後回しにしてしまいがちです。忙しい中でも自分の健康も大切にしてほしいという思いから、ユーザー層を決定しました。
 
 ## ■ 機能一覧(⭐︎はログインが必要な機能)
 |トップ画面 |投稿一覧・検索機能|
 |:--:|:--:|
-|||
+|<a href="https://gyazo.com/2db20da43ff2d4497f0d364376539c6a"><img src="https://i.gyazo.com/2db20da43ff2d4497f0d364376539c6a.gif" alt="Image from Gyazo" width="880"/></a>|<a href="https://gyazo.com/4621e45224928533342449d67ce36507"><img src="https://i.gyazo.com/4621e45224928533342449d67ce36507.gif" alt="Image from Gyazo" width="886"/></a>|
 |アプリの使用場面とログイン後に使える機能を紹介しています|投稿の一覧から条件を設定し検索できます|
 
 |投稿共有の動的OGP|AIによるレシピ提案|
 |:--:|:--:|
-|||
+|[![Image from Gyazo](https://i.gyazo.com/0ac98f3496644e5b70b353be51638677.png)](https://gyazo.com/0ac98f3496644e5b70b353be51638677)|[![Image from Gyazo](https://i.gyazo.com/b6e00e4773a0795131190a004435eed8.gif)](https://gyazo.com/b6e00e4773a0795131190a004435eed8)|
 |各投稿のシェアを行うとその投稿の写真が動的OGPとして表示されます|投稿されたレシピの食材を入れ替えた代用品レシピをAIが提案します|
 
 |投稿作成・編集⭐︎|おやさいLogへの記録⭐︎|
 |:--:|:--:|
-|||
-|||
+|<a href="https://gyazo.com/71571dfe6760f73d7dddaf4be738106f"><img src="https://i.gyazo.com/71571dfe6760f73d7dddaf4be738106f.gif" alt="Image from Gyazo" width="880"/></a>|<a href="https://gyazo.com/84a80f87c938aef25c6182fefb18a607"><img src="https://i.gyazo.com/84a80f87c938aef25c6182fefb18a607.gif" alt="Image from Gyazo" width="882"/></a>|
+|レシピを載せるかは選択制です。下書き保存して後から編集することも可能です。|その日のご飯で野菜をどれだけ食べたか、直感で記録します。記録に基づき、カレンダーが緑色に色づきます。|
 
 |LINE通知⭐︎|ブックマーク⭐︎|
 |:--:|:--:|
-|||
-|||
+|[![Image from Gyazo](https://i.gyazo.com/cb5c777c89b5190104759f0681e13cd9.jpg)](https://gyazo.com/cb5c777c89b5190104759f0681e13cd9)|<a href="https://gyazo.com/0d587f0351a5e86ed7e91984c0efe0ef"><img src="https://i.gyazo.com/0d587f0351a5e86ed7e91984c0efe0ef.gif" alt="Image from Gyazo" width="856"/></a>|
+|おやさいUPのLINE公式アカウントと友達になると、毎日20時におやさいLogのリマインダが受け取れます|気に入った投稿はブックマークに保存し、後で確認できます|
 
 |プロフィール編集⭐︎|AIの提案レシピを下書き保存⭐︎|
 |:--:|:--:|
-|||
-|||
+|[![Image from Gyazo](https://i.gyazo.com/f2bb3ffb5de49fadc8e95a18fcd3f892.png)](https://gyazo.com/f2bb3ffb5de49fadc8e95a18fcd3f892)|[![Image from Gyazo](https://i.gyazo.com/8859ff7a24947108bf634c12b2c89e83.gif)](https://gyazo.com/8859ff7a24947108bf634c12b2c89e83)|
+|ユーザー名、アバター画像の変更ができます|AIに生成してもらったレシピを下書きに保存しておくことができます。|
 
 ## ■ サービスの利用イメージ
 ### 利用場面
@@ -81,49 +82,22 @@
     レシピ付きの投稿にはAIによるサポートを表示し、「このレシピの〇〇を△△で代用できる？」と代用レシピを提案してもらうことができます。これにより、家にある食材で作れるレシピの幅が広がります。
     
 
-## ■ 機能候補
-**MVP**
-
-- 会員登録、ログイン機能
-- 新規投稿作成
-    - 画像
-    - レシピあり/なしの選択→ありの場合はレシピ入力欄が出現
-    - 一言コメント
-    - タグ
-    - Xシェア機能
-- 投稿一覧
-    - 検索機能
-        - 投稿内容、タグ、レシピの有無による検索
-- 投稿詳細
-- マイページ
-    - 毎日の野菜摂取カレンダーの表示
-    - アイコン、自己紹介編集機能
-    - 自分の投稿一覧
-- その日に野菜を食べたか記録する機能
-    - ログイン中は記録用リンクが画面に追従する
-
-**本リリース**
-
-- ブックマーク機能
-- ブックマークした投稿の一覧表示機能
-- ユーザーレベルアップ機能
-- 代用品でのレシピを提案するAIサポート機能
-- LINE連携で設定した時間に野菜摂取記録を入力するリマインドが送信される機能
-- Googleアカウントでのログイン機能
-- LINEログイン機能
-- 投稿の下書き保存機能
-
-## ■ 機能の実装方針予定
-
-- ログイン機能：[gem Sorcery](https://github.com/Sorcery/sorcery)
-- 画像の投稿：[gem carrierwave](https://github.com/carrierwaveuploader/carrierwave)、Amazon S3
-- 毎日の野菜摂取カレンダーの表示：[Cal-Heatmap](https://cal-heatmap.com/)
-- AIによるレシピサポート：[OpenAI API](https://platform.openai.com/docs/overview)
-- マルチ検索、オートコンプリート機能：[gem ransack](https://github.com/activerecord-hackery/ransack)、[Stimulus Autocomplete](https://github.com/afcapel/stimulus-autocomplete)
-- LINE通知：[LINE Messaging API](https://developers.line.biz/ja/services/messaging-api/)
+## ■ 使用技術
+| カテゴリー | 使用技術 |
+:----|:----
+| フロントエンド | Rails 7.2.1.2 / TailwindCSS / DaisyUI / Javascript|
+| バックエンド | Rails 7.2.1.2 (ruby 3.2.3)  |
+| インフラ | heroku / AmazonS3 |
+| DB | MySQL |
+| 開発環境 | Docker |
+| 認証 | devise, LINE認証 |
+| CI/CD |GitHub Actions|
+| Web API | OpenAI API, LINE Messaging API |
 
 ## ■ 画面遷移図
-[画面遷移図](https://www.figma.com/design/tkARaYBPzz53ZErPYsatSc/%E3%81%8A%E3%82%84%E3%81%95%E3%81%84UP-%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?t=hjvVQNqYob0c7sQu-1)
+[画面遷移図(企画時)](https://www.figma.com/design/tkARaYBPzz53ZErPYsatSc/%E3%81%8A%E3%82%84%E3%81%95%E3%81%84UP-%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?t=hjvVQNqYob0c7sQu-1)
 
 ## ■ ER図
-[ER図](https://dbdiagram.io/d/oyasai_up_diagram-670dc88297a66db9a3f91f61)
+[![ouasaiup](https://i.gyazo.com/c796e2419bf02482ebfc698acc1e5da2.png)](https://gyazo.com/c796e2419bf02482ebfc698acc1e5da2)
+
+[詳細はこちら](https://dbdiagram.io/d/oyasai_up_diagram-670dc88297a66db9a3f91f61)
