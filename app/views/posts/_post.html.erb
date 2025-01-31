@@ -12,12 +12,20 @@
     <% if post.draft? %>
       <div class="badge badge-accent text-white">下書き</div>
     <% end %>
-    <p class="txt-limit"><%= post.description %></p>
-    <p><%= post.user.name %></p>
-    <div class="card-actions justify-end">
+    <div class="card-actions ">
       <% post.tags.each do |tag| %>
         <div class="badge badge-outline"><%= tag.name %></div>
       <% end %>
+    </div>
+
+    <p class="txt-limit"><%= post.description %></p>
+    <div class="flex items-center">
+      <div class="avatar mr-2">
+        <div class="w-16 rounded-full">
+          <%= image_tag "#{post.user.avatar}"%>
+        </div>
+      </div>
+      <%= post.user.name%>
     </div>
   </div>
 <% end %>
