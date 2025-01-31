@@ -38,7 +38,14 @@ class PostsController < ApplicationController
       if post.draft?
         redirect_to post_path(post), notice: t("defaults.flash_message.created", item: "下書き")
       else
-        current_user.update(level: current_user.level + 1) if current_user.posts.published.count % 5 == 0
+        # レベルアップ条件
+        if current_user.posts.published.count == 1 && current_user.max_post_count == 0 # 初めての投稿
+          current_user.update(max_post_count: 1) # 更新処理
+          current_user.update(level: current_user.level + 1)
+        elsif current_user.posts.published.count > current_user.max_post_count # 投稿公開数の最多更新
+          current_user.update(max_post_count: current_user.posts.published.count) # 更新処理
+          current_user.update(level: current_user.level + 1) if current_user.max_post_count % 3 == 0 # 3件投稿ごと
+        end
         redirect_to post_path(post), notice: t("defaults.flash_message.created", item: Post.model_name.human)
       end
     else
@@ -64,6 +71,14 @@ class PostsController < ApplicationController
       if post.draft?
         redirect_to post_path(post), notice: t("defaults.flash_message.draft_edited")
       else
+        # レベルアップ条件
+        if current_user.posts.published.count == 1 && current_user.max_post_count == 0 # 初めての投稿公開
+          current_user.update(max_post_count: 1) # 更新処理
+          current_user.update(level: current_user.level + 1)
+        elsif current_user.posts.published.count > current_user.max_post_count # 投稿公開数の最多更新
+          current_user.update(max_post_count: current_user.posts.published.count) # 更新処理
+          current_user.update(level: current_user.level + 1) if current_user.max_post_count % 3 == 0 # 3件投稿ごと
+        end
         redirect_to post_path(post), notice: t("defaults.flash_message.publish_edited", item: Post.model_name.human)
       end
     else
