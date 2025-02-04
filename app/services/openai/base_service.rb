@@ -8,7 +8,7 @@ module Openai
   class BaseService
     attr_reader :model
 
-    def initialize(model: "gpt-3.5-turbo", timeout: 10)
+    def initialize(model: "gpt-4o-mini", timeout: 10)
       @model = model
       @connection = Faraday.new(url: "https://api.openai.com") do |f|
         f.headers["Authorization"] = "Bearer #{Rails.application.credentials.OPENAI_API_KEY}"
