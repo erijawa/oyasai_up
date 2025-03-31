@@ -20,6 +20,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick libmagickwand-dev
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -32,9 +35,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
-      - name: Install ImageMagick
-        run: sudo apt-get update && sudo apt-get install -y imagemagick libmagickwand-dev
 
       - name: Bundler and gem install
         run: |
