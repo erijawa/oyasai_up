@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install ImageMagick
-        run: sudo apt-get update && sudo apt-get install -y libmagickwand-dev
+        run: sudo apt-get update && sudo apt-get install -y imagemagick libmagickwand-dev
 
       - name: Bundler and gem install
         run: |
