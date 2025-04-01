@@ -267,7 +267,7 @@ GEM
     parser (3.3.5.0)
       ast (~> 2.4.1)
       racc
-    pkg-config (1.5.7)
+    pkg-config (1.6.0)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -341,7 +341,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.3.9)
-    rmagick (6.0.1)
+    rmagick (6.1.1)
       observer (~> 0.1)
       pkg-config (~> 1.4)
     rspec-core (3.13.2)
